@@ -54,7 +54,8 @@ class Contacts
     }
 
     /**
-     * Méthode pour récuperer les contacts que le user connecté a accepté
+     * Méthode pour récuperer tous les contacts que le "user connecté" a accepté
+     * @param type integer id du user connecté
      * @return type array when succcess
      * @return type booleen when fail
      * 
@@ -92,9 +93,10 @@ class Contacts
 
     /**
      * Méthode permettant de récupérer les demandes de contact du user connecté
-     * @param type integer
+     * @param type integer id du user connecté
      * @return type array when succcess
      * @return type booleen when fail
+     * 
      */
     public function getWaitingContacts($userId)
     {
@@ -127,8 +129,9 @@ class Contacts
     }
 
     /**
-     * Méthode pour valider un contact de la liste d'attente
-     * @param type integer
+     * Méthode pour valider un contact de la liste d'attente + rajouter le contact dans sa liste
+     * @param type string sous la forme de 16-17-18
+     * @return type boolean qui nous indiquera la réussite de la méthode 
      * 
      */
     public function validateContacts($contactInfos)
@@ -151,14 +154,15 @@ class Contacts
             $resultQueryAuthorized = $this->bdd->prepare($queryAuthorized);
             $resultQueryAuthorized->bindValue(':contact_id', $contactId);
 
-            // Nous allons créer un contact avec l'id de la personne qui a demandé le contact pour que la personne qui valide le contact bénéficie elle aussi du contact
+            // Nous allons créer un contact avec l'id de la personne qui a demandé le contact.
+            // La personne qui valide le contact bénéficiera elle aussi du contact dans ses contacts..
             $queryAdd = 'INSERT INTO lhp4_contacts (contacts_bookmark, contacts_authorized, users_id)
             VALUES (0, 1, :users_id)';
 
             $resultQueryAdd = $this->bdd->prepare($queryAdd);
             $resultQueryAdd->bindValue(':users_id', $usersId);
 
-            // Nous allons créer une ligne dans la table intermédiaire : having contact pour lier le contact à la personne qui vient d'accepter
+            // Nous allons créer une ligne dans la table intermédiaire : "having contact" pour lier le contact à la personne qui vient d'accepter
             $queryCreateContact = 'INSERT INTO have_contacts VALUES( :contacts_id, :users_id)';
 
             $resultQueryCreateContact = $this->bdd->prepare($queryCreateContact);
@@ -179,7 +183,8 @@ class Contacts
 
     /**
      * Méthode pour Ajouter un contact au favoris
-     * @param type integer
+     * @param type integer l'id du contact à manipuler
+     * @return type boolean indiquant la réussite de la méthode
      * 
      */
     public function bookmarkedContacts($contactId)
@@ -200,9 +205,11 @@ class Contacts
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     /**
-     * Méthode pour supprimer un contact des favoris
-     * @param type integer
+     * Méthode pour que le contact en soit plus dans nos favoris
+     * @param type integer qui sera le contact_id de la table contact
+     * @return type boolean indiquant la réussite de la méthode
      * 
      */
     public function unmarkedContacts($contactId)
@@ -225,7 +232,8 @@ class Contacts
     }
     /**
      * Méthode pour supprimer un contact des contacts
-     * @param type integer
+     * @param type integer qui sera le contact_id de la table contact
+     * @return type boolean indiquant la réussite de la méthode
      * 
      */
     public function deleteContact($contactId)
@@ -248,8 +256,9 @@ class Contacts
     }
     /**
      * Méthode pour supprimer une demande de contact en attentes
-     * @param type integer
-     * 
+     * @param type integer qui sera le contact_id de la table contact
+     * @return type boolean indiquant la réussite de la méthode
+     *  
      */
     public function refusedContact($contactId)
     {
