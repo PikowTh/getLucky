@@ -8,14 +8,11 @@ require_once '../model/model_contact.php';
 
 $contacts = new Contacts();
 
-// var_dump($contacts->SearchContact('13'));
-
-
+var_dump($_POST);// var_dump($contacts->SearchContact('13'));
 
 if (isset($_POST['accepted'])) {
-    $contactId = $_POST['accepted'];
-    $contacts->validateContacts($contactId);
-    var_dump($contacts->validateContacts($contactId));
+    $contactInfos = $_POST['accepted'];
+    $contacts->validateContacts($contactInfos);
 }
 
 if (isset($_POST['bookmarked'])) {
@@ -46,3 +43,4 @@ $ContactsToAcceptArray = $contacts->getContactsToAccept($_SESSION['User']['users
 $waitingContactsArray = $contacts->getWaitingContacts($_SESSION['User']['users_id']);
 $contactsArray = $contacts->getContacts($_SESSION['User']['users_id']);
 
+var_dump($ContactsToAcceptArray);

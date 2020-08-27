@@ -82,7 +82,7 @@ var_dump($_POST);
                                         <h4><?= $contact['contact_pseudo'] ?> </h4>
                                     </div>
                                     <div class="container-btn">
-                                        <button type="submit" name="accepted" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-check"></i></button>
+                                        <button type="submit" name="accepted" value="<?= $contact['table_contact_id'] . '-' . $contact['user_connected_id'] . '-' . $contact['users_id'] ?>"><i class="fas fa-check"></i></button>
                                         <button type="submit" name="refused" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-times"></i></button>
                                     <?php } ?>
                                     </div>

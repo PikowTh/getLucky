@@ -25,7 +25,7 @@ class Contacts
      */
     public function getContactsToAccept($userId)
     {
-        $query = 'SELECT lhp4_contacts.users_id AS users_id_asked, have_contacts.users_id, users_pseudo AS contact_pseudo, lhp4_contacts.contacts_id AS table_contact_id
+        $query = 'SELECT lhp4_contacts.users_id AS user_connected_id, have_contacts.users_id, users_pseudo AS contact_pseudo, lhp4_contacts.contacts_id AS table_contact_id
         FROM lhp4_contacts
         INNER JOIN have_contacts
         ON have_contacts.contacts_id = lhp4_contacts.contacts_id
@@ -131,36 +131,42 @@ class Contacts
      * @param type integer
      * 
      */
-    public function validateContacts($contactId)
+    public function validateContacts($contactInfos)
     {
-        // Nous modifions la valeur du contacts_authorized à 1 pour valider la demande
-        try {
 
-            $query = 'UPDATE lhp4_contacts SET contacts_authorized = 1 WHERE contacts_id = :contact_id ';
+        $contactId = explode('-', $contactInfos)[0];
+        $connectedId = explode('-', $contactInfos)[1];
+        $usersId = explode('-', $contactInfos)[2];
+        
 
-            $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
+        var_dump($contactId);
+        var_dump($connectedId);
+        var_dump($usersId);
 
-            if ($resultQuery->execute()) {
-
-                return true;
-            } else {
-
-                return false;
-            }
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
 
         try {
+            // Nous modifions la valeur du contacts_authorized à 1 pour valider la demande
+            $queryAuthorized = 'UPDATE lhp4_contacts SET contacts_authorized = 1 WHERE contacts_id = :contact_id ';
+
+            $resultQueryAuthorized = $this->bdd->prepare($queryAuthorized);
+            $resultQueryAuthorized->bindValue(':contact_id', $contactId);
+
             // Nous allons créer un contact avec l'id de la personne qui a demandé le contact pour que la personne qui valide le contact bénéficie elle aussi du contact
-            $query = 'INSERT INTO lhp4_contacts VALUE';
+            $queryAdd = 'INSERT INTO lhp4_contacts (contacts_bookmark, contacts_authorized, users_id)
+            VALUES (0, 1, :users_id)';
 
-            $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
+            $resultQueryAdd = $this->bdd->prepare($queryAdd);
+            $resultQueryAdd->bindValue(':users_id', $usersId);
 
-            if ($resultQuery->execute()) {
+            // Nous allons créer une ligne dans la table intermédiaire : having contact pour lier le contact à la personne qui vient d'accepter
+            $queryCreateContact = 'INSERT INTO have_contacts VALUES( :contacts_id, :users_id)';
 
+            $resultQueryCreateContact = $this->bdd->prepare($queryCreateContact);
+
+            if ($resultQueryAuthorized->execute() && $resultQueryAdd->execute()) {                
+                $resultQueryCreateContact->bindValue(':contacts_id', $this->bdd->lastInsertId());
+                $resultQueryCreateContact->bindValue(':users_id', $connectedId);               
+                $resultQueryCreateContact->execute();
                 return true;
             } else {
 
