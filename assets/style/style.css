@@ -1,0 +1,427 @@
+@charset "utf-8";
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure {
+  display: block;
+}
+div,
+header,
+nav,
+article,
+section,
+aside,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+figure,
+figcaption,
+class,
+img {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+}
+main {
+  overflow: hidden;
+}
+img,
+object,
+embed,
+canvas,
+video,
+audio,
+picture,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  border: 0 solid transparent;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.5s;
+  position: relative;
+  border: none;
+}
+div.logo {
+  width: 100%;
+  margin: 10px 0px 25px 0px;
+}
+div.logo figure {
+  width: 100%;
+  height: 40px;
+  background-image: url(../img/veinelogoblanc.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.containerglobal-contact {
+  background-color: #2d60d6;
+  min-height: 100%;
+  padding: 25px 20px;
+}
+.containerglobal-contact div.title {
+  background-color: #f04747;
+  padding: 5px 0px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, 0.75);
+}
+.containerglobal-contact div.title h3 {
+  display: inline-block;
+  color: white;
+}
+.containerglobal-contact div#container-contactPending {
+  margin-bottom: 50px;
+}
+.containerglobal-contact div#container-contactPending .contact-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0px;
+  background-color: #457EFF;
+  padding: 10px 10px;
+  border-radius: 5px;
+  box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, 0.75);
+  color: white;
+  width: 100%;
+}
+.containerglobal-contact div#container-contactPending .contact-center div.pseudo-contact {
+  width: 40%;
+  text-transform: capitalize;
+}
+.containerglobal-contact div#container-contactPending .contact-center div.container-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 60%;
+}
+.containerglobal-contact div#container-contactPending .contact-center div.container-btn button {
+  width: auto;
+  display: block;
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+.containerglobal-contact div#container-contactPending .contact-center div.container-btn button i {
+  background-color: #2d60d6;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  line-height: 20px;
+}
+.containerglobal-contact div#container-contactPending .container-input {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.containerglobal-contact div#container-contactPending .container-input #searchInput {
+  border-radius: 5px;
+  border: none;
+  width: calc(100% - 20px);
+  height: 40px;
+  padding-left: 5px;
+  margin-right: 25px;
+}
+.containerglobal-contact div#container-contactPending .container-input #searchBtn {
+  border-radius: 5px;
+  border: none;
+  width: 50px;
+  height: 40px;
+  background-color: #f04747;
+}
+.containerglobal-contact div#container-contactPending .container-input #searchBtn i {
+  color: white;
+}
+.containerglobal-contact div#container-contacts {
+  margin-top: 50px;
+}
+.containerglobal-contact div#container-contacts .contact-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0px;
+  background-color: #457EFF;
+  padding: 10px 10px;
+  border-radius: 5px;
+  box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, 0.75);
+  color: white;
+}
+.containerglobal-contact div#container-contacts .contact-center div.pseudo-contact {
+  width: 40%;
+  text-transform: capitalize;
+}
+.containerglobal-contact div#container-contacts .contact-center div.container-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 60%;
+}
+.containerglobal-contact div#container-contacts .contact-center div.container-btn button {
+  width: auto;
+  display: block;
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+.containerglobal-contact div#container-contacts .contact-center div.container-btn button i {
+  background-color: #2d60d6;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  line-height: 20px;
+}
+.containerglobal-contact div#container-contacts .contact-center div.container-btn button i#testtesmort {
+  background-color: #43577e;
+}
+#containerformregister {
+  background-color: #457EFF;
+  padding: 25px 0px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#containerformregister #formregister {
+  width: 80%;
+  height: auto;
+  text-align: center;
+}
+#containerformregister #formregister div.container-input {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 10px;
+}
+#containerformregister #formregister div.container-input input {
+  width: 100%;
+  height: 50px;
+  border-radius: 35px;
+  border: none;
+  padding: 10px 10px 10px 15px;
+  z-index: 50;
+  color: #457EFF;
+}
+#containerformregister #formregister div.container-input input::placeholder {
+  color: #457EFF;
+}
+#containerformregister #formregister div.container-input::before {
+  content: "";
+  background-color: #f04747;
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: -5px;
+  left: -2px;
+  border-radius: 35px;
+  z-index: -1;
+}
+#containerformregister #formregister div.container-error-input {
+  margin-bottom: 20px;
+  color: white;
+  text-align: left;
+  font-size: 12px;
+}
+#containerformregister #Register-submit {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 35px;
+  height: 50px;
+  background-color: #f04747;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+#containerformregister #Register-submit:hover {
+  background-color: white;
+  color: #f04747;
+}
+#containerformregister #Login-submit {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 35px;
+  height: 50px;
+  background-color: #f04747;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+#containerformregister #Login-submit:hover {
+  background-color: white;
+  color: #f04747;
+}
+#containerformregister .btn-register {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  display: block;
+  border-radius: 35px;
+  line-height: 45px;
+  text-decoration: none;
+  margin-top: 50px;
+}
+#containerformregister .btn-login {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  display: block;
+  border-radius: 35px;
+  line-height: 45px;
+  text-decoration: none;
+}
+.testcaptcha {
+  margin-bottom: 25px;
+  width: 100%;
+}
+.container-navbar {
+  width: 100%;
+  background-color: #457EFF;
+  position: fixed;
+  bottom: 0;
+}
+.container-navbar nav {
+  width: 60%;
+  margin: 0 auto;
+}
+.container-navbar nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  padding: 10px 0px;
+}
+.container-navbar nav ul li {
+  list-style: none;
+  line-height: 50px;
+  margin: 0px 20px;
+}
+.container-navbar nav ul li a {
+  display: block;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: #6e98f8;
+  border-radius: 100%;
+  text-decoration: none;
+}
+.container-navbar nav ul li a i {
+  color: white;
+  font-size: 25px;
+}
+.container-navbar nav ul li:nth-of-type(3) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.container-navbar nav ul li:nth-of-type(3) a {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: -25px;
+  z-index: 10;
+  background-color: #6e98f8;
+}
+.container-navbar nav ul li:nth-of-type(3) a i {
+  font-size: 35px;
+}
+.container-navbar nav ul li:nth-of-type(3) a::after {
+  content: "";
+  position: absolute;
+  background-color: #f04747;
+  width: 70px;
+  height: 70px;
+  bottom: -2.5px;
+  right: 2.5px;
+  border-radius: 50%;
+  z-index: -1;
+}
+@media screen and (min-width: 320px) {
+  .container-navbar nav {
+    width: 100%;
+  }
+  .container-navbar nav ul li {
+    width: 100%;
+    margin: 0px 5px;
+  }
+  .container-navbar nav ul li:nth-of-type(3) a {
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+  }
+  .container-navbar nav ul li:nth-of-type(3) a::after {
+    width: 60px;
+    height: 60px;
+  }
+  .container-navbar nav ul li a {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .container-navbar nav {
+    width: 100%;
+  }
+  .container-navbar nav ul li {
+    width: 100%;
+    margin: 0px 5px;
+  }
+}
+@media screen and (min-width: 425px) {
+  .container-navbar nav {
+    width: 100%;
+  }
+  .container-navbar nav ul li {
+    width: 100%;
+    margin: 0px 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #containerformregister #formregister {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  #containerformregister #formregister {
+    width: 30%;
+  }
+}
