@@ -2,8 +2,6 @@
 
 require_once '../controller/ContactController.php';
 
-var_dump($_POST);
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,8 +41,8 @@ var_dump($_POST);
                         <h3>Nos demandes de contact</h3>
                     </div>
                     <ul>
-                        <?php if (!empty($waitingContactsArray)) {
-                            foreach ($waitingContactsArray as $contact) { ?>
+                        <?php if (!empty($requestsContactsArray)) {
+                            foreach ($requestsContactsArray as $contact) { ?>
 
 
                                 <li class="contact-center">
@@ -52,7 +50,7 @@ var_dump($_POST);
                                         <h4><?= $contact['contact_pseudo'] ?> </h4>
                                     </div>
                                     <div class="container-btn">
-                                        En attente de validation <button type="submit" name="delete" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-trash-alt"></i></button>
+                                        En attente de validation <button type="submit" name="deleteRequest" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-trash-alt"></i></button>
                                     </div>
                                 </li>
 
@@ -73,8 +71,8 @@ var_dump($_POST);
                         <h3>Les demandes de rajout</h3>
                     </div>
                     <ul>
-                        <?php if (!empty($ContactsToAcceptArray)) {
-                            foreach ($ContactsToAcceptArray as $contact) { ?>
+                        <?php if (!empty($contactsToAcceptArray)) {
+                            foreach ($contactsToAcceptArray as $contact) { ?>
 
 
                                 <li class="contact-center">
@@ -115,7 +113,7 @@ var_dump($_POST);
                                         <h4><?= $contact['contact_pseudo'] ?> </h4>
                                     </div>
                                     <div class="container-btn">
-                                        <button type="submit" name="delete" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" name="deleteContact" value="<?= $contact['user_connected_id'] . '-' . $contact['users_id']?>"><i class="fas fa-trash-alt"></i></button>
                                         <?php if ($contact['bookmark'] == 0) { ?>
                                             <button type="submit" name="bookmarked" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-star"></i></button>
                                         <?php } else { ?>
@@ -141,8 +139,8 @@ var_dump($_POST);
                 <div>
                     <div id="container-contacts">
                         <ul>
-                            <?php if (!empty($UsersArray)) {
-                                foreach ($UsersArray as $Users) { ?>
+                            <?php if (!empty($usersArray)) {
+                                foreach ($usersArray as $Users) { ?>
 
                                     <li class="contact-center">
                                         <div class="pseudo-contact">

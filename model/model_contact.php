@@ -98,7 +98,7 @@ class Contacts
      * @return type booleen when fail
      * 
      */
-    public function getWaitingContacts($userId)
+    public function getRequestContacts($userId)
     {
         $query = 'SELECT have_contacts.users_id AS user_connected_id, lhp4_contacts.users_id, users_pseudo AS contact_pseudo, contacts_authorized AS authorized, lhp4_contacts.contacts_id AS table_contact_id
         FROM have_contacts
@@ -140,12 +140,6 @@ class Contacts
         $contactId = explode('-', $contactInfos)[0];
         $connectedId = explode('-', $contactInfos)[1];
         $usersId = explode('-', $contactInfos)[2];
-        
-
-        var_dump($contactId);
-        var_dump($connectedId);
-        var_dump($usersId);
-
 
         try {
             // Nous modifions la valeur du contacts_authorized à 1 pour valider la demande
@@ -167,9 +161,9 @@ class Contacts
 
             $resultQueryCreateContact = $this->bdd->prepare($queryCreateContact);
 
-            if ($resultQueryAuthorized->execute() && $resultQueryAdd->execute()) {                
+            if ($resultQueryAuthorized->execute() && $resultQueryAdd->execute()) {
                 $resultQueryCreateContact->bindValue(':contacts_id', $this->bdd->lastInsertId());
-                $resultQueryCreateContact->bindValue(':users_id', $connectedId);               
+                $resultQueryCreateContact->bindValue(':users_id', $connectedId);
                 $resultQueryCreateContact->execute();
                 return true;
             } else {
@@ -230,13 +224,13 @@ class Contacts
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     /**
-     * Méthode pour supprimer un contact des contacts
-     * @param type integer qui sera le contact_id de la table contact
+     * Méthode pour supprimer une demande en attente de validation du futur contact (Le user connecté change d'avis)
+     * @param type integer le contact id de la table contact
      * @return type boolean indiquant la réussite de la méthode
-     * 
      */
-    public function deleteContact($contactId)
+    public function deleteRequest($contactId)
     {
         $query = 'DELETE FROM lhp4_contacts WHERE contacts_id = :contact_id';
 
@@ -244,6 +238,61 @@ class Contacts
 
             $resultQuery = $this->bdd->prepare($query);
             $resultQuery->bindValue(':contact_id', $contactId);
+
+            if ($resultQuery->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+
+
+    /**
+     * Méthode pour supprimer un contact des contacts
+     * @param type string qui sera de type 14-15 pour obtenir l'id du user connecté et l'id du contact
+     * @return type boolean indiquant la réussite de la méthode
+     * 
+     */
+    public function deleteContact($usersIds)
+    {
+        var_dump($usersIds);
+        $contactUserId = explode('-', $usersIds)[0];
+        $connectedId = explode('-', $usersIds)[1];
+
+        // Nous effectuons une requete nous permettant d'obtenir les contacts id de la table contact à supprimer
+
+        $queryGetContactIds = 'SELECT lhp4_contacts.contacts_id, lhp4_contacts.users_id, have_contacts.users_id,
+        CASE
+        WHEN (lhp4_contacts.users_id = :contactUserId AND have_contacts.users_id = :connectedId) THEN 1
+        WHEN (lhp4_contacts.users_id = :connectedId AND have_contacts.users_id = :contactUserId) THEN 1
+        END AS `delete`
+        FROM lhp4_contacts
+        INNER JOIN have_contacts
+        ON lhp4_contacts.contacts_id = have_contacts.contacts_id
+        HAVING `delete` = 1';
+
+        $resultQueryGetContactIds = $this->bdd->prepare($queryGetContactIds);
+        $resultQueryGetContactIds->bindValue(':connectedId', $connectedId);
+        $resultQueryGetContactIds->bindValue(':contactUserId', $contactUserId);
+        $resultQueryGetContactIds->execute();
+
+        // On effectue un fetchAll pour obtenir les 2 lignes contenant les "contact_id"
+        $arrayContactIds = $resultQueryGetContactIds->fetchAll();
+        // On les stocks dans 2 variables que nous allons utiliser dans notre requete DELETE
+        $firstContactId = $arrayContactIds[0]['contacts_id'];
+        $secondContactId = $arrayContactIds[1]['contacts_id'];
+
+        $query = 'DELETE FROM lhp4_contacts WHERE contacts_id IN (:firstContactId, :secondContactId)';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':firstContactId', $firstContactId);
+            $resultQuery->bindValue(':secondContactId', $secondContactId);
 
             if ($resultQuery->execute()) {
                 return true;
@@ -279,7 +328,7 @@ class Contacts
         }
     }
 
-    public function SearchContact($contactId)
+    public function searchContact($contactId)
     {
         $query = 'SELECT lhp4_users.users_id AS contact_id, have_contacts.users_id, users_pseudo as contact_pseudo, lhp4_contacts.contacts_id AS table_contact_id,
         CASE 
