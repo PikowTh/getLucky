@@ -328,30 +328,48 @@ class Contacts
         }
     }
 
-    public function searchContact($contactId)
+    /**
+     * Méthode pour rechercher tous les users inscrits
+     * @return type boolean indiquant la réussite de la méthode
+     *  
+     */
+    public function searchContact()
     {
-        $query = 'SELECT lhp4_users.users_id AS contact_id, have_contacts.users_id, users_pseudo as contact_pseudo, lhp4_contacts.contacts_id AS table_contact_id,
-        CASE 
-            WHEN `lhp4_contacts`.`contacts_bookmark` = 1 AND have_contacts.users_id = :contact_id THEN 1
-            ELSE 0
-        END AS `bookmarked`,
-        CASE 
-            WHEN `lhp4_contacts`.`contacts_authorized` = 1 AND have_contacts.users_id = :contact_id THEN 1
-            WHEN `lhp4_contacts`.`contacts_authorized` IS NOT NULL AND have_contacts.users_id = :contact_id THEN 0
-        END AS `authorized`
-        FROM veine.lhp4_users
-        LEFT JOIN `lhp4_contacts`
-        ON `lhp4_contacts`.users_id = lhp4_users.users_id
-        LEFT JOIN have_contacts
-        ON lhp4_contacts.contacts_id = have_contacts.contacts_id
-        WHERE lhp4_users.users_id != :contact_id';
+
+        $query = 'SELECT lhp4_users.users_id, lhp4_users.users_pseudo, user_connected_id, contact_from_user_connected.contacts_authorized, contact_from_user_connected.contacts_bookmark, contact_from_user_connected.contacts_id,
+        contact_who_asked_user.users_id_asked, contact_who_asked_user.users_id, contact_who_asked_user.contacts_id AS contacts_id_toValidate,
+        CASE       
+        WHEN user_connected_id IS NULL AND contact_who_asked_user.users_id_asked = :userId then 1
+        WHEN user_connected_id = :userId AND contact_who_asked_user.users_id_asked IS NULL then 8
+        END as toValidate
+        FROM lhp4_users
+        LEFT JOIN (
+        SELECT lhp4_users.users_id as user_connected_id, 
+        lhp4_contacts.contacts_id, lhp4_contacts.users_id, contacts_authorized, contacts_bookmark
+        FROM lhp4_contacts
+        INNER JOIN have_contacts
+        ON have_contacts.contacts_id = lhp4_contacts.contacts_id
+        INNER JOIN lhp4_users
+        ON have_contacts.users_id = lhp4_users.users_id
+        WHERE have_contacts.users_id = :userId) AS contact_from_user_connected
+        ON lhp4_users.users_id = contact_from_user_connected.users_id
+        LEFT JOIN (
+        SELECT lhp4_contacts.users_id as users_id_asked, have_contacts.users_id, users_pseudo, lhp4_contacts.contacts_id
+        FROM lhp4_contacts
+        INNER JOIN have_contacts
+        ON have_contacts.contacts_id = lhp4_contacts.contacts_id
+        INNER JOIN lhp4_users
+        ON have_contacts.users_id = lhp4_users.users_id
+        WHERE lhp4_contacts.users_id = :userId
+        ) AS contact_who_asked_user
+        ON lhp4_users.users_id = contact_who_asked_user.users_id
+        ORDER BY lhp4_users.users_pseudo';
+        
 
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
-
-
+            $resultQuery->bindValue(':userId', $_SESSION['User']['users_id']);
 
             if ($resultQuery->execute()) {
                 return $resultQuery->fetchAll();

@@ -39,7 +39,8 @@ if (isset($_POST['refused'])) {
     $contacts->refusedContact($contactId);
 }
 
-$usersArray = $contacts->searchContact($_SESSION['User']['users_id']);
+
 $contactsToAcceptArray = $contacts->getContactsToAccept($_SESSION['User']['users_id']);
 $requestsContactsArray = $contacts->getRequestContacts($_SESSION['User']['users_id']);
 $contactsArray = $contacts->getContacts($_SESSION['User']['users_id']);
+$usersArray = $contacts->searchContact();
