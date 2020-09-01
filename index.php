@@ -1,7 +1,5 @@
 <?php
-
 require_once 'controller/LoginRegex.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +9,7 @@ require_once 'controller/LoginRegex.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veine, jour de chance ?</title>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Google Fonts Roboto -->
@@ -23,38 +22,39 @@ require_once 'controller/LoginRegex.php';
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body>
+<body class="blue darken-3">
 
 
-    <div class="logo">
-        <figure></figure>
-    </div>
+    <h1>VEINE</h1>
 
     <div class="container">
 
         <form id="formregister" action="" method="post">
+
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <input type="mail" placeholder="Mail" id="Mail" name="Mail" value="<?= isset($_POST['Mail']) ? htmlspecialchars(strip_tags($_POST['Mail'])) : '' ?>">
-                    <div class="container">
-                        <span><?= (isset($error['Mail'])) ? $error['Mail'] : 'Renseigner champs' ?></span>
-                    </div>
+                    <input type="mail" placeholder="mail" id="Mail" name="Mail" class="form-control" value="<?= isset($_POST['Mail']) ? htmlspecialchars(strip_tags($_POST['Mail'])) : '' ?>">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6 text-center">
+                    <span class="font-italic white-text"><?= (isset($error['Mail'])) ? $error['Mail'] : 'Renseigner champs' ?><span>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <input type="password" placeholder="mot de passe" id="Password" name="Password" value="<?= isset($_POST['Password']) ? htmlspecialchars(strip_tags($_POST['Password'])) : '' ?>">
+                    <input type="password" placeholder="mot de passe" id="Password" name="Password" class="form-control" value="<?= isset($_POST['Password']) ? htmlspecialchars(strip_tags($_POST['Password'])) : '' ?>">
                     <div class="container">
-                        <span><?= (isset($error['Password'])) ? $error['Password'] : 'Renseigner champs' ?></span>
+                        <span class="font-italic white-text"><?= (isset($error['Password'])) ? $error['Password'] : 'Renseigner champs' ?></span>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <button type="submit" id="Login-submit" name="Login-submit">Se Connecter</button>
+                    <button type="submit" id="Login-submit" name="Login-submit" class="btn btn-unique btn-sm">Se Connecter</button>
                     <div class="container">
-                        <span><?= (isset($error['login'])) ? $error['login'] : '' ?></span>
+                        <span class="font-italic white-text"><?= (isset($error['login'])) ? $error['login'] : '' ?></span>
                     </div>
                 </div>
             </div>
@@ -63,6 +63,7 @@ require_once 'controller/LoginRegex.php';
                     <a href="view/register.php">Pas encore inscrit ? C'est par ici</a>
                 </div>
             </div>
+
         </form>
 
     </div>
