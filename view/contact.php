@@ -113,7 +113,7 @@ require_once '../controller/ContactController.php';
                                         <h4><?= $contact['contact_pseudo'] ?> </h4>
                                     </div>
                                     <div class="container-btn">
-                                        <button type="submit" name="deleteContact" value="<?= $contact['user_connected_id'] . '-' . $contact['users_id']?>"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" name="deleteContact" value="<?= $contact['user_connected_id'] . '-' . $contact['users_id'] ?>"><i class="fas fa-trash-alt"></i></button>
                                         <?php if ($contact['bookmark'] == 0) { ?>
                                             <button type="submit" name="bookmarked" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-star"></i></button>
                                         <?php } else { ?>
@@ -140,23 +140,39 @@ require_once '../controller/ContactController.php';
                     <div id="container-contacts">
                         <ul>
                             <?php if (!empty($usersArray)) {
-                                foreach ($usersArray as $Users) { ?>
+                                foreach ($usersArray as $users) {
+                                    if ($users['users_id_pseudo'] == $_SESSION['User']['users_id']) {
+                                        continue;
+                                    } ?>
 
                                     <li class="contact-center">
                                         <div class="pseudo-contact">
-                                            <h4><?= $Users['contact_pseudo'] ?> </h4>
+                                            <h4><?= $users['users_pseudo'] ?> </h4>
                                         </div>
                                         <div class="container-btn">
 
-                                            <?php if ($Users['authorized'] == null) { ?>
-                                                <button type="submit" name="add" value="<?= $Users['table_contact_id'] ?>"><i class="fas fa-plus"></i></button>
-                                            <?php   } elseif ($Users['authorized'] == 1) { ?>
-                                                <button type="submit" name="delete" value="<?= $Users['table_contact_id'] ?>"><i class="fas fa-trash-alt"></i></button>
+                                            <?php if ($users['contacts_authorized'] == 0 && $users['toValidate'] == 0) { ?>
+                                                <button type="submit" name="add" value="<?= $users['users_id_pseudo'] ?>"><i class="fas fa-plus"></i></button>
+                                            <?php }
 
-                                            <?php } elseif ($Users['authorized'] == 0) { ?>
-                                                <button type="submit" name="accepted" value="<?= $Users['table_contact_id'] ?>"><i class="fas fa-check"></i>
-                                                </button> <button type="submit" name="refused" value="<?= $Users['table_contact_id'] ?>"><i class="fas fa-times" id="testtesmort"></i></button>
+                                            if ($users['contacts_authorized'] == 1) { ?>
+                                                <button type="submit" name="deleteContact" value="<?= $users['user_connected_id'] . '-' . $users['users_id'] ?>"><i class="fas fa-trash-alt"></i></button>
+                                                <?php if ($users['contacts_bookmark'] == 0) { ?>
+                                                    <button type="submit" name="bookmarked" value="<?= $users['contacts_id'] ?>"><i class="far fa-star"></i></button>
+                                                <?php } else { ?>
+                                                    <button type="submit" name="unmarked" value="<?= $users['contacts_id'] ?>"><i class="fas fa-star"></i></button>
+                                                <?php } ?>
+                                            <?php }
+
+                                            if ($users['toValidate'] == 1) { ?>
+                                                <button type="submit" name="accepted" value="<?= $users['contacts_id_toValidate'] . '-' . $users['users_id_asked'] . '-' . $users['users_id'] ?>"><i class="fas fa-check"></i>
+                                                </button> <button type="submit" name="refused" value="<?= $users['contacts_id_toValidate'] ?>"><i class="fas fa-times" id="testtesmort"></i></button>
+                                            <?php }
+
+                                            if ($users['toValidate'] == 8) { ?>
+                                                En attente de validation <button type="submit" name="deleteRequest" value="<?= $users['contacts_id'] ?>"><i class="far fa-trash-alt"></i></button>
                                             <?php } ?>
+
                                         </div>
                                     </li>
 
@@ -165,9 +181,8 @@ require_once '../controller/ContactController.php';
                             } else { ?>
 
                                 <li class="contact-center">
-                                    <h4>Votre liste de contact est vide </h4>
+                                    <h4>Aucun résultat :( </h4>
                                 </li>
-
 
                             <?php } ?>
                         </ul>
