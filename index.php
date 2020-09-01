@@ -10,50 +10,73 @@ require_once 'controller/LoginRegex.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="assets/style/style.css">
+    <title>Veine, jour de chance ?</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
 
- 
-        <div class="logo">
-            <figure></figure>
-        </div>
- 
-    <div id="containerformregister">
+
+    <div class="logo">
+        <figure></figure>
+    </div>
+
+    <div class="container">
 
         <form id="formregister" action="" method="post">
-            <div>
-                <div class="container-input">
+            <div class="row justify-content-center">
+                <div class="col-6">
                     <input type="mail" placeholder="Mail" id="Mail" name="Mail" value="<?= isset($_POST['Mail']) ? htmlspecialchars(strip_tags($_POST['Mail'])) : '' ?>">
-                </div>
-                <div class="container-error-input">
-                    <span><?= (isset($error['Mail'])) ? $error['Mail'] : '' ?></span>
+                    <div class="container">
+                        <span><?= (isset($error['Mail'])) ? $error['Mail'] : 'Renseigner champs' ?></span>
+                    </div>
                 </div>
             </div>
-          
-            <div>
-                <div class="container-input">
+
+            <div class="row justify-content-center">
+                <div class="col-6">
                     <input type="password" placeholder="mot de passe" id="Password" name="Password" value="<?= isset($_POST['Password']) ? htmlspecialchars(strip_tags($_POST['Password'])) : '' ?>">
-                </div>
-                <div class="container-error-input">
-                    <span><?= (isset($error['Password'])) ? $error['Password'] : '' ?></span>
+                    <div class="container">
+                        <span><?= (isset($error['Password'])) ? $error['Password'] : 'Renseigner champs' ?></span>
+                    </div>
                 </div>
             </div>
-            <div>
-            <span><?= (isset($error['login'])) ? $error['login'] : '' ?></span>
-                <button type="submit" id="Login-submit" name="Login-submit">Se Connecter</button>
-                <a href="view/register.php" class="btn-register">s'inscrire</a>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <button type="submit" id="Login-submit" name="Login-submit">Se Connecter</button>
+                    <div class="container">
+                        <span><?= (isset($error['login'])) ? $error['login'] : '' ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <a href="view/register.php">Pas encore inscrit ? C'est par ici</a>
+                </div>
+            </div>
+        </form>
 
-            </div>
     </div>
-    
-    </form>
-    
-</div>
 
-
+    <!-- jQuery -->
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../assets/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript"></script>
 </body>
 
 </html>
