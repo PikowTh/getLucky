@@ -140,7 +140,10 @@ require_once '../controller/ContactController.php';
                     <div id="container-contacts">
                         <ul>
                             <?php if (!empty($usersArray)) {
-                                foreach ($usersArray as $users) { ?>
+                                foreach ($usersArray as $users) {
+                                    if ($users['users_id_pseudo'] == $_SESSION['User']['users_id']) {
+                                        continue;
+                                    } ?>
 
                                     <li class="contact-center">
                                         <div class="pseudo-contact">
@@ -149,7 +152,7 @@ require_once '../controller/ContactController.php';
                                         <div class="container-btn">
 
                                             <?php if ($users['contacts_authorized'] == 0 && $users['toValidate'] == 0) { ?>
-                                                <button type="submit" name="add" value="<?= $users['contacts_id'] ?>"><i class="fas fa-plus"></i></button>
+                                                <button type="submit" name="add" value="<?= $users['users_id_pseudo'] ?>"><i class="fas fa-plus"></i></button>
                                             <?php }
 
                                             if ($users['contacts_authorized'] == 1) { ?>
