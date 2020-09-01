@@ -184,7 +184,6 @@ require_once '../controller/ContactController.php';
                                     <h4>Aucun résultat :( </h4>
                                 </li>
 
-
                             <?php } ?>
                         </ul>
                     </div>

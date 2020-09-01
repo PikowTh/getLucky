@@ -44,8 +44,6 @@ if (isset($_POST['add'])) {
     $contacts->addContact($userId);
 }
 
-
-
 $contactsToAcceptArray = $contacts->getContactsToAccept($_SESSION['User']['users_id']);
 $requestsContactsArray = $contacts->getRequestContacts($_SESSION['User']['users_id']);
 $contactsArray = $contacts->getContacts($_SESSION['User']['users_id']);
