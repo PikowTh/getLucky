@@ -259,7 +259,6 @@ class Contacts
      */
     public function deleteContact($usersIds)
     {
-        var_dump($usersIds);
         $contactUserId = explode('-', $usersIds)[0];
         $connectedId = explode('-', $usersIds)[1];
 
