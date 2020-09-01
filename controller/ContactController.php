@@ -44,7 +44,10 @@ if (isset($_POST['add'])) {
     $contacts->addContact($userId);
 }
 
+if(isset($_POST['searchBtn'])){
+    $usersArray = $contacts->searchContact($_POST['searchInput']);
+}
+
 $contactsToAcceptArray = $contacts->getContactsToAccept($_SESSION['User']['users_id']);
 $requestsContactsArray = $contacts->getRequestContacts($_SESSION['User']['users_id']);
 $contactsArray = $contacts->getContacts($_SESSION['User']['users_id']);
-$usersArray = $contacts->searchContact();

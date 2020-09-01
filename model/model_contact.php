@@ -365,7 +365,7 @@ class Contacts
      * @return type boolean indiquant la réussite de la méthode
      *  
      */
-    public function searchContact()
+    public function searchContact($search)
     {
 
         $query = 'SELECT `lhp4_users`.`users_id` as `users_id_pseudo`, `lhp4_users`.`users_pseudo`, `user_connected_id`, `contact_from_user_connected`.`contacts_authorized`, `contact_from_user_connected`.`contacts_bookmark`, `contact_from_user_connected`.`contacts_id`,
@@ -395,12 +395,14 @@ class Contacts
         WHERE lhp4_contacts.users_id = :userId
         ) AS contact_who_asked_user
         ON lhp4_users.users_id = contact_who_asked_user.users_id
+        wHERE `lhp4_users`.`users_pseudo` LIKE :search
         ORDER BY lhp4_users.users_pseudo';
 
         try {
 
             $resultQuery = $this->bdd->prepare($query);
             $resultQuery->bindValue(':userId', $_SESSION['User']['users_id']);
+            $resultQuery->bindValue(':search', $search.'%');
 
             if ($resultQuery->execute()) {
                 return $resultQuery->fetchAll();
