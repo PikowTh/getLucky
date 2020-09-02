@@ -24,8 +24,9 @@ require_once 'controller/LoginRegex.php';
 
 <body class="bg-veine">
 
-    <h1 class="text-center white-text m-5">VEINE</h1>
-
+    <h1 class="text-center white-text mt-5 mb-2 txt-screen">VEINE</h1>
+    <p class="text-center text-white">VEINARD ? C'est ici que tu le sauras !</p>
+    <hr class="mb-5">
     <div class="container">
 
         <form id="formregister" action="" method="post">
@@ -53,7 +54,7 @@ require_once 'controller/LoginRegex.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col-10 text-center">
-                    <button type="submit" id="Login-submit" name="Login-submit" class="btn btn-unique rounded-pill">Connexion</button>
+                    <button type="submit" id="Login-submit" name="Login-submit" class="btn white rounded-pill font-weight-bold blue-text">Connexion</button>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -62,8 +63,8 @@ require_once 'controller/LoginRegex.php';
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10 text-center text-dark">
-                    <p>Pas encore inscrit ? C'est par<a href="view/register.php"> ici </a>!</p>
+                <div class="col-10 text-center p-2">
+                    <p><a href="view/register.php" class="text-dark">Première connexion</a></p>
                 </div>
             </div>
 

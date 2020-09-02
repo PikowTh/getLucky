@@ -2,7 +2,37 @@
     background-color: #457EFF;
 }
 
+.main-body {
+    margin: 4rem 0 4rem 0;
+}
+
+/* ERRORS CSS */
 .msg-error {
     height: 1.5rem;
     font-size: 0.8rem;
+}
+
+.txt-screen {
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+.top-phone {
+    height: 3rem;
+}
+
+.bottom-phone {
+    height: 5rem;
+}
+
+
+
+/* NAVBAR CSS */
+.play-btn {
+    font-size: 3rem;
+}
+
+.nav-btn {
+    font-size: 2rem;
+    padding: 1rem;
 }

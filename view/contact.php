@@ -9,14 +9,24 @@ require_once '../controller/ContactController.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="../assets/style/style.css">
+    <title>Veine, votre jour de chance ?</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body>
-    <?php include '../include/include_navbar.php' ?>
+<body class="bg-veine">
 
-
+    <div class="top-phone elegant-color-dark fixed-top">
+    </div>
 
     <div class="containerglobal-contact">
 
@@ -192,6 +202,11 @@ require_once '../controller/ContactController.php';
 
     </div>
 
+    <div class="bottom-phone elegant-color-dark fixed-bottom">
+        <?php
+        include_once '../include/navbar.php'
+        ?>
+    </div>
 
     <script src="https://kit.fontawesome.com/2edc250389.js" crossorigin="anonymous"></script>
 </body>
