@@ -28,11 +28,7 @@ require_once '../controller/ContactController.php';
     <div class="top-phone elegant-color-dark fixed-top">
     </div>
 
-    <div class="containerglobal-contact">
-
-        <div class="logo">
-            <figure></figure>
-        </div>
+    <div class="container">
 
         <form action="" method="post">
 
@@ -47,9 +43,59 @@ require_once '../controller/ContactController.php';
             </div>
             <?php if (!isset($_POST['searchBtn'])) { ?>
                 <div id="container">
-                    <div class="title">
-                        <h3>Nos demandes de contact</h3>
+                    <div class="row">
+                        <div class="col primary-color-dark shadow text-white">
+                            <p class="title-contact"><span class="icon-title"><i class="fas fa-dice-one"></i></span>Nos demandes de contact</p>
+                        </div>
                     </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Cras justo odio
+                            <span class="badge badge-primary badge-pill">14</span><span class="badge badge-primary badge-pill">14</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Dapibus ac facilisis in
+                            <span class="badge badge-primary badge-pill">2</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Morbi leo risus
+                            <span class="badge badge-primary badge-pill">1</span>
+                        </li>
+                    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <ul>
                         <?php if (!empty($requestsContactsArray)) {
                             foreach ($requestsContactsArray as $contact) { ?>
@@ -76,9 +122,11 @@ require_once '../controller/ContactController.php';
                     </ul>
                 </div>
 
-                <div id="container-contacts">
-                    <div class="title">
-                        <h3>Les demandes de rajout</h3>
+                <div id="container">
+                    <div class="row">
+                        <div class="col primary-color-dark shadow text-white">
+                            <p class="title-contact"><span class="icon-title"><i class="fas fa-dice-two"></i></span>Les demandes de rajout</p>
+                        </div>
                     </div>
                     <ul>
                         <?php if (!empty($contactsToAcceptArray)) {
@@ -109,9 +157,11 @@ require_once '../controller/ContactController.php';
                     </ul>
                 </div>
 
-                <div id="container-contacts">
-                    <div class="title">
-                        <h3>Mes contacts</h3>
+                <div id="container test">
+                    <div class="row">
+                        <div class="col primary-color-dark shadow text-white">
+                            <p class="title-contact"><span class="icon-title"><i class="fas fa-dice-three"></i></span>Mes contacts</p>
+                        </div>
                     </div>
                     <ul>
                         <?php if (!empty($contactsArray)) {
@@ -142,8 +192,10 @@ require_once '../controller/ContactController.php';
 
 
                         <?php } ?>
-
                     </ul>
+                    <div class="test">
+
+                    </div>
                 </div>
             <?php } else { ?>
                 <div>

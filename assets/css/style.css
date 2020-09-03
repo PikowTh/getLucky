@@ -36,3 +36,20 @@
     font-size: 2rem;
     padding: 1rem;
 }
+
+/* CONTACT CSS */
+.title-contact {
+    font-size: 0.9rem;
+    font-weight: bolder;
+    padding-top: 0.4rem;
+    height: 1rem;
+    text-transform: uppercase;
+}
+
+.icon-title {
+    padding-right: 0.5rem;
+}
+
+.test {
+    height: 5rem;
+}
