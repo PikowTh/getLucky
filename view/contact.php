@@ -38,7 +38,7 @@ require_once '../controller/ContactController.php';
 
             <div id="container-contactPending">
 
-                <div class="container-input">
+                <div class="container-input mt-5">
 
                     <input type="text" id="searchInput" name="searchInput" value="" placeholder="Recherche Contact">
                     <button type="submit" id="searchBtn" name="searchBtn" value=""><i class="fas fa-search"></i></button>
@@ -46,7 +46,7 @@ require_once '../controller/ContactController.php';
                 </div>
             </div>
             <?php if (!isset($_POST['searchBtn'])) { ?>
-                <div id="container-contactPending">
+                <div id="container">
                     <div class="title">
                         <h3>Nos demandes de contact</h3>
                     </div>
@@ -147,10 +147,12 @@ require_once '../controller/ContactController.php';
                 </div>
             <?php } else { ?>
                 <div>
-                    <div id="container-contacts">
+                    <!-- Mise en place de la liste de contacts via un search -->
+                    <div id="container">
                         <ul>
                             <?php if (!empty($usersArray)) {
                                 foreach ($usersArray as $users) {
+                                    // Permet de ne pas afficher l'utilisateur de connecté
                                     if ($users['users_id_pseudo'] == $_SESSION['User']['users_id']) {
                                         continue;
                                     } ?>
