@@ -53,3 +53,8 @@
 .test {
     height: 5rem;
 }
+
+.btn-contact {
+    width: 3rem;
+    margin: 0.1rem;
+}

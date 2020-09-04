@@ -50,17 +50,21 @@ require_once '../controller/ContactController.php';
                     </div>
 
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Cras justo odio
-                            <span class="badge badge-primary badge-pill">14</span><span class="badge badge-primary badge-pill">14</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                            <span>Anousone</span>
+                            <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-times-circle"></i></button></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Dapibus ac facilisis in
-                            <span class="badge badge-primary badge-pill">2</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                            <span>Laura</span>
+                            <span><button type="submit" class="rounded btn-contact success-color"><i class="fas fa-check"></i></button><button type="submit" class="rounded btn-contact danger-color"><i class="fas fa-ban"></i></button></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Morbi leo risus
-                            <span class="badge badge-primary badge-pill">1</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                            <span>Alexandre</span>
+                            <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-trash-alt"></i></button><button type="submit" class="rounded btn-contact text-muted"><i class="far fa-star"></i></button></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                            <span>Marie</span>
+                            <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-trash-alt"></i></button><button type="submit" class="rounded btn-contact text-warning"><i class="fas fa-star"></i></button></span>
                         </li>
                     </ul>
 
