@@ -35,9 +35,13 @@ require_once '../controller/ContactController.php';
             <div id="container-contactPending">
 
                 <div class="container-input mt-5">
+                    <div class="row">
+                        <div class="col text-center p-1">
+                            <input type="text" id="searchInput" name="searchInput" value="" placeholder="Recherche">
+                            <button type="submit" class="rounded" id="searchBtn" name="searchBtn" value=""><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
 
-                    <input type="text" id="searchInput" name="searchInput" value="" placeholder="Recherche Contact">
-                    <button type="submit" id="searchBtn" name="searchBtn" value=""><i class="fas fa-search"></i></button>
 
                 </div>
             </div>
@@ -49,20 +53,20 @@ require_once '../controller/ContactController.php';
                         </div>
                     </div>
 
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                    <ul class="list-group mt-2 mb-2">
+                        <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
                             <span>Anousone</span>
                             <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-times-circle"></i></button></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                        <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
                             <span>Laura</span>
                             <span><button type="submit" class="rounded btn-contact success-color"><i class="fas fa-check"></i></button><button type="submit" class="rounded btn-contact danger-color"><i class="fas fa-ban"></i></button></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                        <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
                             <span>Alexandre</span>
                             <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-trash-alt"></i></button><button type="submit" class="rounded btn-contact text-muted"><i class="far fa-star"></i></button></span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-veine">
+                        <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
                             <span>Marie</span>
                             <span><button type="submit" class="rounded btn-contact text-muted"><i class="fas fa-trash-alt"></i></button><button type="submit" class="rounded btn-contact text-warning"><i class="fas fa-star"></i></button></span>
                         </li>
@@ -100,26 +104,21 @@ require_once '../controller/ContactController.php';
 
 
 
-                    <ul>
+                    <ul class="list-group mt-2 mb-2">
                         <?php if (!empty($requestsContactsArray)) {
                             foreach ($requestsContactsArray as $contact) { ?>
 
+                                <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
 
-                                <li class="contact-center">
-                                    <div class="pseudo-contact">
-                                        <h4><?= $contact['contact_pseudo'] ?> </h4>
-                                    </div>
-                                    <div class="container-btn">
-                                        En attente de validation <button type="submit" name="deleteRequest" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-trash-alt"></i></button>
-                                    </div>
+                                    <span><?= $contact['contact_pseudo'] ?></span>
+                                    <span><button type="submit" name="deleteRequest" class="rounded btn-contact text-muted" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-times-circle"></i></button></span>
                                 </li>
-
 
                             <?php }
                         } else { ?>
 
-                            <li class="contact-center">
-                                <h4>Pas de nouvelle demande</h4>
+                            <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
+                                <span>Aucune demande en attente</span>
                             </li>
 
                         <?php } ?>
@@ -197,9 +196,10 @@ require_once '../controller/ContactController.php';
 
                         <?php } ?>
                     </ul>
-                    <div class="test">
 
+                    <div class="bottom-div">
                     </div>
+
                 </div>
             <?php } else { ?>
                 <div>

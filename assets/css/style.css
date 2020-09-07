@@ -47,14 +47,16 @@
 }
 
 .icon-title {
-    padding-right: 0.5rem;
-}
-
-.test {
-    height: 5rem;
+    padding-right: 0.8rem;
+    font-size: 1rem;
 }
 
 .btn-contact {
     width: 3rem;
     margin: 0.1rem;
+}
+
+/* bottom div pour le scroll */
+.bottom-div {
+    height: 5rem;
 }
