@@ -168,6 +168,7 @@ require_once '../controller/ContactController.php';
                </ul>
 
                <div class="bottom-div">
+                  <!-- permet le scroll du bas -->
                </div>
 
             </div>
