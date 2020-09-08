@@ -90,8 +90,7 @@ require_once '../controller/ContactController.php';
                                     <span><?= $contact['contact_pseudo'] ?></span>
                                     <span><button type="submit" class="rounded btn-contact success-color" name="accepted" value="<?= $contact['table_contact_id'] . '-' . $contact['user_connected_id'] . '-' . $contact['users_id'] ?>"><i class="fas fa-check"></i></button><button type="submit" class="rounded btn-contact danger-color" name="refused" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-ban"></i></button></span>
                                 </li>
-                                <!-- <button type="submit" name="accepted" value="<?= $contact['table_contact_id'] . '-' . $contact['user_connected_id'] . '-' . $contact['users_id'] ?>"><i class="fas fa-check"></i></button>
-                                <button type="submit" name="refused" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-times"></i></button> -->
+
                             <?php } ?>
 
                         <?php } else { ?>
@@ -124,16 +123,6 @@ require_once '../controller/ContactController.php';
                                             <button type="submit" class="rounded btn-contact text-warning" name="unmarked" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-star"></i></button>
                                         <?php } ?>
                                     </span>
-                                </li>
-
-                                <!-- <div class="container-btn">
-                                        <button type="submit" name="deleteContact" value="<?= $contact['user_connected_id'] . '-' . $contact['users_id'] ?>"><i class="fas fa-trash-alt"></i></button>
-                                        <?php if ($contact['bookmark'] == 0) { ?>
-                                            <button type="submit" name="bookmarked" value="<?= $contact['table_contact_id'] ?>"><i class="far fa-star"></i></button>
-                                        <?php } else { ?>
-                                            <button type="submit" name="unmarked" value="<?= $contact['table_contact_id'] ?>"><i class="fas fa-star"></i></button>
-                                        <?php } ?>
-                                    </div> -->
                                 </li>
 
                             <?php }
