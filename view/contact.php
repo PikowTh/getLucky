@@ -28,23 +28,19 @@ require_once '../controller/ContactController.php';
    <div class="top-phone elegant-color-dark fixed-top">
    </div>
 
-   <div class="container">
+   <div class="container global">
 
       <form action="" method="post">
 
-         <div id="container-contactPending">
-
-            <div class="container-input mt-5">
-               <div class="row">
-                  <div class="col text-center p-1">
-                     <input type="text" id="searchInput" name="searchInput" placeholder="Pseudo ..." class="rounded pl-2">
-                     <button type="submit" class="rounded" id="searchBtn" name="searchBtn" value=""><i class="fas fa-search"></i></button>
-                  </div>
+         <div class="container-input mt-5"> <!-- Container de recherche --> 
+            <div class="row">
+               <div class="col text-center p-1">
+                  <input type="text" id="searchInput" name="searchInput" placeholder="Pseudo ..." class="rounded pl-2">
+                  <button type="submit" class="rounded" id="searchBtn" name="searchBtn" value=""><i class="fas fa-search"></i></button>
                </div>
-
-
             </div>
          </div>
+
          <?php if (!isset($_POST['searchBtn'])) { ?>
             <div id="container">
                <div class="row">
@@ -176,7 +172,7 @@ require_once '../controller/ContactController.php';
             <div>
                <!-- Mise en place de la liste de contacts via un search -->
                <div id="container">
-                  <ul>
+                  <ul class="list-group mt-2 mb-2">
                      <?php if (!empty($usersArray)) {
                         foreach ($usersArray as $users) {
                            // Permet de ne pas afficher l'utilisateur de connecté
@@ -184,52 +180,57 @@ require_once '../controller/ContactController.php';
                               continue;
                            } ?>
 
-                           <li class="contact-center">
-                              <div class="pseudo-contact">
-                                 <h4><?= $users['users_pseudo'] ?> </h4>
-                              </div>
-                              <div class="container-btn">
+                           <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
+                              <span><?= $users['users_pseudo'] ?></span>
+                              <span>
 
                                  <?php if ($users['contacts_authorized'] == 0 && $users['toValidate'] == 0) { ?>
-                                    <button type="submit" name="add" value="<?= $users['users_id_pseudo'] ?>"><i class="fas fa-plus"></i></button>
+                                    <button type="submit" class="rounded btn-contact text-muted" name="add" value="<?= $users['users_id_pseudo'] ?>"><i class="fas fa-plus"></i></button>
                                  <?php }
 
                                  if ($users['contacts_authorized'] == 1) { ?>
-                                    <button type="submit" name="deleteContact" value="<?= $users['user_connected_id'] . '-' . $users['users_id'] ?>"><i class="fas fa-trash-alt"></i></button>
+                                    <button type="submit" class="rounded btn-contact text-muted" name="deleteContact" value="<?= $users['user_connected_id'] . '-' . $users['users_id'] ?>"><i class="fas fa-trash-alt"></i></button>
                                     <?php if ($users['contacts_bookmark'] == 0) { ?>
-                                       <button type="submit" name="bookmarked" value="<?= $users['contacts_id'] ?>"><i class="far fa-star"></i></button>
+                                       <button type="submit" class="rounded btn-contact text-muted" name="bookmarked" value="<?= $users['contacts_id'] ?>"><i class="far fa-star"></i></button>
                                     <?php } else { ?>
-                                       <button type="submit" name="unmarked" value="<?= $users['contacts_id'] ?>"><i class="fas fa-star"></i></button>
+                                       <button type="submit" class="rounded btn-contact text-warning" name="unmarked" value="<?= $users['contacts_id'] ?>"><i class="fas fa-star"></i></button>
                                     <?php } ?>
                                  <?php }
 
                                  if ($users['toValidate'] == 1) { ?>
-                                    <button type="submit" name="accepted" value="<?= $users['contacts_id_toValidate'] . '-' . $users['users_id_asked'] . '-' . $users['users_id'] ?>"><i class="fas fa-check"></i>
-                                    </button> <button type="submit" name="refused" value="<?= $users['contacts_id_toValidate'] ?>"><i class="fas fa-times" id="testtesmort"></i></button>
+                                    <button type="submit" class="rounded btn-contact success-color" name="accepted" value="<?= $users['contacts_id_toValidate'] . '-' . $users['users_id_asked'] . '-' . $users['users_id'] ?>"><i class="fas fa-check"></i>
+                                    </button><button type="submit" class="rounded btn-contact danger-color" name="refused" value="<?= $users['contacts_id_toValidate'] ?>"><i class="fas fa-times" id="testtesmort"></i></button>
                                  <?php }
 
                                  if ($users['toValidate'] == 8) { ?>
-                                    En attente de validation <button type="submit" name="deleteRequest" value="<?= $users['contacts_id'] ?>"><i class="far fa-trash-alt"></i></button>
+                                    En attente de validation<button type="submit" class="rounded btn-contact text-muted" name="deleteRequest" value="<?= $users['contacts_id'] ?>"><i class="fas fa-times-circle"></i></button>
                                  <?php } ?>
+                              </span>
 
-                              </div>
-                           </li>
+               </div>
+               </li>
 
 
-                        <?php }
+            <?php }
                      } else { ?>
 
-                        <li class="contact-center">
-                           <h4>Aucun résultat :( </h4>
-                        </li>
+            <li class="contact-center">
+               <h4>Aucun résultat :( </h4>
+            </li>
 
-                     <?php } ?>
-                  </ul>
-               </div>
-            <?php } ?>
+         <?php } ?>
+
+         </ul>
+
+         <div class="bottom-div">
+            <!-- permet le scroll du bas -->
+         </div>
+            </div>
+         <?php } ?>
+
       </form>
 
-   </div>
+   </div> <!-- Global Container -->
 
    <div class="bottom-phone elegant-color-dark fixed-bottom">
       <?php
