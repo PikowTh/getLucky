@@ -36,7 +36,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':users_id', $userId);
+            $resultQuery->bindValue(':users_id', (int)$userId, PDO::PARAM_INT);
             $resultQuery->execute();
 
             $resultContacts = $resultQuery->fetchAll();
@@ -72,7 +72,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':users_id', $userId);
+            $resultQuery->bindValue(':users_id', (int)$userId, PDO::PARAM_INT);
             $resultQuery->execute();
 
             $resultContacts = $resultQuery->fetchAll();
@@ -107,7 +107,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':users_id', $userId);
+            $resultQuery->bindValue(':users_id', (int)$userId, PDO::PARAM_INT);
             $resultQuery->execute();
 
             $resultContacts = $resultQuery->fetchAll();
@@ -140,7 +140,7 @@ class Contacts
             $queryAuthorized = 'UPDATE lhp4_contacts SET contacts_authorized = 1 WHERE contacts_id = :contact_id ';
 
             $resultQueryAuthorized = $this->bdd->prepare($queryAuthorized);
-            $resultQueryAuthorized->bindValue(':contact_id', $contactId);
+            $resultQueryAuthorized->bindValue(':contact_id', (int)$contactId, PDO::PARAM_INT);
 
             // Nous allons créer un contact avec l'id de la personne qui a demandé le contact.
             // La personne qui valide le contact bénéficiera elle aussi du contact dans ses contacts..
@@ -148,7 +148,7 @@ class Contacts
             VALUES (0, 1, :users_id)';
 
             $resultQueryAdd = $this->bdd->prepare($queryAdd);
-            $resultQueryAdd->bindValue(':users_id', $usersId);
+            $resultQueryAdd->bindValue(':users_id', (int)$usersId, PDO::PARAM_INT);
 
             // Nous allons créer une ligne dans la table intermédiaire : "having contact" pour lier le contact à la personne qui vient d'accepter
             $queryCreateContact = 'INSERT INTO have_contacts VALUES( :contacts_id, :users_id)';
@@ -181,7 +181,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
+            $resultQuery->bindValue(':contact_id', (int)$contactId, PDO::PARAM_INT);
 
             if ($resultQuery->execute()) {
                 return true;
@@ -206,7 +206,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
+            $resultQuery->bindValue(':contact_id', (int)$contactId, PDO::PARAM_INT);
 
             if ($resultQuery->execute()) {
                 return true;
@@ -230,7 +230,7 @@ class Contacts
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':contact_id', $contactId);
+            $resultQuery->bindValue(':contact_id', (int)$contactId, PDO::PARAM_INT);
 
             if ($resultQuery->execute()) {
                 return true;
@@ -259,7 +259,7 @@ class Contacts
         try {
             // Nous préparons la première requête pour insérer dans la table contacts la demande de contact
             $resultQueryAddContact = $this->bdd->prepare($queryAddContacts);
-            $resultQueryAddContact->bindValue(':users_id', $userIdtoAdd);
+            $resultQueryAddContact->bindValue(':users_id', (int)$userIdtoAdd, PDO::PARAM_INT);
 
             // Nous préparons une 2eme requete pour insérer une ligne dans la table have_contacts permettant de déterminer à qui appartient la demande
             $resultQueryAddHave = $this->bdd->prepare($QueryAddHave);
