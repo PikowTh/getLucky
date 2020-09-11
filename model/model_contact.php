@@ -42,10 +42,8 @@ class Contacts
             $resultContacts = $resultQuery->fetchAll();
 
             if ($resultContacts) {
-
                 return $resultContacts;
             } else {
-
                 return false;
             }
         } catch (Exception $e) {
@@ -80,10 +78,8 @@ class Contacts
             $resultContacts = $resultQuery->fetchAll();
 
             if ($resultContacts) {
-
                 return $resultContacts;
             } else {
-
                 return false;
             }
         } catch (Exception $e) {
@@ -117,10 +113,8 @@ class Contacts
             $resultContacts = $resultQuery->fetchAll();
 
             if ($resultContacts) {
-
                 return $resultContacts;
             } else {
-
                 return false;
             }
         } catch (Exception $e) {
@@ -167,7 +161,6 @@ class Contacts
                 $resultQueryCreateContact->execute();
                 return true;
             } else {
-
                 return false;
             }
         } catch (Exception $e) {
