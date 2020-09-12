@@ -7,6 +7,7 @@ if (!isset($_SESSION['User'])) {
 
 require_once '../model/model_contact.php';
 
+// on crée un object contact à l'aide de la classe Contacts
 $contacts = new Contacts();
 
 if (isset($_POST['accepted'])) {
@@ -51,3 +52,5 @@ if(isset($_POST['searchBtn'])){
 $contactsToAcceptArray = $contacts->getContactsToAccept($_SESSION['User']['users_id']);
 $requestsContactsArray = $contacts->getRequestContacts($_SESSION['User']['users_id']);
 $contactsArray = $contacts->getContacts($_SESSION['User']['users_id']);
+
+

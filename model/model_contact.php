@@ -328,6 +328,7 @@ class Contacts
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     /**
      * Méthode pour supprimer une demande de contact en attentes
      * @param type integer qui sera le contact_id de la table contact
@@ -399,6 +400,39 @@ class Contacts
 
             if ($resultQuery->execute()) {
                 return $resultQuery->fetchAll();
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Méthode pour controller si le contact existe déja pour le user
+     * @param type integer le user_id de la personne connectée
+     * @param type integer le user_id du user que l'on souhaite ajouter
+     * @return type boolean qui indique si le contact est présent
+     */
+    public function checkContactIn ($userId, $userIdtoAdd)
+    {
+                $query = 'SELECT `have_contacts`.`users_id` AS `user_id`, `lhp4_contacts.users_id` AS `contact_id`
+                FROM `have_contacts`
+                INNER JOIN `lhp4_contacts`
+                ON `have_contacts`.`contacts_id` = `lhp4_contacts`.`contacts_id`
+                INNER JOIN `lhp4_users`
+                ON `lhp4_users`.`users_id` = `lhp4_contacts`.`users_id`
+                WHERE `have_contacts`.`users_id` = :userId AND `lhp4_contacts`.`users_id` = :userIdToAdd';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':userId', (int)$userId, PDO::PARAM_INT);
+            $resultQuery->bindValue(':userIdToAdd', (int)$userIdtoAdd, PDO::PARAM_INT);
+            $resultQuery->execute();
+            $resultArray = $resultQuery->fetchAll();
+
+            if (count($resultArray) > 0) {                
+                return true;
             } else {
                 return false;
             }
