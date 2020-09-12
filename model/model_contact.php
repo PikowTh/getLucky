@@ -396,7 +396,7 @@ class Contacts
 
             $resultQuery = $this->bdd->prepare($query);
             $resultQuery->bindValue(':userId', $_SESSION['User']['users_id']);
-            $resultQuery->bindValue(':search', $search.'%');
+            $resultQuery->bindValue(':search', $search . '%');
 
             if ($resultQuery->execute()) {
                 return $resultQuery->fetchAll();
@@ -414,9 +414,9 @@ class Contacts
      * @param type integer le user_id du user que l'on souhaite ajouter
      * @return type boolean qui indique si le contact est présent
      */
-    public function checkContactIn ($userId, $userIdtoAdd)
+    public function checkContactIn($userId, $userIdtoAdd)
     {
-                $query = 'SELECT `have_contacts`.`users_id` AS `user_id`, `lhp4_contacts.users_id` AS `contact_id`
+        $query = 'SELECT `have_contacts`.`users_id` AS `user_id`, `lhp4_contacts`.`users_id` AS `contact_id`
                 FROM `have_contacts`
                 INNER JOIN `lhp4_contacts`
                 ON `have_contacts`.`contacts_id` = `lhp4_contacts`.`contacts_id`
@@ -431,7 +431,7 @@ class Contacts
             $resultQuery->execute();
             $resultArray = $resultQuery->fetchAll();
 
-            if (count($resultArray) > 0) {                
+            if (count($resultArray) > 0) {
                 return true;
             } else {
                 return false;
