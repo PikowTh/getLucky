@@ -4,7 +4,7 @@ require_once '../model/model_users.php';
 
 $NameRegex = "/[a-zA-Z0-9ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ]{2,12}$/";
 $BirthDateRegex = "/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/";
-$PasswordRegex = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
+// $PasswordRegex = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/";
 $PhoneNumberRegex = "/(0)+[0-9]{1}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}/";
 
 $registerSuccess = false;
@@ -59,9 +59,9 @@ if (isset($_POST['BirthDate'])) {
 
 if (isset($_POST['Password']) && isset($_POST['VerifPassword'])) {
 
-    if (!preg_match($PasswordRegex, $_POST['Password'])) {
-        $error['Password'] = 'Mauvais Format';
-    };
+    // if (!preg_match($PasswordRegex, $_POST['Password'])) {
+    //     $error['Password'] = 'Mauvais Format';
+    // };
     if (empty($_POST['Password'])) {
         $error['Password'] = 'Veuillez Renseigner le champ';
     };
