@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    
     <?php include '../include/include_navbar.php' ?>
 
     <!-- Start your project here-->
