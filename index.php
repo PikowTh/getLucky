@@ -26,7 +26,9 @@ require_once 'controller/LoginRegex.php';
 
     <h1 class="text-center white-text mt-5 mb-2 txt-screen">VEINE</h1>
     <p class="text-center text-white">VEINARD ? C'est ici que tu le sauras !</p>
+
     <hr class="mb-5">
+    
     <div class="container">
 
         <form id="formregister" action="" method="post">

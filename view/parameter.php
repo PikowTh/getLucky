@@ -3,8 +3,10 @@ session_start();
 
 if (!isset($_SESSION['User'])) {
     header('Location: ../index.php');
-} else {
+    exit;
 }
+
+var_dump($_SESSION);
 
 ?>
 
@@ -43,7 +45,7 @@ if (!isset($_SESSION['User'])) {
 
     <div class="bottom-phone elegant-color-dark fixed-bottom">
         <?php
-            include_once '../include/navbar.php'
+        include_once '../include/navbar.php'
         ?>
     </div>
 
