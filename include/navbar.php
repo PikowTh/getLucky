@@ -6,7 +6,7 @@
         <a href="contact.php" class="text-white"><i class="fas fa-address-book"></i></a>
     </div>
     <div class="col play-btn">
-        <a href="" class="text-white"><i class="fas fa-dice"></i></a>
+        <a href="battle.php" class="text-white"><i class="fas fa-dice"></i></a>
     </div>
     <div class="col nav-btn">
         <a href="bet.php" class="text-white"><i class="fas fa-coins"></i></a>
