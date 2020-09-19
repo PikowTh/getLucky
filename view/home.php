@@ -24,6 +24,10 @@ if (!isset($_SESSION['User'])) {
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="../assets/css/mdb.min.css">
+
+    <!-- bs stepper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
+
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -35,54 +39,66 @@ if (!isset($_SESSION['User'])) {
     </div>
 
     <div class="container main-body">
+        <!-- container body -->
 
         <div class="row">
-            <div class="col">
-                <input class="big-date" type="date">
-            </div>
-        </div>
 
+            <div id="stepper1" class="bs-stepper">
 
-
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" data-toggle="pill" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div>STEP ONE</div>
-                <div>STEP ONE</div>
-                <div>STEP ONE</div>
-                <div>STEP ONE</div>
-                <div>
-                    <a class="btn" href="#pills-profile">next</a>
+                <div class="bs-stepper-header">
+                    <div class="step" data-target="#test-l-1">
+                        <div class="btn step-trigger">
+                            <span class="bs-stepper-circle">1</span>
+                            <span class="bs-stepper-label">Contre qui ?</span>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-l-2">
+                        <button type="button" class="btn step-trigger">
+                            <span class="bs-stepper-circle">2</span>
+                            <span class="bs-stepper-label">Sur quoi ?</span>
+                        </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-l-3">
+                        <button type="button" class="btn step-trigger">
+                            <span class="bs-stepper-circle">3</span>
+                            <span class="bs-stepper-label">Quelle mise ?</span>
+                        </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-l-4">
+                        <button type="button" class="btn step-trigger">
+                            <span class="bs-stepper-circle">4</span>
+                            <span class="bs-stepper-label">Quand ?</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="bs-stepper-content">
+                    <div id="test-l-1" class="content">
+                        <p class="text-center">test 1</p>
+                        <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+                    </div>
+                    <div id="test-l-2" class="content">
+                        <p class="text-center">test 2</p>
+                        <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
+                        <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+                    </div>
+                    <div id="test-l-3" class="content">
+                        <p class="text-center">test 3</p>
+                        <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
+                        <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+                    </div>
+                    <div id="test-l-4" class="content">
+                        <p class="text-center">test 3</p>
+                        <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
+                    </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <div>STEP TWO</div>
-                <div>STEP TWO</div>
-                <div>STEP TWO</div>
-                <div>STEP TWO</div>
-                <div>STEP TWO</div>
-            </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <div>STEP THREE</div>
-                <div>STEP THREE</div>
-                <div>STEP THREE</div>
-                <div>STEP THREE</div>
-                <div>STEP THREE</div>
-            </div>
+
         </div>
 
-
-    </div>
+    </div><!-- fin container body -->
 
     <div class="bottom-phone elegant-color-dark fixed-bottom">
         <?php
@@ -98,8 +114,22 @@ if (!isset($_SESSION['User'])) {
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+
+    <!-- bs stepper js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
+
     <!-- Your custom scripts (optional) -->
-    <script type="text/javascript"></script>
+    <script>
+        var stepper1Node = document.querySelector('#stepper1')
+        var stepper1 = new Stepper(document.querySelector('#stepper1'))
+
+        stepper1Node.addEventListener('show.bs-stepper', function(event) {
+            console.warn('show.bs-stepper', event)
+        })
+        stepper1Node.addEventListener('shown.bs-stepper', function(event) {
+            console.warn('shown.bs-stepper', event)
+        })
+    </script>
 </body>
 
 </html>
