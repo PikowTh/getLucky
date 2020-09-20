@@ -76,7 +76,11 @@ if (!isset($_SESSION['User'])) {
 
             <div class="row justify-content-end">
                 <!-- buttons -->
-                <button type="button" data-stepper="submit" class="stepper-btn btn btn-dark mr-3">>></button>
+                <button type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
+                <button type="button" data-on class="stepper-btn btn btn-dark mr-3">Sur</button>
+                <button type="button" data-what class="stepper-btn btn btn-dark mr-3">Quoi</button>
+                <button type="button" data-when class="stepper-btn btn btn-dark mr-3">Quand</button>
+                <button type="button" data-submit class="stepper-btn btn btn-dark mr-3">Go!</button>
             </div>
 
         </div>
@@ -100,10 +104,53 @@ if (!isset($_SESSION['User'])) {
 
     <!-- Your custom scripts (optional) -->
     <script>
-        let test = "aze-aze-aze"
-        $("button[data-stepper]").click(function(){
-            test = $(this).data("stepper");
-            console.log(test);
+        let betInformations = [];
+
+        // recupération des inputs respectifs lors du click sur le bouton next
+        $("button[data-who]").click(function() {
+            betInformations[0] = 'Contre Polaire';
+        });
+        $("button[data-on]").click(function() {
+            betInformations[1] = 'Fnatic Gagne les Worlds';
+        });
+        $("button[data-what]").click(function() {
+            betInformations[2] = 'Un Kebab';
+        });
+        $("button[data-when]").click(function() {
+            betInformations[3] = '2020-05-23 16:00';
+        });
+
+        // contrôle des données avant envoi
+        $("button[data-submit]").click(function() {
+            if (betInformations.length < 1) {
+                console.log('Aucun détails de votre paris');
+            }
+
+            if (betInformations.includes(undefined)) {
+                console.log('Attention tout n\'est pas rempli');
+            }
+
+            // envoi des données en ajax
+            if (!betInformations.length < 1 && !betInformations.includes(undefined)) {
+                $.ajax({
+                    url: 'http://api.joind.in/v2.1/talks/10889',
+                    data: {
+                        format: 'json'
+                    },
+                    error: function() {
+                        $('#info').html('<p>An error has occurred</p>');
+                    },
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        var $title = $('<h1>').text(data.talks[0].talk_title);
+                        var $description = $('<p>').text(data.talks[0].talk_description);
+                        $('#info')
+                            .append($title)
+                            .append($description);
+                    },
+                    type: 'GET'
+                });
+            }
         });
     </script>
 </body>
