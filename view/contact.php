@@ -1,6 +1,6 @@
 <?php
 
-require_once '../controller/ContactController.php';
+require_once '../controller/contactController.php';
 
 ?>
 <!DOCTYPE html>

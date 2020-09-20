@@ -5,7 +5,7 @@ if (!isset($_SESSION['User'])) {
     header('Location: index.php');
 }
 
-require_once '../model/model_contact.php';
+require_once '../model/modelContact.php';
 
 // on crée un object contact à l'aide de la classe Contacts
 $contacts = new Contacts();

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../controller/RegisterRegex.php';
+require_once '../controller/registerController.php';
 
 ?>
 

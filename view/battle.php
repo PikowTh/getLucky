@@ -135,13 +135,22 @@ if (!isset($_SESSION['User'])) {
                 $.ajax({
                     url: '../controller/betAjax.php',
                     type: 'GET',
-                    data: {'riri': 'caca', 'fifi': 'pipi'},
+                    data: {
+                        'betName': 'Worlds League of Legends',
+                        'betDescription': 'Je pari que les Fnatic gagne les worlds',
+                        'betEndTtime': '1900-01-01 00:00:00',
+                        'contactId': 45,
+                        'userId': 12,
+                        'betType': 1
+                    },
+                    success: function(dataReturn) {
+                        if (dataReturn){
+                            console.log('yata')
+                        }
+                    },
                     error: function() {
                         console.log('error')
                     },
-                    success: function(dataReturn) {
-                        console.log(dataReturn)
-                    }
                 });
             }
         });

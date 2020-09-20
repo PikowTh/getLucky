@@ -1,5 +1,5 @@
 <?php
-require_once 'controller/LoginRegex.php';
+require_once 'controller/indexController.php';
 ?>
 
 <!DOCTYPE html>
