@@ -133,22 +133,15 @@ if (!isset($_SESSION['User'])) {
             // envoi des données en ajax
             if (!betInformations.length < 1 && !betInformations.includes(undefined)) {
                 $.ajax({
-                    url: 'http://api.joind.in/v2.1/talks/10889',
-                    data: {
-                        format: 'json'
-                    },
+                    url: '../controller/betAjax.php',
+                    type: 'GET',
+                    data: {'riri': 'caca', 'fifi': 'pipi'},
                     error: function() {
-                        $('#info').html('<p>An error has occurred</p>');
+                        console.log('error')
                     },
-                    dataType: 'jsonp',
-                    success: function(data) {
-                        var $title = $('<h1>').text(data.talks[0].talk_title);
-                        var $description = $('<p>').text(data.talks[0].talk_description);
-                        $('#info')
-                            .append($title)
-                            .append($description);
-                    },
-                    type: 'GET'
+                    success: function(dataReturn) {
+                        console.log(dataReturn)
+                    }
                 });
             }
         });
