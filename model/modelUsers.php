@@ -74,70 +74,110 @@ class Users
             $resultQuery->bindValue(':users_password', $password);
             $resultQuery->bindValue(':users_birthdate', $birthdate);
             $resultQuery->execute();
-            
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
     }
 
 
-        public function VerifyLogin($mail, $password)
-        {
-        
-            $query = 'SELECT `users_mail`, `users_password` FROM lhp4_users WHERE `users_mail` = :users_mail ';
-
-            try {
-            
-                $resultQuery = $this->bdd->prepare($query);
-                $resultQuery->bindValue(':users_mail', $mail);
-                $resultQuery->execute();
-                
-                $resultUser = $resultQuery->fetch();
-                
-                if ($resultUser) {
-                    
-                return password_verify($password, $resultUser['users_password']);
-                
-                } else {
-                
-                return false;
-
-                }
-
-            } catch (Exception $e) {
-                die('Erreur : ' . $e->getMessage());
-            }
-        
-        }
-
-    public function GetUserInfos($mail)
+    public function VerifyLogin($mail, $password)
     {
-    
-        $query = 'SELECT * FROM lhp4_users WHERE `users_mail` = :users_mail '; 
+
+        $query = 'SELECT `users_mail`, `users_password` FROM lhp4_users WHERE `users_mail` = :users_mail ';
 
         try {
-         
             $resultQuery = $this->bdd->prepare($query);
             $resultQuery->bindValue(':users_mail', $mail);
             $resultQuery->execute();
-            
             $resultUser = $resultQuery->fetch();
-            
+
             if ($resultUser) {
-                
-             return $resultUser;
-               
+                return password_verify($password, $resultUser['users_password']);
             } else {
-               
-               return false;
-
+                return false;
             }
-
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
-
     }
 
-    
+    public function GetUserInfos($mail)
+    {
+
+        $query = 'SELECT * FROM lhp4_users WHERE `users_mail` = :users_mail ';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':users_mail', $mail);
+            $resultQuery->execute();
+            $resultUser = $resultQuery->fetch();
+
+            if ($resultUser) {
+                return $resultUser;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function UpdateMailUsers($newMail, $usersId)
+    {
+        $query = 'UPDATE `lhp4_users` SET users_mail = :users_mail WHERE users_pseudo = :users_pseudo';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':users_pseudo', $usersId);
+            $resultQuery->bindValue(':users_mail', $newMail);
+            $resultQuery->execute();
+
+            if ($resultQuery) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function UpdatePhoneUsers($newPhone, $usersId)
+    {
+        $query = 'UPDATE `lhp4_users` SET users_phone = :users_phone WHERE users_pseudo = :users_pseudo';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':users_pseudo', $usersId);
+            $resultQuery->bindValue(':users_phone', $newPhone);
+            $resultQuery->execute();
+
+            if ($resultQuery) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function UpdatePasswordUsers($newPassword, $usersId)
+    {
+        $query = 'UPDATE `lhp4_users` SET users_password = :users_password WHERE users_id = :users_id';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':users_id', $usersId);
+            $resultQuery->bindValue(':users_password', $newPassword);
+            $resultQuery->execute();
+
+            if ($resultQuery) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }
