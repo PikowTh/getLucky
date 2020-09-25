@@ -103,6 +103,8 @@ require_once '../controller/battleController.php';
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <!-- Sweet Alert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Your custom scripts (optional) -->
     <script>
@@ -124,17 +126,21 @@ require_once '../controller/battleController.php';
 
         // contrôle des données avant envoi sur le bouton submit
         $("button[data-submit]").click(function() {
+            let addBet = true;
+
             // contrôles si le tableau est vide
-            if (betInformations.length < 1) {
-                console.log('Aucun détails de votre paris');
+            if (betInformations.length == 0) {
+                addBet = false;
+                console.log('Aucun détail');
             }
-            // contrôles si le tableau ne contient pas d'undefined 
-            if (betInformations.includes(undefined)) {
+            // contrôles si le tableau ne contient pas 'undefined'
+            if (betInformations.includes(undefined) || (betInformations.length < 4 && betInformations.length != 0)) {
+                addBet = false;
                 console.log('Attention tout n\'est pas rempli');
             }
 
             // envoi des données en ajax
-            if (!betInformations.length < 1 && !betInformations.includes(undefined)) {
+            if (addBet) {
                 $.ajax({
                     url: '../controller/betAjax.php',
                     type: 'GET',
@@ -143,16 +149,20 @@ require_once '../controller/battleController.php';
                         'betName': 'Worlds League of Legends',
                         'betDescription': 'Je pari que les Fnatic gagne les worlds',
                         'betEndTtime': '1900-01-01 00:00:00',
-                        'contactId': 45,
+                        'contactId': 107,
                         'betType': 1
                     },
                     success: function(dataReturn) {
-                        if (dataReturn){
-                            console.log('yata')
+                        if (dataReturn) {
+                            Swal.fire(
+                                'Good job!',
+                                'You clicked the button!',
+                                'success'
+                            );
                         }
                     },
                     error: function() {
-                        console.log('error')
+                        console.log('La pari n\'a pas pu été ajouté')
                     },
                 });
             }

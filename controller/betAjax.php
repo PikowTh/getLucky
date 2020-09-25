@@ -1,7 +1,13 @@
 <?php
+
+session_start();
+
+require_once '../model/modelBets.php';
+
 if (isset($_GET['bet'])) {
 
     switch ($_GET['bet']) {
+
         case 'add':
             $betsObj = new Bets;
 
@@ -9,10 +15,14 @@ if (isset($_GET['bet'])) {
             $betDescription = htmlspecialchars($_GET['betDescription']);
             $endTime = htmlspecialchars($_GET['betEndTtime']);
             $contactId = htmlspecialchars($_GET['contactId']);
-            $betType;
+            $betType = htmlspecialchars($_GET['betType']);;
 
             $betsObj->addBet($betName, $betDescription, $endTime, $contactId, $betType);
-            
+
+            echo true;
+            break;
+        default:
+            echo false;
             break;
     }
 }

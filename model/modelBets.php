@@ -22,9 +22,9 @@ class Bets
      *
      * @param [str] $betName Contient le nom du pari
      * @param [str] $betDescription Petite description du pari
-     * @param [str] $endTime
-     * @param [int] $contactId
-     * @param [int] $betType
+     * @param [str] $endTime Indique la fin du pari en dateTime
+     * @param [int] $contactId Indique le contact que nous souhaitons défier
+     * @param [int] $betType Indique le type du pari
      * @return void
      */
     public function addBet($betName, $betDescription, $endTime, $contactId, $betType)
@@ -43,7 +43,6 @@ class Bets
             $resultQuery->bindValue(':contacts_id', (int)$contactId, PDO::PARAM_INT);
             $resultQuery->bindValue(':users_id', $_SESSION['User']['users_id'], PDO::PARAM_INT);
             $resultQuery->bindValue(':bet_types_id', (int)$betType, PDO::PARAM_INT);
-            $resultQuery->execute();
 
             if ($resultQuery->execute()) {
                 return true;
