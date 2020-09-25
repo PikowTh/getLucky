@@ -53,4 +53,24 @@ class Bets
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function getAllBets()
+    {
+        
+        $query = 'SELECT bets_id, bets_name, bets_end_time, bets_accepted FROM lhp4_bets WHERE users_id = :userId';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':userId', (int)($_SESSION['User']['users_id']), PDO::PARAM_INT);
+                
+            if ($resultQuery->execute()) {
+                return $resultQuery->fetchAll();
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }

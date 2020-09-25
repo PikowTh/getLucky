@@ -9,7 +9,7 @@
         <a href="battle.php" class="text-white"><i class="fas fa-dice"></i></a>
     </div>
     <div class="col nav-btn">
-        <a href="bet.php" class="text-white"><i class="fas fa-coins"></i></a>
+        <a href="bets.php" class="text-white"><i class="fas fa-coins"></i></a>
     </div>
     <div class="col nav-btn">
         <a href="parameter.php" class="text-white"><i class="fas fa-cog"></i></a>

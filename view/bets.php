@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+require_once '../controller/betsController.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,19 +29,9 @@
 
 <body>
     
-    <?php include '../include/include_navbar.php' ?>
+    <?php include '../include/navbar.php' ?>
 
-    <!-- Start your project here-->
-    <div style="height: 100vh">
-        <div class="flex-center flex-column">
-            <h1 class="animated fadeIn mb-2">Material Design for Bootstrap</h1>
 
-            <h5 class="animated fadeIn mb-1">Thank you for using our product. We're glad you're with us.</h5>
-
-            <p class="animated fadeIn text-muted">MDB Team</p>
-        </div>
-    </div>
-    <!-- /Start your project here-->
 
 
 
