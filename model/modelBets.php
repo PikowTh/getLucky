@@ -17,21 +17,36 @@ class Bets
         }
     }
 
-    public function addBet()
+    /**
+     * Permet de rajouter un pari dans la table bets
+     *
+     * @param [str] $betName Contient le nom du pari
+     * @param [str] $betDescription Petite description du pari
+     * @param [str] $endTime
+     * @param [int] $contactId
+     * @param [int] $betType
+     * @return void
+     */
+    public function addBet($betName, $betDescription, $endTime, $contactId, $betType)
     {
+        
         $query = 'INSERT INTO lhp4_bets (bets_name, bets_description, bets_end_time, bets_accepted, contacts_id, users_id, bet_types_id)
-        VALUES ('LoL', 'G2 va gagner les worlds', '2020-10-23 12:00', 0, 58, 22, 1)';
+        VALUES (:bets_name, :bets_description, :bets_end_time, :bets_accepted, :contacts_id, :users_id, :bet_types_id)';
 
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':users_id', (int)$userId, PDO::PARAM_INT);
+            $resultQuery->bindValue(':bets_name', $betName, PDO::PARAM_STR);
+            $resultQuery->bindValue(':bets_description', $betDescription, PDO::PARAM_STR);
+            $resultQuery->bindValue(':bets_end_time', $endTime, PDO::PARAM_STR);
+            $resultQuery->bindValue(':bets_accepted', 0, PDO::PARAM_INT);
+            $resultQuery->bindValue(':contacts_id', (int)$contactId, PDO::PARAM_INT);
+            $resultQuery->bindValue(':users_id', $_SESSION['User']['users_id'], PDO::PARAM_INT);
+            $resultQuery->bindValue(':bet_types_id', (int)$betType, PDO::PARAM_INT);
             $resultQuery->execute();
 
-            $resultContacts = $resultQuery->fetchAll();
-
-            if ($resultContacts) {
-                return $resultContacts;
+            if ($resultQuery->execute()) {
+                return true;
             } else {
                 return false;
             }

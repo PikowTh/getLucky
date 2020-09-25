@@ -5,6 +5,8 @@ if (!isset($_SESSION['User'])) {
     header('Location: ../index.php');
 }
 
+require_once '../controller/battleController.php';
+
 ?>
 
 
@@ -120,12 +122,13 @@ if (!isset($_SESSION['User'])) {
             betInformations[3] = '2020-05-23 16:00';
         });
 
-        // contrôle des données avant envoi
+        // contrôle des données avant envoi sur le bouton submit
         $("button[data-submit]").click(function() {
+            // contrôles si le tableau est vide
             if (betInformations.length < 1) {
                 console.log('Aucun détails de votre paris');
             }
-
+            // contrôles si le tableau ne contient pas d'undefined 
             if (betInformations.includes(undefined)) {
                 console.log('Attention tout n\'est pas rempli');
             }
@@ -136,11 +139,11 @@ if (!isset($_SESSION['User'])) {
                     url: '../controller/betAjax.php',
                     type: 'GET',
                     data: {
+                        'bet': 'add',
                         'betName': 'Worlds League of Legends',
                         'betDescription': 'Je pari que les Fnatic gagne les worlds',
                         'betEndTtime': '1900-01-01 00:00:00',
                         'contactId': 45,
-                        'userId': 12,
                         'betType': 1
                     },
                     success: function(dataReturn) {
