@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once '../controller/betsController.php';
 
 ?>
@@ -27,14 +25,13 @@ require_once '../controller/betsController.php';
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body>
-    
-    <?php include '../include/navbar.php' ?>
+<body class="bg-veine">
 
-
-
-
-
+    <div class="bottom-phone elegant-color-dark fixed-bottom">
+        <?php
+        include_once '../include/navbar.php'
+        ?>
+    </div>
 
     <!-- jQuery -->
     <script type="text/javascript" src="../assets/js/jquery.min.js"></script>

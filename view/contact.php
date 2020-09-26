@@ -126,7 +126,6 @@ require_once '../controller/contactController.php';
                                 </li>
 
                             <?php }
-
                         } else { ?>
 
                             <li class="shadow list-group-item d-flex justify-content-between align-items-center bg-veine">
@@ -182,7 +181,6 @@ require_once '../controller/contactController.php';
                                     </span>
                                 </li>
                             <?php }
-
                         } else { ?>
 
                             <li class="contact-center">
@@ -209,7 +207,6 @@ require_once '../controller/contactController.php';
         ?>
     </div>
 
-    <script src="https://kit.fontawesome.com/2edc250389.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

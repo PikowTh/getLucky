@@ -33,7 +33,8 @@ if (!isset($_SESSION['User'])) {
 <body class="bg-veine">
 
     <div class="container main-body">
-        <div class="stepper-nav">
+
+    <div class="stepper-nav">
             <div class="row justify-content-between">
                 <div class="col text-center">
                     <span class="stepper-badge badge unique-color-dark">1</span>
@@ -76,12 +77,20 @@ if (!isset($_SESSION['User'])) {
 
             <div class="row justify-content-end">
                 <!-- buttons -->
-                <button type="button" class="btn btn-dark mr-3">>></button>
+                <button type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
+                <button type="button" data-on class="stepper-btn btn btn-dark mr-3">Sur</button>
+                <button type="button" data-what class="stepper-btn btn btn-dark mr-3">Quoi</button>
+                <button type="button" data-when class="stepper-btn btn btn-dark mr-3">Quand</button>
+                <button type="button" data-submit class="stepper-btn btn btn-dark mr-3">Go!</button>
             </div>
 
         </div>
 
-    </div><!-- fin container body -->
+        <div class="bottom-div">
+            <!-- permet le scroll du bas -->
+        </div>
+
+    </div><!-- fin container main body -->
 
     <div class="bottom-phone elegant-color-dark fixed-bottom">
         <?php

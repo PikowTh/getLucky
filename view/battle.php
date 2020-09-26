@@ -1,15 +1,8 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['User'])) {
-    header('Location: ../index.php');
-}
 
 require_once '../controller/battleController.php';
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,6 +28,7 @@ require_once '../controller/battleController.php';
 <body class="bg-veine">
 
     <div class="container main-body">
+
         <div class="stepper-nav">
             <div class="row justify-content-between">
                 <div class="col text-center">
@@ -87,7 +81,11 @@ require_once '../controller/battleController.php';
 
         </div>
 
-    </div><!-- fin container body -->
+        <div class="bottom-div">
+            <!-- permet le scroll du bas -->
+        </div>
+
+    </div><!-- fin container main body -->
 
     <div class="bottom-phone elegant-color-dark fixed-bottom">
         <?php
@@ -149,7 +147,7 @@ require_once '../controller/battleController.php';
                         'betName': 'Worlds League of Legends',
                         'betDescription': 'Je pari que les Fnatic gagne les worlds',
                         'betEndTtime': '1900-01-01 00:00:00',
-                        'contactId': 107,
+                        'contactId': 71,
                         'betType': 1
                     },
                     success: function(dataReturn) {
