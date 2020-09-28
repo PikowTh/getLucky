@@ -34,58 +34,6 @@ if (!isset($_SESSION['User'])) {
 
     <div class="container main-body">
 
-    <div class="stepper-nav">
-            <div class="row justify-content-between">
-                <div class="col text-center">
-                    <span class="stepper-badge badge unique-color-dark">1</span>
-                </div>
-                <div class="col text-center">
-                    <span class="stepper-badge badge grey">2</span>
-                </div>
-                <div class="col text-center">
-                    <span class="stepper-badge badge grey">3</span>
-                </div>
-                <div class="col text-center">
-                    <span class="stepper-badge badge grey">4</span>
-                </div>
-                <div class="col text-center">
-                    <span class="stepper-badge badge grey">GO</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="stepper mt-3" data-content="step-1">
-
-            <div class="row justify-content-center">
-                <!-- title -->
-                <div class="col">
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <!-- content -->
-                <div class="col">
-                    <div class="card stylish-color-dark">
-                        <div class="card-body text-white">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-end">
-                <!-- buttons -->
-                <button type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
-                <button type="button" data-on class="stepper-btn btn btn-dark mr-3">Sur</button>
-                <button type="button" data-what class="stepper-btn btn btn-dark mr-3">Quoi</button>
-                <button type="button" data-when class="stepper-btn btn btn-dark mr-3">Quand</button>
-                <button type="button" data-submit class="stepper-btn btn btn-dark mr-3">Go!</button>
-            </div>
-
-        </div>
-
         <div class="bottom-div">
             <!-- permet le scroll du bas -->
         </div>

@@ -25,15 +25,11 @@ require_once '../controller/contactController.php';
 
 <body class="bg-veine">
 
-    <div class="top-phone elegant-color-dark fixed-top">
-        <!-- Permet d'avoir une bande noire -->
-    </div>
-
-    <div class="container global">
+    <div class="container main-body">
 
         <form action="" method="post">
 
-            <div class="container-input mt-5">
+            <div class="container-input search-bar">
                 <!-- Container de recherche -->
                 <div class="row">
                     <div class="col text-center p-1">

@@ -72,7 +72,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-end">
                 <!-- buttons -->
-                <button type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
+                <button id="who" type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
                 <button type="button" data-on class="stepper-btn btn btn-dark mr-3">Sur</button>
                 <button type="button" data-what class="stepper-btn btn btn-dark mr-3">Quoi</button>
                 <button type="button" data-when class="stepper-btn btn btn-dark mr-3">Quand</button>
@@ -110,6 +110,7 @@ require_once '../controller/battleController.php';
 
         // recupération des inputs respectifs lors du click sur le bouton next
         $("button[data-who]").click(function() {
+            console.log('gogo');
             betInformations[0] = 'Contre Polaire';
         });
         $("button[data-on]").click(function() {
@@ -124,6 +125,7 @@ require_once '../controller/battleController.php';
 
         // contrôle des données avant envoi sur le bouton submit
         $("button[data-submit]").click(function() {
+
             let addBet = true;
 
             // contrôles si le tableau est vide
@@ -147,7 +149,7 @@ require_once '../controller/battleController.php';
                         'betName': 'Worlds League of Legends',
                         'betDescription': 'Je pari que les Fnatic gagne les worlds',
                         'betEndTtime': '1900-01-01 00:00:00',
-                        'contactId': 71,
+                        'contactId': 107,
                         'betType': 1
                     },
                     success: function(dataReturn) {
