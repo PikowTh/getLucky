@@ -149,7 +149,7 @@ require_once '../controller/battleController.php';
                         'betName': 'Worlds League of Legends',
                         'betDescription': 'Je pari que les Fnatic gagne les worlds',
                         'betEndTtime': '1900-01-01 00:00:00',
-                        'contactId': 107,
+                        'contactId': 22,
                         'betType': 1
                     },
                     success: function(dataReturn) {

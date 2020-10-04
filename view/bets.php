@@ -31,19 +31,16 @@ require_once '../controller/betsController.php';
 
     <div class="container main-body">
 
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="..." class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
+    <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"> -->
+
+        <div class="row shadow m-1 pari">
+            <div class="col"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
+            <div class="col">Pari pari</div>
+        </div>
+
+        <div class="row shadow m-1 pari">
+            <div class="col-2 border"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
+            <div class="col-10 border text-center">Pari pari</div>
         </div>
 
         <div class="bottom-div">
