@@ -186,9 +186,8 @@ require_once '../controller/contactController.php';
                         <?php } ?>
                     </ul>
 
-                    <div class="bottom-div">
-                        <!-- permet le scroll du bas -->
-                    </div>
+                    <!-- permet le scroll du bas -->
+                    <div class="bottom-div"></div>
 
                 </div><!-- fin container de la liste de contacts -->
             <?php } ?>

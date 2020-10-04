@@ -31,7 +31,7 @@ require_once '../controller/betsController.php';
 
     <div class="container main-body">
 
-    <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"> -->
+        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"> -->
 
         <div class="row shadow m-1 pari">
             <div class="col"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
@@ -43,9 +43,8 @@ require_once '../controller/betsController.php';
             <div class="col-10 border text-center">Pari pari</div>
         </div>
 
-        <div class="bottom-div">
-            <!-- permet le scroll du bas -->
-        </div>
+        <!-- permet le scroll du bas -->
+        <div class="bottom-div"></div>
 
     </div><!-- fin container main body -->
 
