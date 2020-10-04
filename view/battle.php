@@ -33,30 +33,14 @@ require_once '../controller/battleController.php';
          <div class="col text-center">
             <span class="stepper-badge badge unique-color-dark">1</span>
          </div>
-         <!-- séparateur entres étapes -->
-         <div class="col text-center">
-            <hr>
-         </div>
          <div class="col text-center">
             <span class="stepper-badge badge grey">2</span>
-         </div>
-         <!-- séparateur entres étapes -->
-         <div class="col text-center">
-            <hr>
-         </div>
+         </div> 
          <div class="col text-center">
             <span class="stepper-badge badge grey">3</span>
          </div>
-         <!-- séparateur entres étapes -->
-         <div class="col text-center">
-            <hr>
-         </div>
          <div class="col text-center">
             <span class="stepper-badge badge grey">4</span>
-         </div>
-         <!-- séparateur entres étapes -->
-         <div class="col text-center">
-            <hr>
          </div>
          <div class="col text-center">
             <span class="stepper-badge badge grey">GO</span>
