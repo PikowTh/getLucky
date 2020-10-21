@@ -110,7 +110,6 @@ require_once '../controller/battleController.php';
 
         // recupération des inputs respectifs lors du click sur le bouton next
         $("button[data-who]").click(function() {
-            console.log('gogo');
             betInformations[0] = 'Contre Polaire';
         });
         $("button[data-on]").click(function() {

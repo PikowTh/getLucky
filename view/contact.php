@@ -29,7 +29,7 @@ require_once '../controller/contactController.php';
 
         <form action="" method="post">
 
-            <div class="container-input search-bar">
+            <div id="mySearchBar" class="container-input search-bar">
                 <!-- Container de recherche -->
                 <div class="row">
                     <div class="col text-center p-1">
@@ -40,7 +40,7 @@ require_once '../controller/contactController.php';
             </div>
 
             <?php if (!isset($_POST['searchBtn'])) { ?>
-                <div id="container">
+                <div id="myRequests">
                     <!-- container de nos demandes -->
                     <div class="row">
                         <div class="col primary-color-dark shadow text-white">
@@ -69,7 +69,7 @@ require_once '../controller/contactController.php';
                     </ul>
                 </div> <!-- fin container nos demandes -->
 
-                <div id="container">
+                <div id="contactsToValidate">
                     <!-- container validation de demandes -->
 
                     <div class="row">
@@ -99,7 +99,7 @@ require_once '../controller/contactController.php';
                     </ul>
                 </div><!-- fin container validation de demandes -->
 
-                <div id="container">
+                <div id="myContacts">
                     <!-- container mes contacts -->
                     <div class="row">
                         <div class="col primary-color-dark shadow text-white">
@@ -139,7 +139,7 @@ require_once '../controller/contactController.php';
 
             <?php } else { ?>
 
-                <div id="container">
+                <div id="contactsList">
                     <!-- container de la liste de contacts -->
                     <ul class="list-group mt-2 mb-2">
                         <?php if (!empty($usersArray)) {
@@ -198,9 +198,7 @@ require_once '../controller/contactController.php';
     </div> <!-- Global Container -->
 
     <div class="bottom-phone elegant-color-dark fixed-bottom">
-        <?php
-        include_once '../include/navbar.php'
-        ?>
+        <?php include_once '../include/navbar.php' ?>
     </div>
 
     <!-- jQuery -->

@@ -2,7 +2,6 @@
 
 require_once '../controller/parameterController.php';
 
-var_dump($_SESSION);
 ?>
 
 
@@ -28,17 +27,19 @@ var_dump($_SESSION);
 
 <body class="bg-veine">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-9">
-                <p class="text-warning text-center font-weight-bold"><?= $_SESSION['User']['users_pseudo'] ?></p>
-            </div>
-            <div class="col-3">
-                <form method="post" action="../view/deconnexion.php">
-                    <button type="submit" id="delete" name="killSession" class="btn-floating"><i class="fas fa-door-open"></i></button>
-                </form>
+    <div class="container main-body">
+        <div id="myId" class="p-2">
+            <div class="row">
+                <div class="col-3 user-avatar text-center rounded">
+                    <i class="far fa-user"></i>
+                </div>
+                <div class="col user-name">
+                    <div class="font-weight-bold"><?= $_SESSION['User']['users_pseudo'] ?></div>
+                    <div><?= $_SESSION['User']['users_mail'] ?></div>
+                </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-sm col-lg-6">
                 <form class="text-center" method="post">
@@ -86,8 +87,12 @@ var_dump($_SESSION);
     </div>
 
     <div class="bottom-div">
+        <form method="post" action="../view/deconnexion.php">
+            <button type="submit" id="delete" name="killSession" class="btn-floating"><i class="fas fa-door-open"></i></button>
+        </form>
         <!-- permet le scroll du bas -->
     </div>
+
     <div class="bottom-phone elegant-color-dark fixed-bottom">
         <?php include_once '../include/navbar.php' ?>
     </div>
@@ -103,5 +108,7 @@ var_dump($_SESSION);
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript"></script>
 </body>
+
+<?php var_dump($_SESSION) ?>
 
 </html>
