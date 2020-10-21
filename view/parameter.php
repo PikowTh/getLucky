@@ -34,7 +34,7 @@ require_once '../controller/parameterController.php';
                     <i class="far fa-user"></i>
                 </div>
                 <div class="col user-name">
-                    <div class="font-weight-bold"><?= $_SESSION['User']['users_pseudo'] ?></div>
+                    <div class="text-uppercase font-weight-bold"><?= $_SESSION['User']['users_pseudo'] ?></div>
                     <div><?= $_SESSION['User']['users_mail'] ?></div>
                 </div>
             </div>
