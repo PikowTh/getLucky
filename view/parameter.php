@@ -28,6 +28,7 @@ require_once '../controller/parameterController.php';
 <body class="bg-veine">
 
     <div class="container main-body">
+
         <div id="myId" class="p-2">
             <div class="row">
                 <div class="col-3 user-avatar text-center rounded">
@@ -39,6 +40,20 @@ require_once '../controller/parameterController.php';
                 </div>
             </div>
         </div>
+
+
+        <div class="row justify-content-around">
+            <div class="col"><button type="button" class="btn"><i class="far fa-envelope big-icon"></i></button></div>
+            <div class="col"><button type="button" class="btn"><i class="fas fa-phone big-icon"></i></button></div>
+            <div class="col"><button type="button" class="btn"><i class="fas fa-key big-icon"></i></button></div>
+            <div class="col"><button type="button" class="btn"><i class="fas fa-sign-out-alt big-icon"></i></button></div>
+        </div>
+
+
+
+
+
+
 
         <div class="row">
             <div class="col-sm col-lg-6">

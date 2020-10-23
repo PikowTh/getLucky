@@ -26,9 +26,6 @@ require_once '../controller/registerController.php';
 
 <body class="bg-veine">
 
-    <div class="top-phone elegant-color-dark fixed-top">
-    </div>
-
     <div class="container main-body">
         <?php
         if ($registerSuccess) { ?>
