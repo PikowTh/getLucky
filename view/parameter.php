@@ -45,7 +45,7 @@ require_once '../controller/parameterController.php';
         <div class="container-fluid border">
 
             <?php
-            
+
             if (!isset($_POST['modify'])) { ?>
                 <form action="" method="POST">
                     <div><button name="modify" value="mail" type="submit" class="btn border border-dark rounded w-100 mx-auto">E-mail</button></div>
@@ -68,7 +68,9 @@ require_once '../controller/parameterController.php';
                         include '../include/passwordModifyForm.php';
                         break;
                 }
-            } ?>
+            }
+
+            ?>
 
         </div>
 

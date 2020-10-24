@@ -1,6 +1,6 @@
 <!-- Navbar du site Veine -->
 
-<div class="row justify-content-around text-white text-center mr-1 ml-1">
+<div class="test row justify-content-around text-white text-center mr-1 ml-1">
     <div class="col nav-btn">
         <a href="home.php" class="text-white"><i class="fas fa-home"></i></a>
     </div>

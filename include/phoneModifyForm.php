@@ -2,7 +2,8 @@
 
 <div class="row">
     <div class="col-sm col-lg-6">
-        <form class="text-center" method="post">
+        <form action="" class="text-center" method="POST">
+            <input type="hidden" name="modify" value="phone">
             <span><?= isset($errorPhone['emailUser']) ? $errorPhone['emailUser'] : '' ?></span>
             <label for="newPhoneUser">Nouveau Numéro de Téléphone :</label>
             <input type="phone" id="newPhoneUser" class="form-control mb-4" name="newPhoneUser">

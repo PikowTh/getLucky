@@ -2,7 +2,8 @@
 
 <div class="row">
     <div class="col-sm col-lg-6">
-        <form class="text-center" method="post">
+        <form action="" class="text-center" method="POST">
+            <input type="hidden" name="modify" value="password">
             <span><?= $message ?></span></br>
             <label for="passwordUser">Ancien Mot de Passe :</label>
             <input type="password" id="passwordUser" class="form-control mb-4" name="passwordUser">

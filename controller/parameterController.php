@@ -16,21 +16,30 @@ $PhoneNumberRegex = "/(0)+[0-9]{1}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}( ){0,1}+[0-
 $errorEmail = [];
 
 if (isset($_POST['newEmailUser']) || isset($_POST['verifyNewEmailUser'])) {
+
     if (!filter_var($_POST['newEmailUser'], FILTER_VALIDATE_EMAIL)) {
         $errorEmail['newEmailUser'] = 'Mauvais Format';
-    };
+    }
+
+    if ($newParameters->VerifyMailExist($_POST['newEmailUser'])){
+        $errorEmail['newEmailUser'] = 'Mail non disponible';
+    }
+
     if (!filter_var($_POST['verifyNewEmailUser'], FILTER_VALIDATE_EMAIL)) {
         $errorEmail['verifyNewEmailUser'] = 'Mauvais Format';
-    };
+    }
+
     if (empty($_POST['newEmailUser'])) {
-        $errorEmail['newEmailUser'] = 'Veuillez Renseigner le champ';
-    };
+        $errorEmail['newEmailUser'] = 'Veuillez renseigner le champ';
+    }
+
     if (empty($_POST['verifyNewEmailUser'])) {
-        $errorEmail['verifyNewEmailUser'] = 'Veuillez Renseigner le champ';
-    };
+        $errorEmail['verifyNewEmailUser'] = 'Veuillez renseigner le champ';
+    }
+
     if ($_POST['verifyNewEmailUser'] != $_POST['newEmailUser']) {
         $errorEmail['verifyNewEmailUser'] = 'Les mails ne sont pas identiques';
-    };
+    }
 }
 
 if (isset($_POST['submitResetEmail']) && count($errorEmail) == 0) {
