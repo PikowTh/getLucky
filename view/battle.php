@@ -29,6 +29,19 @@ require_once '../controller/battleController.php';
 
    <div class="container main-body">
 
+
+
+
+
+
+
+
+
+
+
+
+   
+
       <div class="row justify-content-between">
          <div class="col text-center">
             <span class="stepper-badge badge unique-color-dark">1</span>
