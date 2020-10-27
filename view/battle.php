@@ -105,8 +105,8 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5">Quel est l'objet de ton pari</p>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <p class="h5">Quel est ton pari ?</p>
+                    <textarea name="mlk" id="lkjh" cols="30" rows="10">QSD</textarea>
                 </div>
             </div>
 
@@ -190,7 +190,7 @@ require_once '../controller/battleController.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-
+        
         $('#btn-step-2').click(function() {
             $('#step-2').hide();
             $('#step-3').show();
