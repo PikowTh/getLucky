@@ -126,3 +126,7 @@ img.test {
 .stepper-badge {
     font-size: 1.2rem;
 }
+
+#step-2, #step-3, #step-4, #step-5 {
+    display: none;
+}
