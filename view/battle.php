@@ -50,8 +50,8 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- ----------------- STEP 1 --------------------- -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------- STEP 1 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div id="step-1" class="mt-3" data-content="step-1">
 
             <div class="row justify-content-center">
@@ -61,13 +61,13 @@ require_once '../controller/battleController.php';
                     <div class="table-responsive">
                         <table class="table table-borderless">
                             <tr>
-                                <td><button data-who="1"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="2"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="3"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="4"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="5"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="6"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                                <td><button data-who="7"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="1"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
+                                <td><button data-who="2"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
+                                <td><button data-who="3"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
+                                <td><button data-who="4"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
+                                <td><button data-who="5"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
+                                <td><button data-who="6"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
+                                <td><button data-who="7"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
                             </tr>
                         </table>
                     </div>
@@ -95,20 +95,18 @@ require_once '../controller/battleController.php';
                 </div>
             </div>
 
-            <button id="who" type="button" data-who class="stepper-btn btn btn-dark mr-3">Qui</button>
-            <button id="btn-step-1" class="btn btn-light" type="button">step 2</button>
-
         </div>
 
 
 
-        <!-- ----------------- STEP 2 --------------------- -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------- STEP 2 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div id="step-2" class="mt-3" data-content="step-2">
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
+                    <p class="h5">Quel est l'objet de ton pari</p>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
                 </div>
             </div>
 
@@ -119,13 +117,13 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- ----------------- STEP 3 --------------------- -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------- STEP 3 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div id="step-3" class="mt-3" data-content="step-3">
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
+                    <p class="h5">Que souhaites-tu parier ?</p>
                 </div>
             </div>
 
@@ -136,8 +134,8 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- ----------------- STEP 4 --------------------- -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------- STEP 4 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div id="step-4" class="mt-3" data-content="step-4">
 
             <div class="row justify-content-center">
@@ -153,8 +151,8 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- ----------------- STEP 5 --------------------- -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------- STEP 5 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div id="step-5" class="mt-3" data-content="step-4">
 
             <div class="row justify-content-center">
@@ -169,7 +167,7 @@ require_once '../controller/battleController.php';
 
 
         <!-- div permettant le scroll du bas -->
-        <!-- ---------------------------------------------- -->
+        <!-- /----------------------------------------------/ -->
         <div class="bottom-div"></div>
 
     </div><!-- fin container main body -->
@@ -191,13 +189,7 @@ require_once '../controller/battleController.php';
     <!-- Sweet Alert CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <!-- Your custom scripts (optional) -->
-
     <script>
-        $('#btn-step-1').click(function() {
-            $('#step-1').hide();
-            $('#step-2').show();
-        })
 
         $('#btn-step-2').click(function() {
             $('#step-2').hide();
@@ -219,9 +211,12 @@ require_once '../controller/battleController.php';
         // recupération des inputs respectifs lors du click sur le bouton next
         $("button[data-who]").click(function() {
             console.log($(this).data('who'));
+            $('#step-1').hide();
+            $('#step-2').show();
             betInformations[0] = 'Contre Polaire';
         });
         $("button[data-on]").click(function() {
+            console.log($(this).data('who'));
             betInformations[1] = 'Fnatic Gagne les Worlds';
         });
         $("button[data-what]").click(function() {
@@ -275,7 +270,9 @@ require_once '../controller/battleController.php';
                 });
             }
         });
+
     </script>
+
 </body>
 
 </html>
