@@ -30,21 +30,21 @@ require_once '../controller/battleController.php';
     <div class="container main-body">
 
 
-        <div class="row justify-content-between bg-light">
+        <div class="row justify-content-between blue darken-2">
             <div class="col text-center">
-                <span class="stepper-badge badge unique-color-dark">1</span>
+                <span id="badge-step-1" class="stepper-badge badge unique-color-dark">1</span>
             </div>
             <div class="col text-center">
-                <span class="stepper-badge badge grey">2</span>
+                <span id="badge-step-2" class="stepper-badge badge grey lighten-1">2</span>
             </div>
             <div class="col text-center">
-                <span class="stepper-badge badge grey">3</span>
+                <span id="badge-step-3" class="stepper-badge badge grey lighten-1">3</span>
             </div>
             <div class="col text-center">
-                <span class="stepper-badge badge grey">4</span>
+                <span id="badge-step-4" class="stepper-badge badge grey lighten-1">4</span>
             </div>
             <div class="col text-center">
-                <span class="stepper-badge badge grey">GO</span>
+                <span id="badge-step-go" class="stepper-badge badge grey lighten-1">GO</span>
             </div>
         </div>
 
@@ -57,7 +57,7 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col">
 
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
+                    <p class="h5  text-center">Qui souhaites-tu affronter ?</p>
                     <div class="table-responsive">
                         <table class="table table-borderless">
                             <tr>
@@ -104,7 +104,7 @@ require_once '../controller/battleController.php';
         <div id="step-2" class="mt-3" data-content="step-2">
 
             <div class="row justify-content-center">
-                <div class="col">
+                <div class="col text-center">
                     <p class="h5">Quel est ton pari ?</p>
                     <textarea name="mlk" id="lkjh" cols="30" rows="10">QSD</textarea>
                 </div>
@@ -190,7 +190,15 @@ require_once '../controller/battleController.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-        
+        // écriture d'une fonction pour passer au stepper suivant
+        function changeStepper(current, next) {
+            $('#' + current).hide();
+            $('#badge-' + current).addClass('grey lighten-1');
+            $('#badge-' + next).removeClass('grey lighten-1');
+            $('#badge-' + next).addClass('unique-color-dark');
+            $('#' + next ).show();
+        }
+
         $('#btn-step-2').click(function() {
             $('#step-2').hide();
             $('#step-3').show();
@@ -211,8 +219,13 @@ require_once '../controller/battleController.php';
         // recupération des inputs respectifs lors du click sur le bouton next
         $("button[data-who]").click(function() {
             console.log($(this).data('who'));
-            $('#step-1').hide();
-            $('#step-2').show();
+            // $('#step-1').hide();
+            // $('#badge-step-1').addClass('grey lighten-1');
+            // $('#badge-step-2').removeClass('grey lighten-1');
+            // $('#badge-step-2').addClass('unique-color-dark');
+            // $('#step-2').show();
+            changeStepper('step-1','step-2');
+
             betInformations[0] = 'Contre Polaire';
         });
         $("button[data-on]").click(function() {
@@ -270,7 +283,6 @@ require_once '../controller/battleController.php';
                 });
             }
         });
-
     </script>
 
 </body>
