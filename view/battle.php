@@ -56,57 +56,37 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col">
-                    
+
                     <p class="h5">Qui souhaites-tu affronter ?</p>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-borderless">
                             <tr>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
-                                <td>COUCOU</td>
+                                <td><button data-who="1"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="2"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="3"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="4"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="5"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="6"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="7"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                         </table>
                     </div>
                     <div>
-                        <table class="table">
+                        <table class="table table-borderless">
                             <tr>
-                                <td>COUCOU</td>
+                                <td><button data-who="8"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td>COUCOU</td>
+                                <td><button data-who="9"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td>COUCOU</td>
+                                <td><button data-who="10"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td>COUCOU</td>
+                                <td><button data-who="11"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td>COUCOU</td>
-                            </tr>
-                            <tr>
-                                <td>COUCOU</td>
-                            </tr>
-                            <tr>
-                                <td>COUCOU</td>
-                            </tr>
-                            <tr>
-                                <td>COUCOU</td>
-                            </tr>
-                            <tr>
-                                <td>COUCOU</td>
-                            </tr>
-                            <tr>
-                                <td>COUCOU</td>
+                                <td><button data-who="12"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                         </table>
 
@@ -234,19 +214,11 @@ require_once '../controller/battleController.php';
             $('#step-5').show();
         })
 
-
-
-
-
-
-
-
-
-
         let betInformations = [];
 
         // recupération des inputs respectifs lors du click sur le bouton next
         $("button[data-who]").click(function() {
+            console.log($(this).data('who'));
             betInformations[0] = 'Contre Polaire';
         });
         $("button[data-on]").click(function() {
