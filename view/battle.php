@@ -44,7 +44,7 @@ require_once '../controller/battleController.php';
                 <span id="badge-step-4" class="stepper-badge badge grey lighten-1">4</span>
             </div>
             <div class="col text-center">
-                <span id="badge-step-go" class="stepper-badge badge grey lighten-1">GO</span>
+                <span id="badge-step-5" class="stepper-badge badge grey lighten-1">GO</span>
             </div>
         </div>
 
@@ -111,7 +111,7 @@ require_once '../controller/battleController.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-on class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="2" class="stepper-btn btn btn-light mr-3">retour</button>
                     <button type="button" data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
@@ -124,13 +124,50 @@ require_once '../controller/battleController.php';
         <div id="step-3" class="mt-3" data-content="step-3">
 
             <div class="row justify-content-center">
+                <p class="h5 text-center">Que souhaites-tu parier ?</p>
+            </div>
+
+            <div class="row shadow-sm justify-content-center p-1">
+                <i class="bet-logo fas fa-pizza-slice p-2"></i>
+                <button class="btn" data-what="1">pizza</button>
+                <p class="bet-text">Une Pizza, à partager bien sûre !</p>
+            </div>
+
+            <div class="row shadow-sm justify-content-center p-1">
                 <div class="col">
-                    <p class="h5">Que souhaites-tu parier ?</p>
+                    <div class="text-center">
+                        <i class="bet-logo fas fa-hamburger p-2"></i><button class="btn" data-what="2">hamburger</button></div>
+                    <div class="text-center">
+                        <p class="bet-text">Un petit BK, McDo ou bien Quick ...</p>
+                    </div>
                 </div>
             </div>
 
-            <button type="button" data-what class="stepper-btn btn btn-dark mr-3">Quoi</button>
-            <button id="btn-step-3" class="btn btn-light" type="button">step 4</button>
+            <div class="row shadow-sm" data-what="3">
+                <div class="col-3 text-center">
+                    <i class="bet-logo fas fa-film p-2"></i>
+                </div>
+                <div class="col text-left pt-2">
+                    <div class="h4">CINEMA</div>
+                    <p class="bet-text">Une petite toile, du pop-corn en option ...</p>
+                </div>
+            </div>
+
+            <div class="row shadow-sm" data-what="4">
+                <div class="col-3 text-center">
+                    <i class="bet-logo fas fa-wine-glass-alt p-2"></i>
+                </div>
+                <div class="col text-left pt-2">
+                    <div class="h4">VERRE</div>
+                    <p class="bet-text">Refaire le monde devant un verre, ou deux ...</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" data-current="3" class="stepper-btn btn btn-light mr-3">retour</button>
+                </div>
+            </div>
 
         </div>
 
@@ -142,13 +179,37 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
+                    <p class="h5 text-center">Quand s'arrête ton pari ?</p>
                 </div>
             </div>
 
-            <button type="button" data-when class="stepper-btn btn btn-dark mr-3">Quand</button>
-            <button id="btn-step-4" class="btn btn-light" type="button">suivant</button>
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <input id="bet-date" name="bet-date" class="big-date" type="date">
+                </div>
+            </div>
 
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <select id="bet-hours" name="hours" class="big-hour border" >
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                    </select>
+                    <select id="bet-minutes" name="minutes" class="big-hour border"  >
+                        <option value="00">00</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
+                </div>
+            </div>
         </div>
 
 
@@ -163,8 +224,12 @@ require_once '../controller/battleController.php';
                 </div>
             </div>
 
-            <button type="button" data-submit class="stepper-btn btn btn-light mr-3">Go!</button>
-
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" data-current="5" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-submit class="stepper-btn btn btn-light mr-3">Go!</button>
+                </div>
+            </div>
         </div>
 
 
@@ -218,14 +283,31 @@ require_once '../controller/battleController.php';
             betInformations[1] = 'Fnatic Gagne les Worlds';
         });
         $('button[data-what]').click(function() {
-
+            console.log($(this).data('what'));
             goNextStepper('step-3', 'step-4');
             betInformations[2] = 'Un Kebab';
         });
         $('button[data-when]').click(function() {
-            goNextStepper('step-4', 'step-go');
+            let endBet = $('#bet-date').val() + ' ' + $('#bet-hours').val() + ':' + $('#bet-minutes').val() + ':00';
+            console.log(endBet);
+
+            goNextStepper('step-4', 'step-5');
             betInformations[3] = '2020-05-23 16:00';
         });
+
+
+
+        $('button[data-current]').click(function() {
+            let stepNumber = +$(this).data('current');
+            goNextStepper('step-' + stepNumber, 'step-' + (stepNumber - 1));
+        })
+
+
+
+
+
+
+
 
         // contrôle des données avant envoi sur le bouton submit
         $('button[data-submit]').click(function() {
