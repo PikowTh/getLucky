@@ -106,13 +106,15 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <p class="h5">Quel est ton pari ?</p>
-                    <textarea name="mlk" id="lkjh" cols="30" rows="10">QSD</textarea>
+                    <textarea name="bet-area" id="bet-area" cols="40" rows="10"></textarea>
                 </div>
             </div>
-
-            <button type="button" data-on class="stepper-btn btn btn-dark mr-3">Sur</button>
-            <button id="btn-step-2" class="btn btn-light" type="button">step 3</button>
-
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" data-on class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
+                </div>
+            </div>
         </div>
 
 
@@ -190,57 +192,43 @@ require_once '../controller/battleController.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-        // écriture d'une fonction pour passer au stepper suivant
-        function changeStepper(current, next) {
+        // fonction pour passer au stepper suivant
+        // en param le nom du step : ex. step-1
+        function goNextStepper(current, next) {
             $('#' + current).hide();
             $('#badge-' + current).addClass('grey lighten-1');
             $('#badge-' + next).removeClass('grey lighten-1');
             $('#badge-' + next).addClass('unique-color-dark');
-            $('#' + next ).show();
-        }
-
-        $('#btn-step-2').click(function() {
-            $('#step-2').hide();
-            $('#step-3').show();
-        })
-
-        $('#btn-step-3').click(function() {
-            $('#step-3').hide();
-            $('#step-4').show();
-        })
-
-        $('#btn-step-4').click(function() {
-            $('#step-4').hide();
-            $('#step-5').show();
-        })
+            $('#' + next).show();
+        };
 
         let betInformations = [];
 
         // recupération des inputs respectifs lors du click sur le bouton next
-        $("button[data-who]").click(function() {
+        $('button[data-who]').click(function() {
             console.log($(this).data('who'));
-            // $('#step-1').hide();
-            // $('#badge-step-1').addClass('grey lighten-1');
-            // $('#badge-step-2').removeClass('grey lighten-1');
-            // $('#badge-step-2').addClass('unique-color-dark');
-            // $('#step-2').show();
-            changeStepper('step-1','step-2');
+            goNextStepper('step-1', 'step-2');
 
             betInformations[0] = 'Contre Polaire';
         });
-        $("button[data-on]").click(function() {
-            console.log($(this).data('who'));
+        $('button[data-on]').click(function() {
+            console.log($('#bet-area').val());
+            goNextStepper('step-2', 'step-3');
+
             betInformations[1] = 'Fnatic Gagne les Worlds';
         });
-        $("button[data-what]").click(function() {
+        $('button[data-what]').click(function() {
+
+            goNextStepper('step-3', 'step-4');
             betInformations[2] = 'Un Kebab';
         });
-        $("button[data-when]").click(function() {
+        $('button[data-when]').click(function() {
+            goNextStepper('step-4', 'step-go');
             betInformations[3] = '2020-05-23 16:00';
         });
 
         // contrôle des données avant envoi sur le bouton submit
-        $("button[data-submit]").click(function() {
+        $('button[data-submit]').click(function() {
 
             let addBet = true;
 
