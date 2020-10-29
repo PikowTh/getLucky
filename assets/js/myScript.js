@@ -11,7 +11,7 @@ $(document).ready(function () {
     };
 
     /// Nous desactivons les boutons pour ne pas valider de pari sans que tout les champs soient remplis
-    /// nous validons l'étape 2
+    /// Validation de l'étape 2
     $('#bet-area').keyup(function () {
         if ($('#bet-area').val().length > 5) {
             $('#btnStepTwo').attr('disabled', false);
@@ -20,6 +20,26 @@ $(document).ready(function () {
         }
     })
 
+
+    /// Nous desactivons les boutons pour ne pas valider de pari sans que tout les champs soient remplis
+    /// Validation de l'étape 2
+    $('#bet-date').blur(function () {
+        console.log($('#bet-date').val().length);
+        if ($('#bet-date').val().length == 10) {
+            $('#btnStepFour').attr('disabled', false);
+        } else {
+            $('#btnStepFour').attr('disabled', true);
+        }
+    })
+
+
+    // fonction sur le bouton précédent permettant de venir à l'arrière
+    $('button[data-current]').click(function () {
+        let stepNumber = +$(this).data('current');
+        goNextStepper('step-' + stepNumber, 'step-' + (stepNumber - 1));
+    })
+
+
     let betInformations = [];
 
     // recupération des inputs respectifs lors du click sur le bouton next
@@ -27,33 +47,27 @@ $(document).ready(function () {
         console.log($(this).data('who'));
         goNextStepper('step-1', 'step-2');
 
-        betInformations[0] = 'Contre Polaire';
+        betInformations[0] = $(this).data('who');
     });
     $('button[data-on]').click(function () {
         console.log($('#bet-area').val());
         goNextStepper('step-2', 'step-3');
 
-        betInformations[1] = 'Fnatic Gagne les Worlds';
+        betInformations[1] = $('#bet-area').val();
     });
     $('button[data-what]').click(function () {
         console.log($(this).data('what'));
         goNextStepper('step-3', 'step-4');
-        betInformations[2] = 'Un Kebab';
+        betInformations[2] = $(this).data('what');
     });
     $('button[data-when]').click(function () {
         let endBet = $('#bet-date').val() + ' ' + $('#bet-hours').val() + ':' + $('#bet-minutes').val() + ':00';
         console.log(endBet);
 
         goNextStepper('step-4', 'step-5');
-        betInformations[3] = '2020-05-23 16:00';
+        betInformations[3] = endBet;
     });
 
-
-
-    $('button[data-current]').click(function () {
-        let stepNumber = +$(this).data('current');
-        goNextStepper('step-' + stepNumber, 'step-' + (stepNumber - 1));
-    })
 
 
     // contrôle des données avant envoi sur le bouton submit
@@ -80,10 +94,10 @@ $(document).ready(function () {
                 data: {
                     'bet': 'add',
                     'betName': 'Worlds League of Legends',
-                    'betDescription': 'Je pari que les Fnatic gagne les worlds',
-                    'betEndTtime': '1900-01-01 00:00:00',
-                    'contactId': 107,
-                    'betType': 1
+                    'betDescription': betInformations[1],
+                    'betEndTtime': betInformations[3],
+                    'contactId': betInformations[0],
+                    'betType': betInformations[2]
                 },
                 success: function (dataReturn) {
                     if (dataReturn) {

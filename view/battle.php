@@ -44,7 +44,10 @@ require_once '../controller/battleController.php';
                 <span id="badge-step-4" class="stepper-badge badge grey lighten-1">4</span>
             </div>
             <div class="col text-center">
-                <span id="badge-step-5" class="stepper-badge badge grey lighten-1">GO</span>
+                <span id="badge-step-5" class="stepper-badge badge grey lighten-1">5</span>
+            </div>
+            <div class="col text-center">
+                <span id="badge-step-6" class="stepper-badge badge grey lighten-1">GO</span>
             </div>
         </div>
 
@@ -61,32 +64,32 @@ require_once '../controller/battleController.php';
                     <div class="table-responsive">
                         <table class="table table-borderless">
                             <tr>
-                                <td><button data-who="1"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
-                                <td><button data-who="2"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
-                                <td><button data-who="3"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
-                                <td><button data-who="4"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
-                                <td><button data-who="5"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
-                                <td><button data-who="6"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
-                                <td><button data-who="7"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
+                                <td><button data-who="16"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
+                                <td><button data-who="17"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
+                                <td><button data-who="18"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
+                                <td><button data-who="19"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
+                                <td><button data-who="20"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
+                                <td><button data-who="21"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
+                                <td><button data-who="22"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
                             </tr>
                         </table>
                     </div>
                     <div>
                         <table class="table table-borderless">
                             <tr>
-                                <td><button data-who="8"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="23"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td><button data-who="9"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="24"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td><button data-who="10"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="25"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td><button data-who="11"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="26"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                             <tr>
-                                <td><button data-who="12"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="27"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
                             </tr>
                         </table>
 
@@ -189,14 +192,14 @@ require_once '../controller/battleController.php';
             </div>
 
             <div class="row justify-content-center">
-                <div class="col text-center">
+                <div class="col text-center mt-2">
                     <input id="bet-date" name="bet-date" class="big-date" type="date">
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <select id="bet-hours" name="hours" class="big-hour border">
+                    <select id="bet-hours" name="hours" class="big-hour border mt-2">
                         <?php for ($i = 1; $i <= 24; $i++) { ?>
                             <option value="<?= $i ?>"><?= $i ?></option>
                         <?php } ?>
@@ -211,7 +214,7 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button id="btnStepFour" type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
