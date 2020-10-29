@@ -197,10 +197,9 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <select id="bet-hours" name="hours" class="big-hour border">
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
+                        <?php for ($i = 1; $i <= 24; $i++) { ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
                     </select>
                     <select id="bet-minutes" name="minutes" class="big-hour border">
                         <option value="00">00</option>
