@@ -124,8 +124,12 @@ img.test {
     font-size: 3.5rem;;
 }
 
+.beer-logo {
+    font-size: 3.8rem;;
+}
+
 p.bet-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-style: italic;
     margin: 0;
 }

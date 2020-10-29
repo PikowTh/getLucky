@@ -30,7 +30,7 @@ require_once '../controller/battleController.php';
     <div class="container main-body">
 
 
-        <div class="row justify-content-between blue darken-2">
+        <div class="row justify-content-between primary-color-dark">
             <div class="col text-center">
                 <span id="badge-step-1" class="stepper-badge badge unique-color-dark">1</span>
             </div>
@@ -106,13 +106,13 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <p class="h5">Quel est ton pari ?</p>
-                    <textarea name="bet-area" id="bet-area" cols="40" rows="10"></textarea>
+                    <textarea name="bet-area" id="bet-area" cols="40" rows="5"></textarea>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <button type="button" data-current="2" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button type="button" data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button id="btnStepTwo" type="button" disabled data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
@@ -127,39 +127,43 @@ require_once '../controller/battleController.php';
                 <p class="h5 text-center">Que souhaites-tu parier ?</p>
             </div>
 
-            <div class="row shadow-sm justify-content-center p-1">
-                <i class="bet-logo fas fa-pizza-slice p-2"></i>
-                <button class="btn" data-what="1">pizza</button>
-                <p class="bet-text">Une Pizza, à partager bien sûre !</p>
-            </div>
-
-            <div class="row shadow-sm justify-content-center p-1">
-                <div class="col">
-                    <div class="text-center">
-                        <i class="bet-logo fas fa-hamburger p-2"></i><button class="btn" data-what="2">hamburger</button></div>
-                    <div class="text-center">
-                        <p class="bet-text">Un petit BK, McDo ou bien Quick ...</p>
-                    </div>
+            <div class="row shadow-sm">
+                <div class="col text-center p-0">
+                    <button class="btn" data-what="1"><i class="bet-logo fas fa-hamburger"></i></button>
+                </div>
+                <div class="col d-flex flex-column justify-content-center align-items-start p-0">
+                    <div class="h5 mb-0">BURGER</div>
+                    <p class="bet-text text-left pr-2">Un petit BK, McDo, KFC, Kebab, Quick ...</p>
                 </div>
             </div>
 
-            <div class="row shadow-sm" data-what="3">
-                <div class="col-3 text-center">
-                    <i class="bet-logo fas fa-film p-2"></i>
+            <div class="row shadow-sm">
+                <div class="col text-center p-0">
+                    <button class="btn" data-what="2"><i class="bet-logo fas fa-pizza-slice"></i></button>
                 </div>
-                <div class="col text-left pt-2">
-                    <div class="h4">CINEMA</div>
-                    <p class="bet-text">Une petite toile, du pop-corn en option ...</p>
+                <div class="col d-flex flex-column justify-content-center align-items-start p-0">
+                    <div class="h5 mb-0">PIZZA</div>
+                    <p class="bet-text text-left pr-2">Une Pizza ... à partager bien sûre !</p>
                 </div>
             </div>
 
-            <div class="row shadow-sm" data-what="4">
-                <div class="col-3 text-center">
-                    <i class="bet-logo fas fa-wine-glass-alt p-2"></i>
+            <div class="row shadow-sm">
+                <div class="col text-center p-0">
+                    <button class="btn" data-what="3"><i class="bet-logo fas fa-film"></i></button>
                 </div>
-                <div class="col text-left pt-2">
-                    <div class="h4">VERRE</div>
-                    <p class="bet-text">Refaire le monde devant un verre, ou deux ...</p>
+                <div class="col d-flex flex-column justify-content-center align-items-start p-0">
+                    <div class="h5 mb-0">CINEMA</div>
+                    <p class="bet-text text-left pr-2">Une petite toile et du pop-corn en option ...</p>
+                </div>
+            </div>
+
+            <div class="row shadow-sm">
+                <div class="col text-center p-0">
+                    <button class="btn" data-what="4"><i class="beer-logo fas fa-beer"></i></button>
+                </div>
+                <div class="col d-flex flex-column justify-content-center align-items-start p-0">
+                    <div class="h5 mb-0">VERRE</div>
+                    <p class="bet-text text-left pr-2">Refaire le monde devant un verre, ou deux ...</p>
                 </div>
             </div>
 
@@ -173,13 +177,14 @@ require_once '../controller/battleController.php';
 
 
 
+
         <!-- /----------------- STEP 4 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
         <div id="step-4" class="mt-3" data-content="step-4">
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5 text-center">Quand s'arrête ton pari ?</p>
+                    <p class="h5 text-center">Quand le pari prend-t-il fin ?</p>
                 </div>
             </div>
 
@@ -191,13 +196,13 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <select id="bet-hours" name="hours" class="big-hour border" >
+                    <select id="bet-hours" name="hours" class="big-hour border">
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
                         <option value="13">13</option>
                     </select>
-                    <select id="bet-minutes" name="minutes" class="big-hour border"  >
+                    <select id="bet-minutes" name="minutes" class="big-hour border">
                         <option value="00">00</option>
                         <option value="30">30</option>
                     </select>
@@ -207,7 +212,7 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col text-center">
                     <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button type="button" data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
@@ -255,105 +260,8 @@ require_once '../controller/battleController.php';
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
     <!-- Sweet Alert CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-    <script>
-        // fonction pour passer au stepper suivant
-        // en param le nom du step : ex. step-1
-        function goNextStepper(current, next) {
-            $('#' + current).hide();
-            $('#badge-' + current).addClass('grey lighten-1');
-            $('#badge-' + next).removeClass('grey lighten-1');
-            $('#badge-' + next).addClass('unique-color-dark');
-            $('#' + next).show();
-        };
-
-        let betInformations = [];
-
-        // recupération des inputs respectifs lors du click sur le bouton next
-        $('button[data-who]').click(function() {
-            console.log($(this).data('who'));
-            goNextStepper('step-1', 'step-2');
-
-            betInformations[0] = 'Contre Polaire';
-        });
-        $('button[data-on]').click(function() {
-            console.log($('#bet-area').val());
-            goNextStepper('step-2', 'step-3');
-
-            betInformations[1] = 'Fnatic Gagne les Worlds';
-        });
-        $('button[data-what]').click(function() {
-            console.log($(this).data('what'));
-            goNextStepper('step-3', 'step-4');
-            betInformations[2] = 'Un Kebab';
-        });
-        $('button[data-when]').click(function() {
-            let endBet = $('#bet-date').val() + ' ' + $('#bet-hours').val() + ':' + $('#bet-minutes').val() + ':00';
-            console.log(endBet);
-
-            goNextStepper('step-4', 'step-5');
-            betInformations[3] = '2020-05-23 16:00';
-        });
-
-
-
-        $('button[data-current]').click(function() {
-            let stepNumber = +$(this).data('current');
-            goNextStepper('step-' + stepNumber, 'step-' + (stepNumber - 1));
-        })
-
-
-
-
-
-
-
-
-        // contrôle des données avant envoi sur le bouton submit
-        $('button[data-submit]').click(function() {
-
-            let addBet = true;
-
-            // contrôles si le tableau est vide
-            if (betInformations.length == 0) {
-                addBet = false;
-                console.log('Aucun détail');
-            }
-            // contrôles si le tableau ne contient pas 'undefined'
-            if (betInformations.includes(undefined) || (betInformations.length < 4 && betInformations.length != 0)) {
-                addBet = false;
-                console.log('Attention tout n\'est pas rempli');
-            }
-
-            // envoi des données en ajax
-            if (addBet) {
-                $.ajax({
-                    url: '../controller/betAjax.php',
-                    type: 'GET',
-                    data: {
-                        'bet': 'add',
-                        'betName': 'Worlds League of Legends',
-                        'betDescription': 'Je pari que les Fnatic gagne les worlds',
-                        'betEndTtime': '1900-01-01 00:00:00',
-                        'contactId': 107,
-                        'betType': 1
-                    },
-                    success: function(dataReturn) {
-                        if (dataReturn) {
-                            Swal.fire(
-                                'Good job!',
-                                'You clicked the button!',
-                                'success'
-                            );
-                        }
-                    },
-                    error: function() {
-                        console.log('La pari n\'a pas pu été ajouté')
-                    },
-                });
-            }
-        });
-    </script>
+    <!-- custom script -->
+    <script type="text/javascript" src="../assets/js/myScript.js"></script>
 
 </body>
 

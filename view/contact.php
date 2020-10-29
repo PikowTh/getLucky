@@ -168,8 +168,8 @@ require_once '../controller/contactController.php';
                                         <?php }
 
                                         if ($users['toValidate'] == 1) { ?>
-                                            <button type="submit" class="rounded btn-contact success-color" name="accepted" value="<?= $users['contacts_id_toValidate'] . '-' . $users['users_id_asked'] . '-' . $users['users_id'] ?>"><i class="fas fa-check"></i>
-                                            </button><button type="submit" class="rounded btn-contact danger-color" name="refused" value="<?= $users['contacts_id_toValidate'] ?>"><i class="fas fa-times" id="testtesmort"></i></button>
+                                            <button type="submit" class="rounded btn-contact success-color" name="accepted" value="<?= $users['contacts_id_toValidate'] . '-' . $users['users_id_asked'] . '-' . $users['users_id'] ?>"><i class="fas fa-check"></i></button>
+                                            <button type="submit" class="rounded btn-contact danger-color" name="refused" value="<?= $users['contacts_id_toValidate'] ?>"><i class="fas fa-times"></i></button>
                                         <?php }
 
                                         if ($users['toValidate'] == 8) { ?>
