@@ -52,10 +52,27 @@ require_once '../controller/battleController.php';
         </div>
 
 
-
         <!-- /----------------- STEP 1 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
         <div id="step-1" class="mt-3" data-content="step-1">
+
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <p class="h5">Quel nom donnes-tu à ton pari ?</p>
+                    <input type="text" name="bet-name" id="bet-name">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button id="btnStepOne" type="button" disabled data-name class="stepper-btn btn btn-dark mr-3">suivant</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- /----------------- STEP 2 ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
+        <div id="step-2" class="mt-3" data-content="step-2">
 
             <div class="row justify-content-center">
                 <div class="col">
@@ -64,37 +81,36 @@ require_once '../controller/battleController.php';
                     <div class="table-responsive">
                         <table class="table table-borderless">
                             <tr>
-                                <td><button data-who="16"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
-                                <td><button data-who="17"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
-                                <td><button data-who="18"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
-                                <td><button data-who="19"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
-                                <td><button data-who="20"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
-                                <td><button data-who="21"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
-                                <td><button data-who="22"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
+                                <td><button data-who="70"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
+                                <td><button data-who="71"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
+                                <td><button data-who="72"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
+                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
+                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
+                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
+                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
                             </tr>
                         </table>
                     </div>
                     <div>
                         <table class="table table-borderless">
                             <tr>
-                                <td><button data-who="23"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="79"><i class="fas fa-user-circle mr-3"></i>Rubik</button></td>
                             </tr>
                             <tr>
-                                <td><button data-who="24"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
+                                <td><button data-who="80"><i class="fas fa-user-circle mr-3"></i>Cube</button></td>
                             </tr>
-                            <tr>
-                                <td><button data-who="25"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                            </tr>
-                            <tr>
-                                <td><button data-who="26"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                            </tr>
-                            <tr>
-                                <td><button data-who="27"><i class="fas fa-user-circle mr-3"></i>COUCOU</button></td>
-                            </tr>
+                           
                         </table>
 
                     </div>
 
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <button type="button" data-current="2" class="stepper-btn btn btn-light mr-3">retour</button>
                 </div>
             </div>
 
@@ -102,9 +118,9 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- /----------------- STEP 2 ---------------------/ -->
+        <!-- /----------------- STEP 3 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
-        <div id="step-2" class="mt-3" data-content="step-2">
+        <div id="step-3" class="mt-3" data-content="step-3">
 
             <div class="row justify-content-center">
                 <div class="col text-center">
@@ -114,17 +130,17 @@ require_once '../controller/battleController.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="2" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button id="btnStepTwo" type="button" disabled data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button type="button" data-current="3" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button id="btnStepThree" type="button" disabled data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
 
 
 
-        <!-- /----------------- STEP 3 ---------------------/ -->
+        <!-- /----------------- STEP 4 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
-        <div id="step-3" class="mt-3" data-content="step-3">
+        <div id="step-4" class="mt-3" data-content="step-4">
 
             <div class="row justify-content-center">
                 <p class="h5 text-center">Que souhaites-tu parier ?</p>
@@ -172,7 +188,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="3" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
                 </div>
             </div>
 
@@ -181,9 +197,9 @@ require_once '../controller/battleController.php';
 
 
 
-        <!-- /----------------- STEP 4 ---------------------/ -->
+        <!-- /----------------- STEP 5 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
-        <div id="step-4" class="mt-3" data-content="step-4">
+        <div id="step-5" class="mt-3" data-content="step-5">
 
             <div class="row justify-content-center">
                 <div class="col">
@@ -213,17 +229,17 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button id="btnStepFour" type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button type="button" data-current="5" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button id="btnStepFive" type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
 
 
 
-        <!-- /----------------- STEP 5 ---------------------/ -->
+        <!-- /----------------- STEP 6 ---------------------/ -->
         <!-- /----------------------------------------------/ -->
-        <div id="step-5" class="mt-3" data-content="step-4">
+        <div id="step-6" class="mt-3" data-content="step-6">
 
             <div class="row justify-content-center">
                 <div class="col">
@@ -233,7 +249,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="5" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="6" class="stepper-btn btn btn-light mr-3">retour</button>
                     <button type="button" data-submit class="stepper-btn btn btn-light mr-3">Go!</button>
                 </div>
             </div>
