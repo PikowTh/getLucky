@@ -64,7 +64,7 @@ require_once '../controller/battleController.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button id="btnStepOne" type="button" disabled data-name class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button id="btnStepOne" type="button" disabled data-name class="btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="2" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="2" class="btn btn-light mr-3">retour</button>
                 </div>
             </div>
 
@@ -130,8 +130,8 @@ require_once '../controller/battleController.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="3" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button id="btnStepThree" type="button" disabled data-on class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button type="button" data-current="3" class="btn btn-light mr-3">retour</button>
+                    <button id="btnStepThree" type="button" disabled data-on class="btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
@@ -188,7 +188,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="4" class="stepper-btn btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="4" class="btn btn-light mr-3">retour</button>
                 </div>
             </div>
 
@@ -229,8 +229,8 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="5" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button id="btnStepFive" type="button" disabled data-when class="stepper-btn btn btn-dark mr-3">suivant</button>
+                    <button type="button" data-current="5" class="btn btn-light mr-3">retour</button>
+                    <button id="btnStepFive" type="button" disabled data-when class="btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
         </div>
@@ -243,14 +243,14 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col">
-                    <p class="h5">Qui souhaites-tu affronter ?</p>
+                    <p class="h5">Petit recap'</p>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="6" class="stepper-btn btn btn-light mr-3">retour</button>
-                    <button type="button" data-submit class="stepper-btn btn btn-light mr-3">Go!</button>
+                    <button type="button" data-current="6" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-submit class="btn default-color mr-3">Lancer le pari !</button>
                 </div>
             </div>
         </div>

@@ -123,12 +123,13 @@ $(document).ready(function () {
                 },
                 success: function (dataReturn) {
                     if (dataReturn) {
-                        Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success'
-                        );
-                    }
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Pari lancé !'
+                        }).then(function () {
+                            location.href = 'bets.php';
+                        });
+                    };
                 },
                 error: function () {
                     console.log('La pari n\'a pas pu été ajouté')
