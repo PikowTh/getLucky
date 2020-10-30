@@ -30,6 +30,15 @@ require_once '../controller/battleController.php';
     <div class="container main-body">
 
 
+
+
+
+
+
+
+
+        <!-- /----------------- STEPPER NUMBER ---------------------/ -->
+        <!-- /----------------------------------------------/ -->
         <div class="row justify-content-between primary-color-dark">
             <div class="col text-center">
                 <span id="badge-step-1" class="stepper-badge badge unique-color-dark">1</span>
@@ -99,7 +108,7 @@ require_once '../controller/battleController.php';
                             <tr>
                                 <td><button data-who="80"><i class="fas fa-user-circle mr-3"></i>Cube</button></td>
                             </tr>
-                           
+
                         </table>
 
                     </div>
