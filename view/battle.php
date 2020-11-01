@@ -29,13 +29,11 @@ require_once '../controller/battleController.php';
 
     <div class="container main-body">
 
-
-
-
-
-
-
-
+        <div class="row">
+            <div class="col text-center">
+                <h1>Lance toi !</h1>
+            </div>
+        </div>
 
         <!-- /----------------- STEPPER NUMBER ---------------------/ -->
         <!-- /----------------------------------------------/ -->
@@ -86,31 +84,33 @@ require_once '../controller/battleController.php';
             <div class="row justify-content-center">
                 <div class="col">
 
-                    <p class="h5  text-center">Qui souhaites-tu affronter ?</p>
+                    <p class="h5 text-center">Qui souhaites-tu affronter ?</p>
                     <div class="table-responsive">
                         <table class="table table-borderless">
-                            <tr>
-                                <td><button data-who="70"><i class="fas fa-user-circle mr-3"></i>Polaire</button></td>
-                                <td><button data-who="71"><i class="fas fa-user-circle mr-3"></i>Grizz</button></td>
-                                <td><button data-who="72"><i class="fas fa-user-circle mr-3"></i>Panda</button></td>
-                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Natasha</button></td>
-                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Polochon</button></td>
-                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Ariel</button></td>
-                                <td><button data-who="77"><i class="fas fa-user-circle mr-3"></i>Mulan</button></td>
+                            <tr class="unique-color-dark">
+                                <?php foreach ($contactsArray as $contact) {
+                                    if ($contact['bookmark'] != 1) {
+                                        continue;
+                                    } ?>
+                                    <td><button class="btn-contacts-bookmarked btn mdb-color lighten-4" data-who="<?= $contact['table_contact_id'] ?>"><i class="mx-auto battle-persona-bookmarked fas fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
+                                <?php } ?>
                             </tr>
                         </table>
                     </div>
-                    <div>
+
+                    <div class="container">
                         <table class="table table-borderless">
-                            <tr>
-                                <td><button data-who="79"><i class="fas fa-user-circle mr-3"></i>Rubik</button></td>
-                            </tr>
-                            <tr>
-                                <td><button data-who="80"><i class="fas fa-user-circle mr-3"></i>Cube</button></td>
-                            </tr>
+
+                            <?php foreach ($contactsArray as $contact) {
+                                if ($contact['bookmark'] == 1) {
+                                    continue;
+                                } ?>
+                                <tr class="row justify-content-center">
+                                    <td class="col p-0 text-center"><button class="btn-contacts btn" data-who="<?= $contact['table_contact_id'] ?>"><i class="battle-persona far fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
+                                </tr>
+                            <?php } ?>
 
                         </table>
-
                     </div>
 
                 </div>
