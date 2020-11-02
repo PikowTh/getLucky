@@ -9,6 +9,7 @@ if (!isset($_SESSION['User'])) {
 }
 
 $newParameters = new Users();
+
 $PhoneNumberRegex = "/(0)+[0-9]{1}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}( ){0,1}+[0-9]{2}/";
 
 // Verifs Nouvel Email

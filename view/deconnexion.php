@@ -40,8 +40,6 @@ require_once '../controller/controllerDeconnexion.php';
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
 
-    <!-- Your custom scripts (optional) -->
-    <script></script>
 </body>
 
 </html>

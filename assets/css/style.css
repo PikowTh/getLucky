@@ -116,16 +116,12 @@ img.test {
     height: 3rem;
 }
 
-.pari {
-    height: 3rem;
-}
-
 .bet-logo {
-    font-size: 3.5rem;;
+    font-size: 3rem;;
 }
 
 .beer-logo {
-    font-size: 3.8rem;;
+    font-size: 3.2rem;;
 }
 
 p.bet-text {
@@ -156,6 +152,13 @@ p.bet-text {
     font-size: 1.5rem;
 }
 
+.bet-recap {
+    font-size: 0.8rem;
+}
+
+#recapName, #recapWho, #recapOn, #recapWhat, #recapWhen {
+    font-weight: normal;
+}
 
 
 /* -------------------------------------------------------------------------------------------------------- */
@@ -167,4 +170,22 @@ p.bet-text {
 
 #step-2, #step-3, #step-4, #step-5, #step-6 {
     display: none;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+/* BETS CSS */
+/* -------------------------------------------------------------------------------------------------------- */
+
+.bet-title {
+    font-size: 1.2rem;    
+    font-weight: bold;
+}
+
+.bet-description {
+    margin: 0;
+}
+
+.icon-type {
+    font-size: 2.2rem;
+    margin-top: 0.2rem;
 }

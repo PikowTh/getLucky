@@ -31,7 +31,7 @@ require_once '../controller/battleController.php';
 
         <div class="row">
             <div class="col text-center">
-                <h1>Lance toi !</h1>
+                <h1><i class="far fa-hand-point-right"></i> Lance toi !</h1>
             </div>
         </div>
 
@@ -92,7 +92,7 @@ require_once '../controller/battleController.php';
                                     if ($contact['bookmark'] != 1) {
                                         continue;
                                     } ?>
-                                    <td><button class="btn-contacts-bookmarked btn mdb-color lighten-4" data-who="<?= $contact['table_contact_id'] ?>"><i class="mx-auto battle-persona-bookmarked fas fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
+                                    <td><button class="btn-contacts-bookmarked btn blue-grey lighten-5" data-whoname="<?= $contact['contact_pseudo'] ?>" data-who="<?= $contact['table_contact_id'] ?>"><i class="mx-auto battle-persona-bookmarked fas fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
                                 <?php } ?>
                             </tr>
                         </table>
@@ -106,7 +106,7 @@ require_once '../controller/battleController.php';
                                     continue;
                                 } ?>
                                 <tr class="row justify-content-center">
-                                    <td class="col p-0 text-center"><button class="btn-contacts btn" data-who="<?= $contact['table_contact_id'] ?>"><i class="battle-persona far fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
+                                    <td class="col p-0 text-center"><button class="btn-contacts btn" data-whoname="<?= $contact['contact_pseudo'] ?>" data-who="<?= $contact['table_contact_id'] ?>"><i class="battle-persona far fa-user-circle mr-3"></i><?= $contact['contact_pseudo'] ?></button></td>
                                 </tr>
                             <?php } ?>
 
@@ -119,7 +119,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="2" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="2" class="btn btn-light btn-sm mr-3">précédent</button>
                 </div>
             </div>
 
@@ -139,7 +139,7 @@ require_once '../controller/battleController.php';
             </div>
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="3" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="3" class="btn btn-light btn-sm mr-3">précédent</button>
                     <button id="btnStepThree" type="button" disabled data-on class="btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
@@ -157,7 +157,7 @@ require_once '../controller/battleController.php';
 
             <div class="row shadow-sm">
                 <div class="col text-center p-0">
-                    <button class="btn" data-what="1"><i class="bet-logo fas fa-hamburger"></i></button>
+                    <button class="btn" data-whatname="Burger" data-what="1"><i class="bet-logo fas fa-hamburger"></i></button>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-start p-0">
                     <div class="h5 mb-0">BURGER</div>
@@ -167,7 +167,7 @@ require_once '../controller/battleController.php';
 
             <div class="row shadow-sm">
                 <div class="col text-center p-0">
-                    <button class="btn" data-what="2"><i class="bet-logo fas fa-pizza-slice"></i></button>
+                    <button class="btn" data-whatname="Pizza" data-what="2"><i class="bet-logo fas fa-pizza-slice"></i></button>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-start p-0">
                     <div class="h5 mb-0">PIZZA</div>
@@ -177,7 +177,7 @@ require_once '../controller/battleController.php';
 
             <div class="row shadow-sm">
                 <div class="col text-center p-0">
-                    <button class="btn" data-what="3"><i class="bet-logo fas fa-film"></i></button>
+                    <button class="btn" data-whatname="Cinéma" data-what="3"><i class="bet-logo fas fa-film"></i></button>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-start p-0">
                     <div class="h5 mb-0">CINEMA</div>
@@ -187,7 +187,7 @@ require_once '../controller/battleController.php';
 
             <div class="row shadow-sm">
                 <div class="col text-center p-0">
-                    <button class="btn" data-what="4"><i class="beer-logo fas fa-beer"></i></button>
+                    <button class="btn" data-whatname="Un verre" data-what="4"><i class="beer-logo fas fa-beer"></i></button>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-start p-0">
                     <div class="h5 mb-0">VERRE</div>
@@ -197,7 +197,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="4" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="4" class="btn btn-light btn-sm mr-3">précédent</button>
                 </div>
             </div>
 
@@ -218,7 +218,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center mt-2">
-                    <input id="bet-date" name="bet-date" class="big-date" type="date">
+                    <input id="bet-date" name="bet-date" class="big-date text-center" type="date">
                 </div>
             </div>
 
@@ -226,7 +226,7 @@ require_once '../controller/battleController.php';
                 <div class="col text-center">
                     <select id="bet-hours" name="hours" class="big-hour border mt-2">
                         <?php for ($i = 1; $i <= 24; $i++) { ?>
-                            <option value="<?= $i ?>"><?= $i ?></option>
+                            <option value="<?= $i ?>" <?= $i == 13 ? 'selected' : '' ?>><?= $i ?></option>
                         <?php } ?>
                     </select>
                     <select id="bet-minutes" name="minutes" class="big-hour border">
@@ -238,7 +238,7 @@ require_once '../controller/battleController.php';
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="5" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="5" class="btn btn-light btn-sm mr-3">précédent</button>
                     <button id="btnStepFive" type="button" disabled data-when class="btn btn-dark mr-3">suivant</button>
                 </div>
             </div>
@@ -251,14 +251,26 @@ require_once '../controller/battleController.php';
         <div id="step-6" class="mt-3" data-content="step-6">
 
             <div class="row justify-content-center">
-                <div class="col">
+                <div class="col bet-recap">
                     <p class="h5">Petit recap'</p>
+                    <ul class="ul-recap font-weight-bold">
+                        <li>Intitulé : <span id="recapName"></span></li>
+                        <li>Ami(e) défié(e) : <span id="recapWho"></span></li>
+                        <li>L'objet du pari : <span id="recapOn"></span></li>
+                        <li>La mise : <span id="recapWhat"></span></li>
+                        <li>Se terminera le : <span id="recapWhen"></span></li>
+                    </ul>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col text-center">
-                    <button type="button" data-current="6" class="btn btn-light mr-3">retour</button>
+                    <button type="button" data-current="6" class="btn btn-light btn-sm mr-3">précédent</button>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col text-center">
                     <button type="button" data-submit class="btn default-color mr-3">Lancer le pari !</button>
                 </div>
             </div>

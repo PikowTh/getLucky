@@ -42,7 +42,7 @@ require_once '../controller/parameterController.php';
         </div>
 
 
-        <div class="container-fluid border">
+        <div class="container-fluid">
 
             <?php
 
@@ -51,7 +51,9 @@ require_once '../controller/parameterController.php';
                     <div><button name="modify" value="mail" type="submit" class="btn border border-dark rounded w-100 mx-auto">E-mail</button></div>
                     <div><button name="modify" value="phone" type="submit" class="btn border border-dark rounded w-100 mx-auto">Téléphone</button></div>
                     <div><button name="modify" value="password" type="submit" class="btn border border-dark rounded w-100 mx-auto">Mot de passe</button></div>
-                    <div><button name="deconnection" type="submit" class="btn blue accent-1 font-weight-bold rounded w-100 mx-auto">Déconnexion</button></div>
+                </form>
+                <form method="post" action="../view/deconnexion.php">
+                    <div><button name="killSession" type="submit" class="btn blue accent-1 font-weight-bold rounded w-100 mx-auto">Déconnexion</button></div>
                 </form>
             <?php }
 
@@ -74,13 +76,6 @@ require_once '../controller/parameterController.php';
 
         </div>
 
-        <div class="bottom-div">
-            <form method="post" action="../view/deconnexion.php">
-                <button type="submit" id="delete" name="killSession" class="btn-floating"><i class="fas fa-door-open"></i></button>
-            </form>
-            <!-- permet le scroll du bas -->
-        </div>
-
         <div class="bottom-phone elegant-color-dark fixed-bottom">
             <?php include_once '../include/navbar.php' ?>
         </div>
@@ -96,7 +91,5 @@ require_once '../controller/parameterController.php';
         <!-- Your custom scripts (optional) -->
         <script type="text/javascript"></script>
 </body>
-
-<?php var_dump($_SESSION) ?>
 
 </html>

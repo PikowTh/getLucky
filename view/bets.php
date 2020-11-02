@@ -29,16 +29,53 @@ require_once '../controller/betsController.php';
 
 <body class="bg-veine">
 
+
+
     <div class="container main-body">
 
-        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"> -->
-
-        <div class="row shadow m-1 pari">
-            <div class="col"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
-            <div class="col">Pari pari</div>
+        <div class="row">
+            <div class="col">
+                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-star mr-2"></i>Petits défis entre amis<i class="fas fa-star ml-2"></i></span></p>
+            </div>
         </div>
 
-        <div class="row shadow m-1 pari">
+        <div class="row">
+            <div class="col primary-color-dark shadow text-white">
+                <p class="title-contact"><span class="icon-title"><i class="far fa-comments"></i></span>Mes défis en cours</p>
+            </div>
+        </div>
+
+        <div class="row shadow m-1">
+            <div class="col-2 p-2 mx-auto text-center">
+                <i class="icon-type <?= $typeOfArray[4] ?>"></i>
+            </div>
+
+            <button class="btn col-9 text-center p-1">
+                <p class="bet-description font-weight-bold">Croquettes</p>
+                <p class="bet-description">Croquettes</p>
+            </button>
+
+        </div>
+
+        <div class="row">
+            <div class="col primary-color-dark shadow text-white">
+                <p class="title-contact"><span class="icon-title"><i class="far fa-comment-dots"></i></span>Mes défis en attentes</p>
+            </div>
+        </div>
+
+        <div class="row shadow m-1">
+            <div class="col-2 border"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
+            <div class="col-10 border text-center">Pari pari</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col primary-color-dark shadow text-white">
+                <p class="title-contact"><span class="icon-title"><i class="fas fa-comment"></i></span>Mes défis terminés</p>
+            </div>
+        </div>
+
+        <div class="row shadow m-1">
             <div class="col-2 border"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
             <div class="col-10 border text-center">Pari pari</div>
         </div>

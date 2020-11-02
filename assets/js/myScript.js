@@ -50,44 +50,67 @@ $(document).ready(function () {
         }
     })
 
-
+    // création d'un tableau reprenant les infos du pari
     let betInformations = [];
 
     // recupération des inputs respectifs lors du click sur le bouton next ou directement sur l'icone respectif
 
     $('button[data-name]').click(function () {
         console.log($('#bet-name').val());
-        goNextStepper('step-1', 'step-2');
 
-        betInformations[0] = $('#bet-name').val();
+        let betName = $('#bet-name').val();
+
+        betInformations[0] = betName;
+        $('#recapName').text(betName);
+
+        goNextStepper('step-1', 'step-2');
     });
 
     $('button[data-who]').click(function () {
         console.log($(this).data('who'));
-        goNextStepper('step-2', 'step-3');
 
-        betInformations[1] = $(this).data('who');
+        let betWho = $(this).data('who');
+        let BetWhoName = $(this).data('whoname')
+
+        betInformations[1] = betWho;
+        $('#recapWho').text(BetWhoName);
+
+        goNextStepper('step-2', 'step-3');
     });
 
     $('button[data-on]').click(function () {
         console.log($('#bet-area').val());
-        goNextStepper('step-3', 'step-4');
 
-        betInformations[2] = $('#bet-area').val();
+        let betOn = $('#bet-area').val()
+
+        betInformations[2] = betOn;
+        $('#recapOn').text(betOn);
+
+        goNextStepper('step-3', 'step-4');
     });
 
     $('button[data-what]').click(function () {
         console.log($(this).data('what'));
+
+        let what = $(this).data('what')
+        let whatName = $(this).data('whatname');
+
+        betInformations[3] = what;
+        $('#recapWhat').text(whatName);
+
         goNextStepper('step-4', 'step-5');
-        betInformations[3] = $(this).data('what');
     });
 
     $('button[data-when]').click(function () {
         let endBet = $('#bet-date').val() + ' ' + $('#bet-hours').val() + ':' + $('#bet-minutes').val() + ':00';
+        let betTime = $('#bet-date').val() + ' à ' + $('#bet-hours').val() + ':' + $('#bet-minutes').val();
+
         console.log(endBet);
 
-        goNextStepper('step-5', 'step-6');
         betInformations[4] = endBet;
+        $('#recapWhen').text(betTime);
+
+        goNextStepper('step-5', 'step-6');
     });
 
 
