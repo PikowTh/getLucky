@@ -57,7 +57,7 @@ class Bets
     public function getAllBets()
     {
         
-        $query = 'SELECT bets_id, bets_name, bets_end_time, bets_accepted FROM lhp4_bets WHERE users_id = :userId';
+        $query = 'SELECT bets_id, bets_name, bets_end_time, bets_accepted, bet_types_id, bets_description FROM lhp4_bets WHERE users_id = :userId';
 
         try {
 

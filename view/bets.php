@@ -45,17 +45,22 @@ require_once '../controller/betsController.php';
             </div>
         </div>
 
-        <div class="row shadow m-1">
-            <div class="col-2 p-2 mx-auto text-center">
-                <i class="icon-type <?= $typeOfArray[4] ?>"></i>
+        <?php foreach ($betsArray as $bet) {
+            if ($bet['bets_accepted'] == 0) {
+                echo ' ';
+                continue;
+            } ?>
+            <div class="row shadow m-1">
+                <div class="col-2 p-2 mx-auto text-center">
+                    <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                </div>
+
+                <button class="btn col-9 text-center p-1">
+                    <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                    <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                </button>
             </div>
-
-            <button class="btn col-9 text-center p-1">
-                <p class="bet-description font-weight-bold">Croquettes</p>
-                <p class="bet-description">Croquettes</p>
-            </button>
-
-        </div>
+        <?php } ?>
 
         <div class="row">
             <div class="col primary-color-dark shadow text-white">
@@ -63,21 +68,26 @@ require_once '../controller/betsController.php';
             </div>
         </div>
 
-        <div class="row shadow m-1">
-            <div class="col-2 border"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
-            <div class="col-10 border text-center">Pari pari</div>
-        </div>
+        <?php foreach ($betsArray as $bet) {
+            if ($bet['bets_accepted'] == 1) {
+                continue;
+            } ?>
+            <div class="row shadow m-1">
+                <div class="col-2 p-2 mx-auto text-center">
+                    <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                </div>
 
+                <button class="btn col-9 text-center p-1">
+                    <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                    <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                </button>
+            </div>
+        <?php } ?>
 
         <div class="row">
             <div class="col primary-color-dark shadow text-white">
                 <p class="title-contact"><span class="icon-title"><i class="fas fa-comment"></i></span>Mes défis terminés</p>
             </div>
-        </div>
-
-        <div class="row shadow m-1">
-            <div class="col-2 border"><img src="https://images-na.ssl-images-amazon.com/images/I/61ZPMSBB8yL._AC_SY679_.jpg" class="card-img test" alt="naruto-image"></div>
-            <div class="col-10 border text-center">Pari pari</div>
         </div>
 
         <!-- permet le scroll du bas -->

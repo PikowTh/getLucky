@@ -181,7 +181,12 @@ p.bet-text {
     font-weight: bold;
 }
 
+.bet-description-title {
+    margin: 0;
+}
+
 .bet-description {
+    font-size: 0.6rem;
     margin: 0;
 }
 
