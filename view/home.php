@@ -33,7 +33,7 @@ require_once '../controller/homeController.php';
 
         <div class="row">
             <div class="col">
-                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" Veine .. "<i class="far fa-gem ml-2"></i></span></p>
+                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" .. Veine .. "<i class="far fa-gem ml-2"></i></span></p>
             </div>
         </div>
 
