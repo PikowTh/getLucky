@@ -54,7 +54,7 @@ require_once '../controller/homeController.php';
                         <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
                     </div>
 
-                    <button name="betId" value="test" class="btn col-9 text-center p-1">
+                    <button name="betId" value="<?= $bet['bets_id'] ?>" class="btn col-9 text-center p-1">
                         <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
                         <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
                     </button>

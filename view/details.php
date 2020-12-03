@@ -1,6 +1,6 @@
 <?php
 
-require_once '../controller/homeController.php';
+require_once '../controller/detailsController.php';
 
 ?>
 
@@ -32,15 +32,14 @@ require_once '../controller/homeController.php';
     <div class="container main-body">
 
         <div class="row">
-            <p>BIIIIIIM</p>
             <div class="col">
-                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" .. Veine 22 .. "<i class="far fa-gem ml-2"></i></span></p>
+                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" .. Veine .. "<i class="far fa-gem ml-2"></i></span></p>
             </div>
         </div>
 
         <div class="row">
             <div class="col primary-color-dark shadow text-white">
-                <p class="title-contact"><span class="icon-title"><i class="far fa-bell"></i></span>Incoming Battle !!!</p>
+                <p class="title-contact"><span class="icon-title"><i class="fas fa-info-circle"></i></span>Détails du pari</p>
             </div>
         </div>
 
