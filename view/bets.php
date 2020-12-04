@@ -32,64 +32,64 @@ require_once '../controller/betsController.php';
 
 
     <div class="container main-body">
-
-        <div class="row">
-            <div class="col">
-                <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-star mr-2"></i>Petits défis entre amis<i class="fas fa-star ml-2"></i></span></p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col primary-color-dark shadow text-white">
-                <p class="title-contact"><span class="icon-title"><i class="far fa-comments"></i></span>Mes défis en cours</p>
-            </div>
-        </div>
-
-        <?php foreach ($betsArray as $bet) {
-            if ($bet['bets_accepted'] == 0) {
-                echo ' ';
-                continue;
-            } ?>
-            <div class="row shadow m-1">
-                <div class="col-2 p-2 mx-auto text-center">
-                    <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+        <form action="details.php" method="get">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-star mr-2"></i>Petits défis entre amis<i class="fas fa-star ml-2"></i></span></p>
                 </div>
-
-                <button class="btn col-9 text-center p-1">
-                    <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
-                    <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
-                </button>
             </div>
-        <?php } ?>
 
-        <div class="row">
-            <div class="col primary-color-dark shadow text-white">
-                <p class="title-contact"><span class="icon-title"><i class="far fa-comment-dots"></i></span>Mes défis en attentes</p>
-            </div>
-        </div>
-
-        <?php foreach ($betsArray as $bet) {
-            if ($bet['bets_accepted'] == 1) {
-                continue;
-            } ?>
-            <div class="row shadow m-1">
-                <div class="col-2 p-2 mx-auto text-center">
-                    <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+            <div class="row">
+                <div class="col primary-color-dark shadow text-white">
+                    <p class="title-contact"><span class="icon-title"><i class="far fa-comments"></i></span>Mes défis en cours</p>
                 </div>
-
-                <button class="btn col-9 text-center p-1">
-                    <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
-                    <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
-                </button>
             </div>
-        <?php } ?>
 
-        <div class="row">
-            <div class="col primary-color-dark shadow text-white">
-                <p class="title-contact"><span class="icon-title"><i class="fas fa-comment"></i></span>Mes défis terminés</p>
+            <?php foreach ($betsArray as $bet) {
+                if ($bet['bets_accepted'] == 0) {
+                    echo ' ';
+                    continue;
+                } ?>
+                <div class="row shadow m-1">
+                    <div class="col-2 p-2 mx-auto text-center">
+                        <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                    </div>
+
+                    <button class="btn col-9 text-center p-1">
+                        <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                        <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                    </button>
+                </div>
+            <?php } ?>
+
+            <div class="row">
+                <div class="col primary-color-dark shadow text-white">
+                    <p class="title-contact"><span class="icon-title"><i class="far fa-comment-dots"></i></span>Mes défis en attentes</p>
+                </div>
             </div>
-        </div>
 
+            <?php foreach ($betsArray as $bet) {
+                if ($bet['bets_accepted'] == 1) {
+                    continue;
+                } ?>
+                <div class="row shadow m-1">
+                    <div class="col-2 p-2 mx-auto text-center">
+                        <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                    </div>
+
+                    <button name="betId" value="<?= $bet['bets_id'] ?>" class="btn col-9 text-center p-1">
+                        <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                        <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                    </button>
+                </div>
+            <?php } ?>
+
+            <div class="row">
+                <div class="col primary-color-dark shadow text-white">
+                    <p class="title-contact"><span class="icon-title"><i class="fas fa-comment"></i></span>Mes défis terminés</p>
+                </div>
+            </div>
+        </form>
         <!-- permet le scroll du bas -->
         <div class="bottom-div"></div>
 

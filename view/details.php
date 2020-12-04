@@ -43,22 +43,20 @@ require_once '../controller/detailsController.php';
             </div>
         </div>
 
-        <?php foreach ($betsArray as $bet) {
-            if ($bet['bets_accepted'] == 1) {
-                echo ' ';
-                continue;
-            } ?>
-            <div class="row shadow m-1">
-                <div class="col-2 p-2 mx-auto text-center">
-                    <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
-                </div>
-
-                <button class="btn col-9 text-center p-1">
-                    <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
-                    <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
-                </button>
+        <div class="row shadow m-1">
+            <div class="col-2 p-2 mx-auto text-center">
+                <i class="icon-type <?= $typeOfArray[$betDetails['bet_types_id']] ?>"></i>
             </div>
-        <?php } ?>
+
+            <button class="btn col-9 text-center p-1">
+                <p class="bet-description-title font-weight-bold"><?= $betDetails['bets_name'] ?></p>
+                <p class="bet-description text-center text-truncate"><?= $betDetails['bets_description'] ?></p>
+            </button>
+        </div>
+
+        <div class="row shadow m-1">
+            <button class="btn" value="back" onclick="history.go(-1)">
+        </div>
 
         <div class="bottom-div">
             <!-- permet le scroll du bas -->

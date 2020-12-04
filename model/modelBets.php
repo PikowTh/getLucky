@@ -87,7 +87,7 @@ class Bets
     public function getBetDetails($betId)
     {
 
-        $query = 'SELECT bets_id, lhp4_bet_types.bet_types_id, bet_types_name, bets_name, bets_description, bets_end_time, bets_result, bets_fulfilled, bets_accepted, lhp4_contacts.users_id, lhp4_bets.users_id AS challenger, users_pseudo
+        $query = 'SELECT bets_id, bet_types_img, lhp4_bet_types.bet_types_id, bet_types_name, bets_name, bets_description, bets_end_time, bets_result, bets_fulfilled, bets_accepted, lhp4_contacts.users_id, lhp4_bets.users_id AS challenger, users_pseudo
             FROM lhp4_bets
             INNER JOIN lhp4_contacts
             ON lhp4_bets.contacts_id = lhp4_contacts.contacts_id
