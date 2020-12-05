@@ -44,18 +44,14 @@ require_once '../controller/detailsController.php';
         </div>
 
         <div class="row shadow m-1">
-            <div class="col-2 p-2 mx-auto text-center">
-                <i class="icon-type <?= $typeOfArray[$betDetails['bet_types_id']] ?>"></i>
+            <div class="col-12 p-3 border">
+                <p class="text-center text-uppercase"><?= $betDetails['users_pseudo'] ?></p>
+                <p class="text-center">te défie !</p>
             </div>
-
-            <button class="btn col-9 text-center p-1">
-                <p class="bet-description-title font-weight-bold"><?= $betDetails['bets_name'] ?></p>
-                <p class="bet-description text-center text-truncate"><?= $betDetails['bets_description'] ?></p>
-            </button>
         </div>
 
         <div class="row shadow m-1">
-            <button class="btn" value="back" onclick="history.go(-1)">
+            <button class="btn col-4" value="back" onclick="history.go(-1)">
         </div>
 
         <div class="bottom-div">
