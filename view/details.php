@@ -43,15 +43,30 @@ require_once '../controller/detailsController.php';
             </div>
         </div>
 
+        <?php
+        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) {
+            echo 'c le mien';
+            // comparaison date ok
+            $dateNow = date('Y-m-d H:i:s');
+            var_dump($dateNow > $betDetails['bets_end_time']);
+        }
+        ?>
+
         <div class="row shadow m-1">
-            <div class="col-12 p-3 border">
-                <p class="text-center text-uppercase"><?= $betDetails['users_pseudo'] ?></p>
-                <p class="text-center">te défie !</p>
+            <div class="col-12 border p-2">
+                <p class="text-center h2 font-weight-bold text-uppercase m-0"><?= $betDetails['users_pseudo'] ?></p>
+                <p class="text-center m-0">te défie !</p>
             </div>
         </div>
 
         <div class="row shadow m-1">
-            <button class="btn col-4" value="back" onclick="history.go(-1)">
+            <div class="col-12 border p-2">
+                <p class="text-center h5 font-weight-bold text-uppercase m-0"><?= $betDetails['bets_description'] ?></p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center m-1">
+            <div class="btn border border-dark col-4" onclick="history.go(-1)"><i class="fas fa-arrow-left"></i></div>
         </div>
 
         <div class="bottom-div">

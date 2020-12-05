@@ -8,6 +8,8 @@ if (!isset($_SESSION['User'])) {
     exit;
 }
 
+var_dump($_SESSION['User']);
+
 require_once '../model/modelBets.php';
 
 $betsObj = new Bets();
