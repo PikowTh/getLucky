@@ -38,6 +38,7 @@ class Users
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     public function VerifyPseudoExist($pseudo)
     {
         $query = 'SELECT `users_pseudo` FROM lhp4_users WHERE `users_pseudo` = :userPseudo ';
@@ -79,7 +80,7 @@ class Users
         }
     }
 
-
+    
     public function VerifyLogin($mail, $password)
     {
 
@@ -121,6 +122,7 @@ class Users
             die('Erreur : ' . $e->getMessage());
         }
     }
+
     public function UpdateMailUsers($newMail, $usersId)
     {
         $query = 'UPDATE `lhp4_users` SET users_mail = :users_mail WHERE users_pseudo = :users_pseudo';
@@ -180,4 +182,25 @@ class Users
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function GetNameById($usersId)
+    {
+        $query = 'SELECT users_pseudo FROM lhp4_users WHERE lhp4_users.users_id = :users_id';
+
+        try {
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':users_id', $usersId);
+            $resultQuery->execute();
+            $resultUser = $resultQuery->fetch();
+
+            if ($resultUser) {
+                return $resultUser;
+            } else {
+                return 'false';
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
 }

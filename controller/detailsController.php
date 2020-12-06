@@ -11,10 +11,14 @@ if (!isset($_SESSION['User'])) {
 var_dump($_SESSION['User']);
 
 require_once '../model/modelBets.php';
+require_once '../model/modelUsers.php';
 
 $betsObj = new Bets();
+$usersObj = new Users();
 $betDetails = $betsObj->getBetDetails($_GET['betId'])[0];
 var_dump($betDetails);
+
+var_dump($usersObj->GetNameById($betDetails['users_id']));
 
 // Formatage de la date pour affichage en fr
 setlocale(LC_TIME, 'fr_FR.UTF8');
@@ -31,3 +35,7 @@ $typeOfArray = [
     3 => "fas fa-film",
     4 => "fas fa-beer"
 ];
+
+// comparaison date ok
+$dateNow = date('Y-m-d H:i:s');
+var_dump($dateNow > $betDetails['bets_end_time']);

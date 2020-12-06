@@ -44,23 +44,37 @@ require_once '../controller/detailsController.php';
 
         <?php
         if ($betDetails['challenger'] == $_SESSION['User']['users_id']) {
-            echo 'c le mien';
+            echo 'c le mien <br>';
             // comparaison date ok
             $dateNow = date('Y-m-d H:i:s');
             var_dump($dateNow > $betDetails['bets_end_time']);
         }
         ?>
 
-        <div class="row m-1">
-            <div class="col-12 p-2">
-                <p class="text-center h2 font-weight-bold text-uppercase m-0"><?= $betDetails['users_pseudo'] ?></p>
-                <p class="text-center m-0">te défie !</p>
+        <?php
+        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) { ?>
+
+            <div class="row m-1">
+                <div class="col-12 p-2">
+                    <p class="text-center text-uppercase m-0">Tu souhaites défier</p>
+                    <p class="text-center h6 text-uppercase m-0"><?= $usersObj->GetNameById($betDetails['users_id'])['users_pseudo'] ?></p>
+                </div>
             </div>
-        </div>
+
+        <?php } else { ?>
+
+            <div class="row m-1">
+                <div class="col-12 p-2">
+                    <p class="text-center h2 font-weight-bold text-uppercase m-0"><?= $betDetails['users_pseudo'] ?></p>
+                    <p class="text-center m-0">te défie !</p>
+                </div>
+            </div>
+
+        <?php } ?>
 
         <div class="row shadow m-1">
             <div class="col-12 border border-dark text-center p-4">
-                <p class="h5"><?= $betDetails['bets_name'] ?></p>
+                <p class="h5">Le pari : <?= $betDetails['bets_name'] ?></p>
                 <p class="h6 font-weight-bolder text-uppercase m-0"><?= $betDetails['bets_description'] ?></p>
             </div>
         </div>
