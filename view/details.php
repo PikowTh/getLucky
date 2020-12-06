@@ -30,7 +30,6 @@ require_once '../controller/detailsController.php';
 <body class="bg-veine">
 
     <div class="container main-body">
-
         <div class="row">
             <div class="col">
                 <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" .. Veine .. "<i class="far fa-gem ml-2"></i></span></p>
@@ -65,8 +64,17 @@ require_once '../controller/detailsController.php';
             </div>
         </div>
 
+        <div class="row justify-content-center">
+            <div class="col-5 text-center">
+                <button type="button" class="btn btn-success btn-sm rounded">j'accepte !</button>
+            </div>
+            <div class="col-5 text-center">
+                <button type="button" class="btn btn-danger btn-sm rounded">non merci !</button>
+            </div>
+        </div>
+
         <div class="row justify-content-center m-1">
-            <div class="btn border border-dark col-4" onclick="history.go(-1)"><i class="fas fa-arrow-left"></i></div>
+            <div class="btn border border-dark col-4 h3" onclick="history.go(-1)"><i class="fas fa-arrow-left"></i></div>
         </div>
 
         <div class="bottom-div">
