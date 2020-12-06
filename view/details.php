@@ -51,7 +51,7 @@ require_once '../controller/detailsController.php';
         }
         ?>
 
-        <div class="row shadow m-1">
+        <div class="row m-1">
             <div class="col-12 p-2">
                 <p class="text-center h2 font-weight-bold text-uppercase m-0"><?= $betDetails['users_pseudo'] ?></p>
                 <p class="text-center m-0">te défie !</p>
@@ -59,18 +59,15 @@ require_once '../controller/detailsController.php';
         </div>
 
         <div class="row shadow m-1">
-            <div class="col-12 p-2">
-                <p class="text-center h6 font-weight-bolder text-uppercase m-0"><?= $betDetails['bets_description'] ?></p>
+            <div class="col-12 border border-dark text-center p-4">
+                <p class="h5"><?= $betDetails['bets_name'] ?></p>
+                <p class="h6 font-weight-bolder text-uppercase m-0"><?= $betDetails['bets_description'] ?></p>
             </div>
         </div>
 
         <div class="row shadow m-1">
             <div class="col-12 text-center p-2">
-                <?php
-                    $dateTimeArray = explode(' ', $betDetails['bets_end_time']);
-                ?>
-                <div><input type="text" class="text-center" value="<?= $dateTimeArray[0] ?>" disabled></div>
-                <div><input type="text" class="text-center" value="<?= $dateTimeArray[1] ?>" disabled></div>
+                <p class="m-0">Ce pari se termine le <span class="font-weight-bolder"><?= $theDate ?></span></p>
             </div>
         </div>
 
