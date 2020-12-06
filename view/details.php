@@ -64,6 +64,16 @@ require_once '../controller/detailsController.php';
             </div>
         </div>
 
+        <div class="row shadow m-1">
+            <div class="col-12 text-center p-2">
+                <?php
+                    $dateTimeArray = explode(' ', $betDetails['bets_end_time']);
+                ?>
+                <div><input type="text" class="text-center" value="<?= $dateTimeArray[0] ?>" disabled></div>
+                <div><input type="text" class="text-center" value="<?= $dateTimeArray[1] ?>" disabled></div>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-5 text-center">
                 <button type="button" class="btn btn-success btn-sm rounded">j'accepte !</button>
