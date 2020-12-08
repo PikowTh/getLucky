@@ -16,8 +16,8 @@ require_once '../model/modelUsers.php';
 $betsObj = new Bets();
 $usersObj = new Users();
 $betDetails = $betsObj->getBetDetails($_GET['betId'])[0];
-var_dump($betDetails);
 
+var_dump($betDetails);
 var_dump($usersObj->GetNameById($betDetails['users_id']));
 
 // Formatage de la date pour affichage en fr

@@ -46,8 +46,7 @@ require_once '../controller/betsController.php';
             </div>
 
             <?php foreach ($betsArray as $bet) {
-                if ($bet['bets_accepted'] == 0) {
-                    echo ' ';
+                if ($bet['bets_accepted'] == 0 || date('Y-m-d H:i:s') > $bet['bets_end_time']) {
                     continue;
                 } ?>
                 <div class="row shadow m-1">
@@ -69,8 +68,7 @@ require_once '../controller/betsController.php';
             </div>
 
             <?php foreach ($betsArray as $bet) {
-                var_dump(date('Y-m-d H:i:s') < $bet['bets_end_time']);
-                if ($bet['bets_accepted'] == 1 || date('Y-m-d H:i:s') < $bet['bets_end_time']) {
+                if ($bet['bets_accepted'] == 1 || date('Y-m-d H:i:s') > $bet['bets_end_time']) {
                     continue;
                 } ?>
                 <div class="row shadow m-1">
@@ -92,7 +90,7 @@ require_once '../controller/betsController.php';
             </div>
 
             <?php foreach ($betsArray as $bet) {
-                if ($bet['bets_accepted'] == 1) {
+                if ($bet['bets_accepted'] == 0 || date('Y-m-d H:i:s') < $bet['bets_end_time']) {
                     continue;
                 } ?>
                 <div class="row shadow m-1">

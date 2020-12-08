@@ -140,4 +140,31 @@ class Bets
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    /**
+     * Fonction permettant d'accepter un pari : On change le statut du pari en accepté
+     * @param [int] $betId contient l'id du pari à modifier
+     * @return void
+     */
+    public function acceptBet($betId)
+    {
+
+        $query = 'UPDATE lhp4_bets
+            SET lhp4_bets.bets_accepted = 1
+            WHERE lhp4_bets.bets_id = :betId';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':betId', (int)($betId), PDO::PARAM_INT);
+
+            if ($resultQuery->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }
