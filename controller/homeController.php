@@ -12,7 +12,6 @@ require_once '../model/modelBets.php';
 
 $betsObj = new Bets();
 $betsArray = $betsObj->getChallengeBets();
-var_dump($betsArray);
 
 //tableau des icones des paris
 $typeOfArray = [

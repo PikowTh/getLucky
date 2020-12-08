@@ -20,11 +20,11 @@ class Bets
     /**
      * Permet de rajouter un pari dans la table bets
      *
-     * @param [str] $betName Contient le nom du pari
-     * @param [str] $betDescription Petite description du pari
-     * @param [str] $endTime Indique la fin du pari en dateTime
-     * @param [int] $contactId Indique le contact que nous souhaitons défier
-     * @param [int] $betType Indique le type du pari
+     * @param string $betName Contient le nom du pari
+     * @param string $betDescription Petite description du pari
+     * @param string $endTime Indique la fin du pari en dateTime
+     * @param integer $contactId Indique le contact que nous souhaitons défier
+     * @param integer $betType Indique le type du pari
      * @return void
      */
     public function addBet($betName, $betDescription, $endTime, $contactId, $betType)
@@ -81,7 +81,7 @@ class Bets
 
     /**
      * Fonction permettant d'obtenir les détails d'un pari selon son id 
-     * @param [int] $betId contient l'id du pari
+     * @param integer $betId contient l'id du pari
      * @return array tableau contenant les détails du pari
      */
     public function getBetDetails($betId)
@@ -114,7 +114,7 @@ class Bets
 
     /**
      * Fonction permettant d'obtenir tous les paris acceptés par le user
-     * @param [int] $userId contient l'id du user
+     * @param integer $userId contient l'id du user
      * @return array tableau de tous les paris acceptés
      */
     public function getBetsAccepted($userId)
@@ -176,7 +176,7 @@ class Bets
 
     /**
      * Fonction permettant d'accepter un pari : On change le statut du pari en accepté
-     * @param [int] $betId contient l'id du pari à modifier
+     * @param integer $betId contient l'id du pari à modifier
      * @return void
      */
     public function acceptBet($betId)
@@ -203,7 +203,7 @@ class Bets
 
     /**
      * Fonction permettant d'effacer qui n'a pas encore été accepté
-     * @param [int] $betId contient l'id du pari à modifier
+     * @param integer $betId contient l'id du pari à modifier
      * @return void
      */
     public function refuseBet($betId)

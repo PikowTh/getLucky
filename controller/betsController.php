@@ -11,11 +11,9 @@ if (!isset($_SESSION['User'])) {
 require_once '../model/modelBets.php';
 
 $betsObj = new Bets();
+
 $betsArray = $betsObj->getAllBets();
 $betsAcceptedArray = $betsObj->getBetsAccepted($_SESSION['User']['users_id']);
-
-var_dump($betsArray);
-var_dump($betsObj->getBetsAccepted($_SESSION['User']['users_id']));
 
 //tableau des icones des paris
 $typeOfArray = [

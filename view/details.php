@@ -43,15 +43,6 @@ require_once '../controller/detailsController.php';
         </div>
 
         <?php
-        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) {
-            echo 'c le mien <br>';
-            // comparaison date ok
-            $dateNow = date('Y-m-d H:i:s');
-            var_dump($dateNow > $betDetails['bets_end_time']);
-        }
-        ?>
-
-        <?php
         if ($betDetails['challenger'] == $_SESSION['User']['users_id']) { ?>
 
             <div class="row m-1">

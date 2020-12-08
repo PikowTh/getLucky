@@ -19,8 +19,8 @@ class Contacts
 
     /**
      * Méthode pour récuperer les contacts qui attendend la validation du user connecté
-     * @return type array when succcess
-     * @return type booleen when fail
+     * @return array when succcess
+     * @return boolean when fail
      * 
      */
     public function getContactsToAccept($userId)
@@ -53,9 +53,9 @@ class Contacts
 
     /**
      * Méthode pour récuperer tous les contacts que le "user connecté" a accepté
-     * @param type integer id du user connecté
-     * @return type array when succcess
-     * @return type booleen when fail
+     * @param integer id du user connecté
+     * @return array when succcess
+     * @return boolean when fail
      * 
      */
     public function getContacts($userId)
@@ -89,9 +89,9 @@ class Contacts
 
     /**
      * Méthode permettant de récupérer les demandes de contact du user connecté
-     * @param type integer id du user connecté
-     * @return type array when succcess
-     * @return type booleen when fail
+     * @param integer id du user connecté
+     * @return array when succcess
+     * @return boolean when fail
      * 
      */
     public function getRequestContacts($userId)
@@ -124,8 +124,8 @@ class Contacts
 
     /**
      * Méthode pour valider un contact de la liste d'attente + rajouter le contact dans sa liste
-     * @param type string sous la forme de 16-17-18
-     * @return type boolean qui nous indiquera la réussite de la méthode 
+     * @param string sous la forme de 16-17-18
+     * @return boolean qui nous indiquera la réussite de la méthode 
      * 
      */
     public function validateContacts($contactInfos)
@@ -170,8 +170,8 @@ class Contacts
 
     /**
      * Méthode pour Ajouter un contact au favoris
-     * @param type integer l'id du contact à manipuler
-     * @return type boolean indiquant la réussite de la méthode
+     * @param integer l'id du contact à manipuler
+     * @return boolean indiquant la réussite de la méthode
      * 
      */
     public function bookmarkedContacts($contactId)
@@ -195,8 +195,8 @@ class Contacts
 
     /**
      * Méthode pour que le contact en soit plus dans nos favoris
-     * @param type integer qui sera le contact_id de la table contact
-     * @return type boolean indiquant la réussite de la méthode
+     * @param integer qui sera le contact_id de la table contact
+     * @return boolean indiquant la réussite de la méthode
      * 
      */
     public function unmarkedContacts($contactId)
@@ -220,8 +220,8 @@ class Contacts
 
     /**
      * Méthode pour supprimer une demande en attente de validation du futur contact (Le user connecté change d'avis)
-     * @param type integer le contact id de la table contact
-     * @return type boolean indiquant la réussite de la méthode
+     * @param integer le contact id de la table contact
+     * @return boolean indiquant la réussite de la méthode
      */
     public function deleteRequest($contactId)
     {
@@ -244,8 +244,8 @@ class Contacts
 
     /**
      * Méthode pour demander un user en ami via son user_id
-     * @param type integer le user_id du user que l'on souhaite en ami
-     * @return type boolean indiquant la réussite de la méthode
+     * @param integer le user_id du user que l'on souhaite en ami
+     * @return boolean indiquant la réussite de la méthode
      */
     public function addContact($userIdtoAdd)
     {
@@ -279,8 +279,8 @@ class Contacts
 
     /**
      * Méthode pour supprimer un contact des contacts
-     * @param type string qui sera de type 14-15 pour obtenir l'id du user connecté et l'id du contact
-     * @return type boolean indiquant la réussite de la méthode
+     * @param string qui sera de type 14-15 pour obtenir l'id du user connecté et l'id du contact
+     * @return boolean indiquant la réussite de la méthode
      * 
      */
     public function deleteContact($usersIds)
@@ -331,8 +331,8 @@ class Contacts
 
     /**
      * Méthode pour supprimer une demande de contact en attentes
-     * @param type integer qui sera le contact_id de la table contact
-     * @return type boolean indiquant la réussite de la méthode
+     * @param integer qui sera le contact_id de la table contact
+     * @return boolean indiquant la réussite de la méthode
      *  
      */
     public function refusedContact($contactId)
@@ -356,7 +356,7 @@ class Contacts
 
     /**
      * Méthode pour rechercher tous les users inscrits
-     * @return type boolean indiquant la réussite de la méthode
+     * @return boolean indiquant la réussite de la méthode
      *  
      */
     public function searchContact($search)
@@ -410,9 +410,9 @@ class Contacts
 
     /**
      * Méthode pour controller si le contact existe déja pour le user
-     * @param type integer le user_id de la personne connectée
-     * @param type integer le user_id du user que l'on souhaite ajouter
-     * @return type boolean qui indique si le contact est présent
+     * @param integer le user_id de la personne connectée
+     * @param integer le user_id du user que l'on souhaite ajouter
+     * @return boolean qui indique si le contact est présent
      */
     public function checkContactIn($userId, $userIdtoAdd)
     {
