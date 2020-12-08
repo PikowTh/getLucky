@@ -30,6 +30,15 @@ if (isset($_GET['bet'])) {
             echo true;
             break;
 
+        case 'refuse':
+        case 'cancel':
+            $betsObj = new Bets;
+
+            $betsObj->refuseBet($_GET['betId']);
+
+            echo true;
+            break;
+
         default:
             echo false;
             break;

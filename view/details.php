@@ -91,7 +91,7 @@ require_once '../controller/detailsController.php';
             if ($betDetails['bets_accepted'] != 1) { ?>
                 <div class="row justify-content-center">
                     <div class="col-5 text-center">
-                        <button type="button" class="btn btn-danger btn-sm rounded">Annuler</button>
+                        <button type="button" data-cancel="<?= $betDetails['bets_id'] ?>" class="btn btn-danger btn-sm rounded">Annuler</button>
                     </div>
                 </div>
             <?php }

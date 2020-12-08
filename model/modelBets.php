@@ -200,4 +200,30 @@ class Bets
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    /**
+     * Fonction permettant d'effacer qui n'a pas encore été accepté
+     * @param [int] $betId contient l'id du pari à modifier
+     * @return void
+     */
+    public function refuseBet($betId)
+    {
+
+        $query = 'DELETE FROM lhp4_bets
+            WHERE lhp4_bets.bets_id = :betId';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':betId', (int)($betId), PDO::PARAM_INT);
+
+            if ($resultQuery->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }

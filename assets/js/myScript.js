@@ -155,7 +155,7 @@ $(document).ready(function () {
                     };
                 },
                 error: function () {
-                    console.log('La pari n\'a pas pu été ajouté')
+                    console.log('La pari n\'a pas pu être ajouté')
                 },
             });
         }
@@ -182,13 +182,59 @@ $(document).ready(function () {
                 };
             },
             error: function () {
-                console.log('La pari n\'a pas pu été ajouté')
+                console.log('La pari n\'a pas pu être accepté')
             },
         });
+    });
 
+    // Ajax pour refuser le pari sur le bouton je refuse
+    $('button[data-refuse]').click(function () {
+        $.ajax({
+            url: '../controller/betAjax.php',
+            type: 'GET',
+            data: {
+                'bet': 'refuse',
+                'betId': $(this).data('refuse')
+            },
+            success: function (dataReturn) {
+                if (dataReturn) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Pari refusé !'
+                    }).then(function () {
+                        location.href = 'home.php';
+                    });
+                };
+            },
+            error: function () {
+                console.log('La pari n\'a pas pu être refusé')
+            },
+        });
+    });
 
-
-
+    // Ajax pour annuler le pari sur le bouton annuler
+    $('button[data-cancel]').click(function () {
+        $.ajax({
+            url: '../controller/betAjax.php',
+            type: 'GET',
+            data: {
+                'bet': 'cancel',
+                'betId': $(this).data('cancel')
+            },
+            success: function (dataReturn) {
+                if (dataReturn) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Pari annulé !'
+                    }).then(function () {
+                        location.href = 'bets.php';
+                    });
+                };
+            },
+            error: function () {
+                console.log('La pari n\'a pas pu être annulé')
+            },
+        });
     });
 
 
