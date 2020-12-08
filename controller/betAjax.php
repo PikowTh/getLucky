@@ -21,6 +21,15 @@ if (isset($_GET['bet'])) {
 
             echo true;
             break;
+
+        case 'accept':
+            $betsObj = new Bets;
+
+            $betsObj->acceptBet($_GET['betId']);
+
+            echo true;
+            break;
+
         default:
             echo false;
             break;

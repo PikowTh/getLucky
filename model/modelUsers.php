@@ -183,7 +183,7 @@ class Users
         }
     }
 
-    public function GetNameById($usersId)
+    public function getNameById($usersId)
     {
         $query = 'SELECT users_pseudo FROM lhp4_users WHERE lhp4_users.users_id = :users_id';
 

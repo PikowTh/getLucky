@@ -41,7 +41,26 @@ require_once '../controller/betsController.php';
 
             <div class="row">
                 <div class="col primary-color-dark shadow text-white">
-                    <p class="title-contact"><span class="icon-title"><i class="far fa-comments"></i></span>Mes défis en cours</p>
+                    <p class="title-contact"><span class="icon-title"><i class="fas fa-clipboard-list"></i></span>Les défis relevés</p>
+                </div>
+            </div>
+
+            <?php foreach ($betsAcceptedArray as $bet) { ?>
+                <div class="row shadow m-1">
+                    <div class="col-2 p-2 mx-auto text-center">
+                        <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                    </div>
+
+                    <button name="betId" value="<?= $bet['bets_id'] ?>" class="btn col-9 text-center p-1">
+                        <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                        <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                    </button>
+                </div>
+            <?php } ?>
+
+            <div class="row">
+                <div class="col primary-color-dark shadow text-white">
+                    <p class="title-contact"><span class="icon-title"><i class="far fa-comments"></i></span>Mes défis qui ont été acceptés</p>
                 </div>
             </div>
 

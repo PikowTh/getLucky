@@ -57,7 +57,7 @@ require_once '../controller/detailsController.php';
             <div class="row m-1">
                 <div class="col-12 p-2">
                     <p class="text-center text-uppercase m-0">Tu souhaites défier</p>
-                    <p class="text-center h6 text-uppercase m-0"><?= $usersObj->GetNameById($betDetails['users_id'])['users_pseudo'] ?></p>
+                    <p class="text-center h6 text-uppercase m-0"><?= $usersObj->getNameById($betDetails['users_id'])['users_pseudo'] ?></p>
                 </div>
             </div>
 
@@ -95,15 +95,13 @@ require_once '../controller/detailsController.php';
                     </div>
                 </div>
             <?php }
-
-        } else { ?>
-
+        } else if ($betDetails['users_id'] == $_SESSION['User']['users_id'] && $betDetails['bets_accepted'] == 0) { ?>
             <div class="row justify-content-center">
                 <div class="col-5 text-center">
-                    <button type="button" class="btn btn-success btn-sm rounded">j'accepte !</button>
+                    <button type="button" data-accept="<?= $betDetails['bets_id'] ?>" class="btn btn-success btn-sm rounded">j'accepte !</button>
                 </div>
                 <div class="col-5 text-center">
-                    <button type="button" class="btn btn-danger btn-sm rounded">non merci !</button>
+                    <button type="button" data-refuse="<?= $betDetails['bets_id'] ?>" class="btn btn-danger btn-sm rounded">non merci !</button>
                 </div>
             </div>
 
@@ -133,9 +131,11 @@ require_once '../controller/detailsController.php';
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../assets/js/mdb.min.js"></script>
+    <!-- Sweet Alert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- custom script -->
+    <script type="text/javascript" src="../assets/js/myScript.js"></script>
 
-    <!-- Your custom scripts (optional) -->
-    <script></script>
 </body>
 
 </html>

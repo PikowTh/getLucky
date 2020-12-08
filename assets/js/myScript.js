@@ -161,4 +161,35 @@ $(document).ready(function () {
         }
     });
 
+
+    // Ajax pour accepter le pari sur le bouton j'accepte
+    $('button[data-accept]').click(function () {
+        $.ajax({
+            url: '../controller/betAjax.php',
+            type: 'GET',
+            data: {
+                'bet': 'accept',
+                'betId': $(this).data('accept')
+            },
+            success: function (dataReturn) {
+                if (dataReturn) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pari accepté !'
+                    }).then(function () {
+                        location.href = 'bets.php';
+                    });
+                };
+            },
+            error: function () {
+                console.log('La pari n\'a pas pu été ajouté')
+            },
+        });
+
+
+
+
+    });
+
+
 });

@@ -103,6 +103,39 @@ class Bets
             $resultQuery->bindValue(':betId', (int)($betId), PDO::PARAM_INT);
 
             if ($resultQuery->execute()) {
+                return $resultQuery->fetch();
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Fonction permettant d'obtenir tous les paris acceptés par le user
+     * @param [int] $userId contient l'id du user
+     * @return array tableau de tous les paris acceptés
+     */
+    public function getBetsAccepted($userId)
+    {
+
+        $query = 'SELECT bets_id, bet_types_img, lhp4_bet_types.bet_types_id, bet_types_name, bets_name, bets_description, bets_end_time, bets_result, bets_fulfilled, bets_accepted, lhp4_contacts.users_id, lhp4_bets.users_id AS challenger, users_pseudo
+            FROM lhp4_bets
+            INNER JOIN lhp4_contacts
+            ON lhp4_bets.contacts_id = lhp4_contacts.contacts_id
+            INNER JOIN lhp4_users
+            ON lhp4_bets.users_id = lhp4_users.users_id
+            INNER JOIN lhp4_bet_types
+            ON lhp4_bets.bet_types_id = lhp4_bet_types.bet_types_id
+            WHERE bets_accepted = 1 AND lhp4_contacts.users_id = :userId';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':userId', (int)($userId), PDO::PARAM_INT);
+
+            if ($resultQuery->execute()) {
                 return $resultQuery->fetchAll();
             } else {
                 return false;
