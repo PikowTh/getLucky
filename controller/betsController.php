@@ -13,6 +13,8 @@ require_once '../model/modelBets.php';
 $betsObj = new Bets();
 $betsArray = $betsObj->getAllBets();
 
+var_dump($betsArray);
+
 //tableau des icones des paris
 $typeOfArray = [
     1 => "fas fa-hamburger",

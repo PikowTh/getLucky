@@ -55,7 +55,7 @@ require_once '../controller/betsController.php';
                         <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
                     </div>
 
-                    <button class="btn col-9 text-center p-1">
+                    <button name="betId" value="<?= $bet['bets_id'] ?>" class="btn col-9 text-center p-1">
                         <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
                         <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
                     </button>
@@ -69,7 +69,8 @@ require_once '../controller/betsController.php';
             </div>
 
             <?php foreach ($betsArray as $bet) {
-                if ($bet['bets_accepted'] == 1) {
+                var_dump(date('Y-m-d H:i:s') < $bet['bets_end_time']);
+                if ($bet['bets_accepted'] == 1 || date('Y-m-d H:i:s') < $bet['bets_end_time']) {
                     continue;
                 } ?>
                 <div class="row shadow m-1">
@@ -89,6 +90,23 @@ require_once '../controller/betsController.php';
                     <p class="title-contact"><span class="icon-title"><i class="fas fa-comment"></i></span>Mes défis terminés</p>
                 </div>
             </div>
+
+            <?php foreach ($betsArray as $bet) {
+                if ($bet['bets_accepted'] == 1) {
+                    continue;
+                } ?>
+                <div class="row shadow m-1">
+                    <div class="col-2 p-2 mx-auto text-center">
+                        <i class="icon-type <?= $typeOfArray[$bet['bet_types_id']] ?>"></i>
+                    </div>
+
+                    <button name="betId" value="<?= $bet['bets_id'] ?>" class="btn col-9 text-center p-1">
+                        <p class="bet-description-title font-weight-bold"><?= $bet['bets_name'] ?></p>
+                        <p class="bet-description text-center text-truncate"><?= $bet['bets_description'] ?></p>
+                    </button>
+                </div>
+            <?php } ?>
+
         </form>
         <!-- permet le scroll du bas -->
         <div class="bottom-div"></div>

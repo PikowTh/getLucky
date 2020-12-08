@@ -85,14 +85,29 @@ require_once '../controller/detailsController.php';
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col-5 text-center">
-                <button type="button" class="btn btn-success btn-sm rounded">j'accepte !</button>
+        <?php
+        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) {
+
+            if ($betDetails['bets_accepted'] != 1) { ?>
+                <div class="row justify-content-center">
+                    <div class="col-5 text-center">
+                        <button type="button" class="btn btn-danger btn-sm rounded">Annuler</button>
+                    </div>
+                </div>
+            <?php }
+
+        } else { ?>
+
+            <div class="row justify-content-center">
+                <div class="col-5 text-center">
+                    <button type="button" class="btn btn-success btn-sm rounded">j'accepte !</button>
+                </div>
+                <div class="col-5 text-center">
+                    <button type="button" class="btn btn-danger btn-sm rounded">non merci !</button>
+                </div>
             </div>
-            <div class="col-5 text-center">
-                <button type="button" class="btn btn-danger btn-sm rounded">non merci !</button>
-            </div>
-        </div>
+
+        <?php } ?>
 
         <div class="row justify-content-center m-1">
             <div class="btn border border-dark col-4 h3" onclick="history.go(-1)"><i class="fas fa-arrow-left"></i></div>
