@@ -17,6 +17,7 @@ class Bets
         }
     }
 
+
     /**
      * Permet de rajouter un pari dans la table bets
      *
@@ -53,6 +54,7 @@ class Bets
             die('Erreur : ' . $e->getMessage());
         }
     }
+
 
     /**
      * Fonction permettant d'obtenir tous les paris / défis créés par la personne connectée via $_SESSION
@@ -113,6 +115,41 @@ class Bets
     }
 
     /**
+     * Fonction permettant de savoir si le contact à des paris en attente avec nous
+     * @param integer $userId contient l'id du user
+     * @param integer $contactUserId contient l'id du user contact
+     * @return boolean
+     */
+    public function haveContactBet($userId, $contacUserId)
+    {
+
+        $query = 'SELECT bets_id, bet_types_img, lhp4_bet_types.bet_types_id, bet_types_name, bets_name, bets_description, bets_end_time, bets_result, bets_fulfilled, bets_accepted, lhp4_contacts.users_id, lhp4_bets.users_id AS challenger, users_pseudo
+            FROM lhp4_bets
+            INNER JOIN lhp4_contacts
+            ON lhp4_bets.contacts_id = lhp4_contacts.contacts_id
+            INNER JOIN lhp4_users
+            ON lhp4_bets.users_id = lhp4_users.users_id
+            INNER JOIN lhp4_bet_types
+            ON lhp4_bets.bet_types_id = lhp4_bet_types.bet_types_id
+            WHERE lhp4_contacts.users_id = 18 OR lhp4_bets.users_id = 13';
+
+        try {
+
+            $resultQuery = $this->bdd->prepare($query);
+            $resultQuery->bindValue(':betId', (int)($betId), PDO::PARAM_INT);
+
+            if ($resultQuery->execute()) {
+                return $resultQuery->fetch();
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+
+    /**
      * Fonction permettant d'obtenir tous les paris acceptés par le user
      * @param integer $userId contient l'id du user
      * @return array tableau de tous les paris acceptés
@@ -146,7 +183,6 @@ class Bets
     }
 
 
-
     /**
      * Fonction permettant d'obtenir tous les paris qui nous ont été lancé : en tant qu'utilisateur connecté
      * @return array tableau contenant les détails du pari
@@ -174,6 +210,7 @@ class Bets
         }
     }
 
+
     /**
      * Fonction permettant d'accepter un pari : On change le statut du pari en accepté
      * @param integer $betId contient l'id du pari à modifier
@@ -200,6 +237,7 @@ class Bets
             die('Erreur : ' . $e->getMessage());
         }
     }
+
 
     /**
      * Fonction permettant d'effacer qui n'a pas encore été accepté
