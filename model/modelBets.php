@@ -115,7 +115,7 @@ class Bets
     }
 
     /**
-     * Fonction permettant de savoir si le contact à des paris en attente avec nous
+     * Fonction permettant de savoir si le contact à des paris en attente avec nous = va nous permettre de supprimer contact
      * @param integer $userId contient l'id du user
      * @param integer $contactUserId contient l'id du user contact
      * @return boolean
@@ -165,7 +165,8 @@ class Bets
             ON lhp4_bets.users_id = lhp4_users.users_id
             INNER JOIN lhp4_bet_types
             ON lhp4_bets.bet_types_id = lhp4_bet_types.bet_types_id
-            WHERE bets_accepted = 1 AND lhp4_contacts.users_id = :userId';
+            WHERE bets_accepted = 1 AND lhp4_contacts.users_id = :userId
+            ORDER BY bets_end_time DESC';
 
         try {
 
@@ -184,7 +185,7 @@ class Bets
 
 
     /**
-     * Fonction permettant d'obtenir tous les paris qui nous ont été lancé : en tant qu'utilisateur connecté
+     * Fonction permettant d'obtenir tous les paris qui nous ont été lancé en tant qu'utilisateur connecté = les personnes qui nous défient
      * @return array tableau contenant les détails du pari
      */
     public function getChallengeBets()
@@ -193,7 +194,8 @@ class Bets
         $query = 'SELECT bets_id, bets_name, bets_description, lhp4_bets.users_id AS challenger, bets_end_time, bet_types_id, bets_accepted FROM lhp4_bets
             INNER JOIN lhp4_contacts
             ON lhp4_bets.contacts_id = lhp4_contacts.contacts_id
-            WHERE lhp4_contacts.users_id = :userId';
+            WHERE lhp4_contacts.users_id = :userId
+            ORDER BY bets_end_time DESC';
 
         try {
 

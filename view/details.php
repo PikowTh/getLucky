@@ -73,12 +73,17 @@ require_once '../controller/detailsController.php';
         <div class="row shadow m-1">
             <div class="col-12 text-center p-2">
                 <p class="m-0">Ce pari se termine le <span class="font-weight-bolder"><?= $theDate ?></span></p>
+
+                <?php
+                // ici prochain code
+                ?>
+
+
             </div>
         </div>
 
         <?php
-        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) {
-
+        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) { // options quand nous sommes propriétaire du pari, possibilité d'annuler
             if ($betDetails['bets_accepted'] != 1) { ?>
                 <div class="row justify-content-center">
                     <div class="col-5 text-center">
