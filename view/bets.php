@@ -32,7 +32,7 @@ require_once '../controller/betsController.php';
 
 
     <div class="container main-body">
-        <form action="details.php" method="get">
+        <form action="details.php" method="post">
             <div class="row">
                 <div class="col">
                     <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-star mr-2"></i>Petits défis entre amis<i class="fas fa-star ml-2"></i></span></p>

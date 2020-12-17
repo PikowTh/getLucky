@@ -13,7 +13,7 @@ require_once '../model/modelUsers.php';
 
 $betsObj = new Bets();
 $usersObj = new Users();
-$betDetails = $betsObj->getBetDetails($_GET['betId']);
+$betDetails = $betsObj->getBetDetails($_POST['betId']);
 
 // Formatage de la date pour affichage en fr
 setlocale(LC_TIME, 'fr_FR.UTF8');
@@ -34,3 +34,7 @@ $typeOfArray = [
 // comparaison des dates
 $dateNow = date('Y-m-d H:i:s'); // nous formatons la date dans le bon format iso notre base de données
 $betTimeOver = $dateNow > $betDetails['bets_end_time']; // nous permets de savoir que le pari est terminé sous forme de booléen
+
+// Nous déterminons si le user le propriétaire du pari 
+$betOwner = $betDetails['challenger'] == $_SESSION['User']['users_id']; // nous permets de savoir si le owner est le user sous forme de booléen
+

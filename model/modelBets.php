@@ -131,12 +131,13 @@ class Bets
             ON lhp4_bets.users_id = lhp4_users.users_id
             INNER JOIN lhp4_bet_types
             ON lhp4_bets.bet_types_id = lhp4_bet_types.bet_types_id
-            WHERE lhp4_contacts.users_id = 18 OR lhp4_bets.users_id = 13';
+            WHERE lhp4_contacts.users_id = :userId OR lhp4_bets.users_id = :contacUserId';
 
         try {
 
             $resultQuery = $this->bdd->prepare($query);
-            $resultQuery->bindValue(':betId', (int)($betId), PDO::PARAM_INT);
+            $resultQuery->bindValue(':userId', (int)($userId), PDO::PARAM_INT);
+            $resultQuery->bindValue(':contacUserId', (int)($contacUserId), PDO::PARAM_INT);
 
             if ($resultQuery->execute()) {
                 return $resultQuery->fetch();

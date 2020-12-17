@@ -72,18 +72,43 @@ require_once '../controller/detailsController.php';
 
         <div class="row shadow m-1">
             <div class="col-12 text-center p-2">
-                <p class="m-0">Ce pari se termine le <span class="font-weight-bolder"><?= $theDate ?></span></p>
-
-                <?php
-                // ici prochain code
-                ?>
-
-
+                <?php // nous determinons si le pari s'est terminé
+                if ($betTimeOver) { ?>
+                    <p class="m-0">Pari fini, il s'est terminé le <span class="font-weight-bolder"><?= $theDate ?></span></p>
+                <?php } else { ?>
+                    <p class="m-0">Ce pari se termine le <span class="font-weight-bolder"><?= $theDate ?></span></p>
+                <?php } ?>
             </div>
         </div>
 
-        <?php
-        if ($betDetails['challenger'] == $_SESSION['User']['users_id']) { // options quand nous sommes propriétaire du pari, possibilité d'annuler
+        <?php 
+
+        if ($betTimeOver) {
+            if ($betOwner) { // nous permettons ici d'indiquer si le pari a été perdu ou gagner
+                ?>
+                <div class="row justify-content-center">
+                    <div class="col-5 text-center">
+                        <button type="button" data-win="<?= $betDetails['bets_id'] ?>" class="btn btn-light btn-sm rounded">réussi</button>
+                    </div>
+                    <div class="col-5 text-center">
+                        <button type="button" data-lose="<?= $betDetails['bets_id'] ?>" class="btn btn-dark btn-sm rounded">échoué</button>
+                    </div>
+                </div>
+            <?php } else { // nous permettons ici d'indiquer si le pari a été honoré ou non
+                ?>
+                <div class="row justify-content-center">
+                    <div class="col-5 text-center">
+                        <button type="button" data-fulfill="<?= $betDetails['bets_id'] ?>" class="btn btn-light btn-sm rounded">Tenu !</button>
+                    </div>
+                    <div class="col-5 text-center">
+                        <button type="button" data-unfulfill="<?= $betDetails['bets_id'] ?>" class="btn btn-dark btn-sm rounded">Non tenu !</button>
+                    </div>
+                </div>
+        <?php }
+        } ?>
+
+        <?php // options quand nous sommes propriétaire du pari, possibilité d'annuler
+        if ($betOwner) {
             if ($betDetails['bets_accepted'] != 1) { ?>
                 <div class="row justify-content-center">
                     <div class="col-5 text-center">
@@ -91,7 +116,7 @@ require_once '../controller/detailsController.php';
                     </div>
                 </div>
             <?php }
-        } else if ($betDetails['users_id'] == $_SESSION['User']['users_id'] && $betDetails['bets_accepted'] == 0) { ?>
+        } else if ($betOwner && $betDetails['bets_accepted'] == 0) { ?>
             <div class="row justify-content-center">
                 <div class="col-5 text-center">
                     <button type="button" data-accept="<?= $betDetails['bets_id'] ?>" class="btn btn-success btn-sm rounded">j'accepte !</button>
