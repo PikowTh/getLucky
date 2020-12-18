@@ -116,7 +116,7 @@ require_once '../controller/detailsController.php';
                     </div>
                 </div>
             <?php }
-        } else if ($betOwner && $betDetails['bets_accepted'] == 0) { ?>
+        } else if (!$betOwner && $betDetails['bets_accepted'] == 0) { ?>
             <div class="row justify-content-center">
                 <div class="col-5 text-center">
                     <button type="button" data-accept="<?= $betDetails['bets_id'] ?>" class="btn btn-success btn-sm rounded">j'accepte !</button>

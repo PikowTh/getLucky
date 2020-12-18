@@ -30,7 +30,7 @@ require_once '../controller/homeController.php';
 <body class="bg-veine">
 
     <div class="container main-body">
-        <form action="details.php" method="get">
+        <form action="details.php" method="post">
             <div class="row">
                 <div class="col">
                     <p class="text-center bet-title text-uppercase"><span class="align-middle"><i class="fas fa-crown mr-2"></i>" .. Veine .. "<i class="far fa-gem ml-2"></i></span></p>
