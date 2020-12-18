@@ -20,3 +20,6 @@ $typeOfArray = [
     3 => "fas fa-film",
     4 => "fas fa-beer"
 ];
+
+$dateNow = date('Y-m-d H:i:s'); // nous formatons la date dans le bon format iso notre base de données
+// $betTimeOver = $dateNow > $betDetails['bets_end_time']; // nous permets de savoir que le pari est terminé sous forme de booléen

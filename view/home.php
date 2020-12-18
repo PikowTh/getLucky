@@ -44,7 +44,7 @@ require_once '../controller/homeController.php';
             </div>
 
             <?php foreach ($betsArray as $bet) {
-                if ($bet['bets_accepted'] == 1) {
+                if ($bet['bets_accepted'] == 1 || $bet['bets_end_time'] < $dateNow) {
                     echo ' ';
                     continue;
                 } ?>

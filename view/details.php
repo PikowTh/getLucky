@@ -83,7 +83,7 @@ require_once '../controller/detailsController.php';
 
         <?php 
 
-        if ($betTimeOver) {
+        if ($betTimeOver && $betDetails['bets_accepted'] == 1) {
             if ($betOwner) { // nous permettons ici d'indiquer si le pari a été perdu ou gagner
                 ?>
                 <div class="row justify-content-center">
