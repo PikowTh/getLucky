@@ -26,9 +26,9 @@ require_once '../controller/controllerDeconnexion.php';
 
 <body class="bg-veine">
 
-    <div class="container main-body">
-        <p>Vous avez été déconnecté, revenez à l'accueil <a class="text-warning" href="../index.php">ICI</a></p>
-
+    <div class="container main-body text-center">
+        <p class="h4">Vous avez bien été déconnecté(e)</p>
+        <p class="h6">Pour revenir à l'accueil <a class="text-body font-weight-bold font-italic" href="../index.php">cliquez ici</a></p>
     </div><!-- fin container body -->
 
     <!-- jQuery -->

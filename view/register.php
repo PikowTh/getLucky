@@ -29,9 +29,10 @@ require_once '../controller/registerController.php';
     <div class="container main-body">
         <?php
         if ($registerSuccess) { ?>
-            <div>
-                <h1>Bravo vous êtes inscris</h1>
-                <a href="../index.php">Se connecter</a>
+            <div class="text-center">
+                <p class="h4">Bravo ! Vous êtes inscris</h1>
+                <p class="h6">Connectez-vous dès maintenant !</p>
+                <a class="btn btn-outline-dark btn-rounded" href="../index.php">connexion</a>
             </div>
         <?php } else {
 
