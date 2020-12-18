@@ -7,6 +7,7 @@ class Bets
     public function __construct()
     {
         try {
+            // $this->bdd = new PDO('mysql:host=db5000916307.hosting-data.io;dbname=dbs801015;charset=utf8', 'dbu604452', 'MADE-by-LHP4');
             $this->bdd = new PDO('mysql:host=localhost;dbname=veine;charset=utf8', 'root', '');
             // Activation des erreurs PDO
             $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
