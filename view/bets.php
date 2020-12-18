@@ -44,7 +44,7 @@ require_once '../controller/betsController.php';
                     <p class="title-contact"><span class="icon-title"><i class="fas fa-clipboard-list"></i></span>Les défis relevés</p>
                 </div>
             </div>
-
+            <?= count($betsAcceptedArray) < 1 ? '<p class="font-italic m-0">... pas défi relevé ...</p>' : '' ?>
             <?php foreach ($betsAcceptedArray as $bet) { ?>
                 <div class="row shadow m-1">
                     <div class="col-2 p-2 mx-auto text-center">

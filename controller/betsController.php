@@ -22,3 +22,5 @@ $typeOfArray = [
     3 => "fas fa-film",
     4 => "fas fa-beer"
 ];
+
+var_dump($betsArray);
